@@ -36,14 +36,17 @@ export default class App extends Component {
             </View>
         <Text style={{color:'#01b0b0',fontSize:20,fontWeight:'bold',marginTop:15}}> Create a new account </Text>
         <Text style={{marginTop:15,marginLeft:5}}> Are you a:</Text>
-        <Picker
-        style={{width:330,color:'#d3d3d3',height:20,marginTop:5,marginBottom:5}}
-        
-            onValueChange={value => {this.setState({orgType: value});}}>
-          <Picker.Item label="NGO(Non Government Organisation" value="1" />
-                <Picker.Item label="Blank" value="2" /> 
- 
-        </Picker>
+        <RNPickerSelect
+             useNativeAndroidPickerStyle={false}
+            style={pickerStyle}
+            onValueChange={value => {this.setState({orgType: value});}}
+            placeholder={{}}
+                items={[
+                { label: 'NGO(Non Government Organisation)', value: 'NGO' }, 
+                { label: 'Blank', value: 'Blank' }
+            ]}
+            Icon={()=>{ return <Icon name="caretdown" size={12} color="#01b0b0"/>;}}
+        />
         <TextInput
         style={{height: 40,width: 300, borderBottomWidth:1, borderBottomColor:'#d3d3d3',marginLeft:8}}
         placeholder='Charity or Organisation name*'
@@ -119,4 +122,23 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   }
 })
+
+const pickerStyle = StyleSheet.create({
+  inputIOS: {
+    fontSize: 14,
+    paddingHorizontal: 8,
+    color: '#d3d3d3',
+    paddingRight: 30, 
+  },
+  inputAndroid: {
+    fontSize: 14,
+    paddingHorizontal: 8,
+    color: '#d3d3d3',
+    paddingRight: 30, 
+  },
+  iconContainer: {
+    top:8,
+    right:-10
+  }
+});
 
