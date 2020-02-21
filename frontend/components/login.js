@@ -59,21 +59,14 @@ export default class App extends React.Component {
         </View>
         
         <View style={{flex: 3, justifyContent: 'space-evenly', alignItems: 'center',              marginVertical: 24}}>
-          <GradientButton
-            style={{ marginVertical: 7 }}
-            text="Login   →"
-            textStyle={{ fontSize: 20 }}
-            gradientBegin= "#01b0b0"
-            gradientEnd="#14cbcb"
-            gradientDirection="diagonal"
-            height={50}
-            width={300}
-            radius={15}
-            impact
-            impactStyle='Light'
-            border-radius='10'
-            //onPressAction={() => alert('You pressed me!')}
-          />
+         <LinearGradient
+        style={styles.button}
+        colors={['#00c5c4', '#01a7a6']}
+        start={{x: 1, y: 0}}
+        end={{x: 0, y: 0}}
+        >
+        <TouchableOpacity><Text style={styles.login}>Login</Text></TouchableOpacity>
+        </LinearGradient>
          </View>
      
         
@@ -116,6 +109,25 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     
   },
+    button:{
+    marginLeft: 15,
+    borderRadius:22,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
+    width: 300,
+    paddingHorizontal: 16,
+},
+login: {
+  fontSize: 16,
+  color: 'white',
+  textAlign: 'center',
+  fontWeight: 'bold',
+  marginTop: 12,
+  marginBottom: 12,
+}
+
   
  
   
