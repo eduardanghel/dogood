@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TextInput, Button } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 
 // You can import from local files
@@ -8,9 +8,8 @@ import AssetExample from './components/AssetExample';
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 import GradientButton from 'react-native-gradient-buttons';
-import Arrow from 'react-native-arrow'
-
-
+import Icons from 'react-native-vector-icons/MaterialIcons';
+import {LinearGradient} from 'expo-linear-gradient';
 
 export default class App extends React.Component {
   // const [value, onChangeText] = React.useState('Useless Placeholder');
@@ -25,12 +24,15 @@ export default class App extends React.Component {
     return (
       
       <View style={styles.container}>
-        <Arrow size={15} color={'#01b0b0'}  />
+          <View style={{flexDirection:'row'}}>
+                 <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0' style={{marginLeft: '20%',marginTop:'3%'}}/></TouchableOpacity>
+                 
+             </View>
         <Text style={styles.paragraph}>
-          Login
+           Login
         </Text>
         <Text style={styles.text}>
-          Welcome back Jane!
+          Welcome back!
         </Text>
         <TextInput
           style={styles.input}
@@ -55,6 +57,7 @@ export default class App extends React.Component {
                    // onPress={() => }
           />
         </View>
+        
         <View style={{flex: 3, justifyContent: 'space-evenly', alignItems: 'center',              marginVertical: 24}}>
           <GradientButton
             style={{ marginVertical: 7 }}
@@ -72,6 +75,7 @@ export default class App extends React.Component {
             //onPressAction={() => alert('You pressed me!')}
           />
          </View>
+     
         
       </View>
     );
@@ -93,7 +97,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'left',
     position: 'absolute',
-    left: 27
+    left: 27,
+    marginLeft: 37
   },
   text: {
     margin: 25,
@@ -111,6 +116,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     
   },
+  
  
   
   
