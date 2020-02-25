@@ -4,13 +4,13 @@ from django.db.models.signals import post_save
 
 
 class UserProfile(models.Model):
-    GENRE_CHOICES = (
+    GENDER_CHOICES = (
         ('m', 'Male'),
         ('f', 'Female'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birth_date = models.DateField(null=True)
-    genre = models.CharField(max_length=1, choices=GENRE_CHOICES, null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True)
     address = models.CharField(max_length=150, null=True)
     postcode = models.CharField(max_length=8, null=True)
     city = models.CharField(max_length=50, null=True)
