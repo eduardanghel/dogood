@@ -16,6 +16,8 @@ frontend/yarn.lock
 backend/karmabackend/backend/.idea/workspace.xml
 backend/karmabackend/backend/htmlcov/
 backend/karmabackend/backend/.coverage
+backend/karmabackend/backend/karmaapp/serializers/__pycache__/
+backend/karmabackend/backend/karmaapp/views/__pycache__/
 
 
 # macOS
