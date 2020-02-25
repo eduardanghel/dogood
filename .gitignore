@@ -14,6 +14,9 @@ frontend/.expo/
 frontend/node_modules/
 frontend/yarn.lock
 backend/karmabackend/backend/.idea/workspace.xml
+backend/karmabackend/backend/htmlcov/
+backend/karmabackend/backend/.coverage
+
 
 # macOS
 .DS_Store
