@@ -1,5 +1,3 @@
-node_modules/**/*
-.expo/*
 npm-debug.*
 *.jks
 *.p8
@@ -7,9 +5,20 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
-web-report/
+frontend/web-build/
+frontend/web-report/
 backend/static
+backend/karmabackend/backend/.idea/
+backend/karmabackend/venv/
+frontend/.expo/
+frontend/node_modules/
+frontend/yarn.lock
+backend/karmabackend/backend/.idea/workspace.xml
+backend/karmabackend/backend/htmlcov/
+backend/karmabackend/backend/.coverage
+backend/karmabackend/backend/karmaapp/serializers/__pycache__/
+backend/karmabackend/backend/karmaapp/views/__pycache__/
+
 
 # macOS
 .DS_Store

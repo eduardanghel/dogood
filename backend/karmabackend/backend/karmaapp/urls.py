@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from karmaapp.views.user_profile import UserProfileCreate
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('api/userprofile/', UserProfileCreate.as_view() ),
 ]
