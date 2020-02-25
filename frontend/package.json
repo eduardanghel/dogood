@@ -5,7 +5,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "dependencies": {
     "@unpourtous/react-native-touchable": "^1.0.3",
@@ -22,8 +26,11 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-jest": "^25.1.0",
     "babel-preset-expo": "~8.0.0",
-    "@babel/core": "^7.0.0"
+    "jest": "^25.1.0",
+    "react-test-renderer": "^16.12.0"
   },
   "private": true
 }
