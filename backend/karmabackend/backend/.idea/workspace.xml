@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b24e64f5-b22b-4c34-bc43-10a2eff78ec0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/requirements/requirements.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charities/testcases/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/karmaapp/testcases/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/charities/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/charities/testcases/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karmaapp/testcases/user_profile_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/testcases/test_user_profile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
       <recent name="$PROJECT_DIR$/karmaapp/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/charities/testcases" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/karmaapp" />
       <recent name="$PROJECT_DIR$/karmaapp/models" />
@@ -125,7 +128,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582660466111</updated>
       <workItem from="1582660467543" duration="3442000" />
-      <workItem from="1582670838452" duration="522000" />
+      <workItem from="1582670838452" duration="1358000" />
     </task>
     <servers />
   </component>
