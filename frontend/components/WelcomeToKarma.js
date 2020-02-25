@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
-import heart from './assets/heart.png'
-import earth from './assets/earth.png'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import heart from '../assets/heart.png';
+import earth from '../assets/earth.png';
 import Card from './Card.js';
+
 
 export default class WelcomeToKarma extends Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
@@ -31,7 +36,10 @@ export default class WelcomeToKarma extends Component {
                 colors={['#00c5c4', '#01a7a6']}
                 start={{ x: 1, y: 0 }}
                 end={{ x: 0, y: 0 }}>
-                <TouchableOpacity style={styles.loginButton}>
+                <TouchableOpacity
+                  style={styles.loginButton}
+                  onPress={() => navigate('Login')}
+                >
                   <Text style={styles.login}>Login</Text>
                 </TouchableOpacity>
               </LinearGradient>
@@ -40,8 +48,9 @@ export default class WelcomeToKarma extends Component {
         </View>
       </SafeAreaView>
     );
-  } F
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
