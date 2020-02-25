@@ -74,7 +74,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# docker run --name postgres --env POSTGRES_USER=development --env POSTGRES_PASSWORD=password --env POSTGRES_DB=karma-development -p 5432:5432 -d postgres:10.12
 
 if os.getenv('GAE_APPLICATION', None):
     # Running on production App Engine, so connect to Google Cloud SQL using
@@ -83,9 +82,9 @@ if os.getenv('GAE_APPLICATION', None):
         'default': {
             'ENGINE': "django.db.backends.postgresql",
             'HOST': '/cloudsql/karma-backend-268618:europe-west1:karma-sql',
-            'USER': 'karma',
+            'USER': 'karma2',
             'PASSWORD': 'Prowas2u',
-            'NAME': 'karmaapp',
+            'NAME': 'karma',
         }
     }
 else:
@@ -98,25 +97,14 @@ else:
     DATABASES = {
         "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "karma-development",
-        "USER": "development",
-        "PASSWORD": "password",
-        "HOST": "localhost",
-        "PORT": "5432",
-        "TEST": {"NAME": "karma-development", "PORT": "5432", "SERIALIZE": False},
-        "CONN_MAX_AGE": 0,
-        "ATOMIC_REQUESTS": True,
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'NAME': 'karma',
+        'USER': 'karma2',
+        'PASSWORD': 'Prowas2u',
     }
     }
 
-
-# required for running in docker
-if "DATABASE_HOST" in os.environ:
-    DATABASES["default"]["HOST"] = os.getenv("DATABASE_HOST")
-    DATABASES["default"]["ENGINE"] = "django.db.backends.postgresql"
-    DATABASES["default"]["NAME"] = os.getenv("DATABASE_NAME")
-    DATABASES["default"]["USER"] = os.getenv("DATABASE_USER")
-    DATABASES["default"]["PASSWORD"] = os.getenv("DATABASE_PASSWORD")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
