@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput } from "
 import {LinearGradient} from 'expo-linear-gradient';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
-export default class Index extends React.Component {
+export default class OpenEmail extends React.Component {
 
     componentDidMount() {
         StatusBar.setHidden(false);
