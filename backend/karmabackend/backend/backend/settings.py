@@ -23,9 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0e!!hkgk08p3i0$1d7_o7sgdq@k&@=a4)#aksovz89%t_#e*8u'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = ["192.168.1.215", "localhost", "127.0.0.1", "*"]
 
 # Application definition
@@ -95,6 +92,9 @@ AUTH_USER_MODEL = 'karmaapp.User'
 if os.getenv('GAE_APPLICATION', None):
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
+
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
     DATABASES = {
         'default': {
             'ENGINE': "django.db.backends.postgresql",
@@ -111,6 +111,10 @@ else:
     #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+
+    # SECURITY WARNING: don't run with debug turned on in production!
+
+    DEBUG = True
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -164,7 +168,7 @@ STATIC_URL = '/static/'
 
 JWT_AUTH = {
     # If the secret is wrong, it will raise a jwt.DecodeError telling you as such. You can still get at the payload by setting the JWT_VERIFY to False.
-    'JWT_VERIFY': True,
+    'JWT_VERIFY': False,
 
     # You can turn off expiration time verification by setting JWT_VERIFY_EXPIRATION to False.
     # If set to False, JWTs will last forever meaning a leaked token could be used by an attacker indefinitely.

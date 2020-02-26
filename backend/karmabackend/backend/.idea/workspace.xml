@@ -2,29 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b24e64f5-b22b-4c34-bc43-10a2eff78ec0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/permissions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karmaapp/admin/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karmaapp/admin/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karmaapp/models/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/charities/migrations/0001_create_charity_profile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charities/models/charityprofile.py" beforeDir="false" afterPath="$PROJECT_DIR$/charities/models/charityprofile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/migrations/0002_create_user_profile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/migrations/0003_userprofile_telephone.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/migrations/0004_rename_genre_to_gender.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/models/userprofile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/serializers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/serializers/user_profile_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/serializers/user_profile_serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/karmaapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karmaapp/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/views/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/karmaapp/views/user_profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/karmaapp/views/user_profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements/requirements.in" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,13 +64,33 @@
       <recent name="$PROJECT_DIR$/karmaapp/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/karmaapp" />
       <recent name="$PROJECT_DIR$/charities/testcases" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/karmaapp" />
       <recent name="$PROJECT_DIR$/karmaapp/models" />
     </key>
   </component>
-  <component name="RunManager" selected="Django server.backend">
+  <component name="RunManager" selected="Django tests.Test: karmaapp.testcases.test_user_profile.UserProfileTest">
+    <configuration name="Test: karmaapp.testcases.test_user_profile.UserProfileTest" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="karmaapp.testcases.test_user_profile.UserProfileTest" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Test: karmaapp.testcases.user_profile_test.UserProfielTest" type="DjangoTestsConfigurationType" temporary="true">
       <module name="backend" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Django tests.Test: karmaapp.testcases.test_user_profile.UserProfileTest" />
         <item itemvalue="Django tests.Test: karmaapp.testcases.user_profile_test.UserProfielTest" />
       </list>
     </recent_temporary>
@@ -162,7 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582660466111</updated>
       <workItem from="1582660467543" duration="3442000" />
-      <workItem from="1582670838452" duration="7410000" />
+      <workItem from="1582670838452" duration="10002000" />
     </task>
     <servers />
   </component>
@@ -183,32 +189,41 @@
       <screen x="0" y="23" width="2048" height="1180" />
     </state>
     <state x="811" y="376" key="FileChooserDialogImpl/0.23.2048.1180@0.23.2048.1180" timestamp="1582660596685" />
-    <state width="2006" height="330" key="GridCell.Tab.0.bottom" timestamp="1582664209886">
-      <screen x="0" y="23" width="2048" height="1182" />
+    <state width="2006" height="329" key="GridCell.Tab.0.bottom" timestamp="1582681716078">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="2006" height="329" key="GridCell.Tab.0.bottom/0.23.2048.1177@0.23.2048.1177" timestamp="1582681716078" />
     <state width="2006" height="330" key="GridCell.Tab.0.bottom/0.23.2048.1182@0.23.2048.1182" timestamp="1582664209886" />
-    <state width="2006" height="330" key="GridCell.Tab.0.center" timestamp="1582664209885">
-      <screen x="0" y="23" width="2048" height="1182" />
+    <state width="2006" height="329" key="GridCell.Tab.0.center" timestamp="1582681716078">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="2006" height="329" key="GridCell.Tab.0.center/0.23.2048.1177@0.23.2048.1177" timestamp="1582681716078" />
     <state width="2006" height="330" key="GridCell.Tab.0.center/0.23.2048.1182@0.23.2048.1182" timestamp="1582664209885" />
-    <state width="2006" height="330" key="GridCell.Tab.0.left" timestamp="1582664209884">
-      <screen x="0" y="23" width="2048" height="1182" />
+    <state width="2006" height="329" key="GridCell.Tab.0.left" timestamp="1582681716077">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="2006" height="329" key="GridCell.Tab.0.left/0.23.2048.1177@0.23.2048.1177" timestamp="1582681716077" />
     <state width="2006" height="330" key="GridCell.Tab.0.left/0.23.2048.1182@0.23.2048.1182" timestamp="1582664209884" />
-    <state width="2006" height="330" key="GridCell.Tab.0.right" timestamp="1582664209885">
-      <screen x="0" y="23" width="2048" height="1182" />
+    <state width="2006" height="329" key="GridCell.Tab.0.right" timestamp="1582681716078">
+      <screen x="0" y="23" width="2048" height="1177" />
     </state>
+    <state width="2006" height="329" key="GridCell.Tab.0.right/0.23.2048.1177@0.23.2048.1177" timestamp="1582681716078" />
     <state width="2006" height="330" key="GridCell.Tab.0.right/0.23.2048.1182@0.23.2048.1182" timestamp="1582664209885" />
     <state x="525" y="252" key="SettingsEditor" timestamp="1582660603800">
       <screen x="0" y="23" width="2048" height="1180" />
     </state>
     <state x="525" y="252" key="SettingsEditor/0.23.2048.1180@0.23.2048.1180" timestamp="1582660603800" />
-    <state x="679" y="375" width="689" height="472" key="find.popup" timestamp="1582679402649">
+    <state x="679" y="375" width="689" height="472" key="find.popup" timestamp="1582681795898">
       <screen x="0" y="23" width="2048" height="1177" />
     </state>
-    <state x="679" y="375" width="689" height="472" key="find.popup/0.23.2048.1177@0.23.2048.1177" timestamp="1582679402649" />
+    <state x="679" y="375" width="689" height="472" key="find.popup/0.23.2048.1177@0.23.2048.1177" timestamp="1582681795898" />
+    <state x="689" y="288" width="670" height="676" key="search.everywhere.popup" timestamp="1582680749940">
+      <screen x="0" y="23" width="2048" height="1177" />
+    </state>
+    <state x="689" y="288" width="670" height="676" key="search.everywhere.popup/0.23.2048.1177@0.23.2048.1177" timestamp="1582680749940" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/backend$Test__karmaapp_testcases_test_user_profile_UserProfileTest.coverage" NAME="Test: karmaapp.testcases.test_user_profile.UserProfileTest Coverage Results" MODIFIED="1582681184526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/backend$Test__karmaapp_testcases_user_profile_test_UserProfielTest.coverage" NAME="Test: karmaapp.testcases.user_profile_test.UserProfielTest Coverage Results" MODIFIED="1582664209875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
