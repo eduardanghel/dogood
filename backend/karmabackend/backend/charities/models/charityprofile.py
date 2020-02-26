@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 
-
+from django.conf import settings
 class CharityProfile(models.Model):
     ORGANISATION_TYPE = (
         ('NGO', 'Non Governmental Organisation'),
@@ -13,7 +13,7 @@ class CharityProfile(models.Model):
         ('1', 'Low income'),
         ('2', 'Exemption from regulation'),
     )
-    charity_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    charity_name = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_of_registration = models.DateField(null=True)
     type = models.CharField(max_length=3, choices=ORGANISATION_TYPE, null=True)
     charity_number = models.IntegerField()
