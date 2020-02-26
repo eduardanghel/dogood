@@ -10,7 +10,6 @@ django-rest-auth==0.9.5   # via -r requirements.in (line 7)
 django==3.0.3             # via -r requirements.in (line 3), django-rest-auth, djangorestframework
 djangorestframework-jwt==1.11.0  # via -r requirements.in (line 6)
 djangorestframework==3.11.0  # via -r requirements.in (line 4), django-rest-auth
-gunicorn==20.0.4          # via -r requirements.in (line 8)
 psycopg2==2.8.4           # via -r requirements.in (line 5)
 pyjwt==1.7.1              # via djangorestframework-jwt
 pytz==2019.3              # via django
