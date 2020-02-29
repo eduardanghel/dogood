@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from karmaapp.models.charities import CharityProfile
-from karmaapp.models.user import User
+from karmaapp.models.user_profile import User
 
 
 class CharityProfileSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = CharityProfile
-        fields = ('dob', 'gender', 'address', 'city', 'postcode', 'telephone')
+        fields = ('date_of_registration', 'type', 'charity_number', 'exemption', 'logo',)
+
 
 class CharityUserSerializer(serializers.HyperlinkedModelSerializer):
     profile = CharityProfileSerializer(required=True)
@@ -34,12 +34,11 @@ class CharityUserSerializer(serializers.HyperlinkedModelSerializer):
         instance.save()
 
 
-        profile.dob = profile_data.get('dob', profile.dob)
-        profile.gender = profile_data.get('gender', profile.gender)
-        profile.address = profile_data.get('address', profile.address)
-        profile.city = profile_data.get('city', profile.city)
-        profile.postcode = profile_data.get('postcode', profile.postcode)
-        profile.telephone = profile_data.get('telephone', profile.telephone)
+        profile.date_of_registration = profile_data.get('date_of_registration', profile.date_of_registration)
+        profile.type = profile_data.get('type', profile.type)
+        profile.charity_number = profile_data.get('charity_number', profile.charity_number)
+        profile.exemption = profile_data.get('exemption', profile.exemption)
+        profile.logo = profile_data.get('logo', profile.logo)
 
         profile.save()
 

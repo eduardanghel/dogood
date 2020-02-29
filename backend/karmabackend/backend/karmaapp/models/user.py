@@ -1,34 +1,35 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
+from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from karmaapp.models.user_profile import UserProfile
+from karmaapp.models.charities import CharityProfile
 
 
 class User(AbstractUser):
-    first_name = models.CharField(_('first name'), max_length=30, blank=True)
-    last_name = models.CharField(_('last name'), max_length=150, blank=True)
-    username = models.CharField(blank=True, null=True, max_length=50)
-    email = models.EmailField(_('email address'), unique=True)
+    is_charity = models.BooleanField(default=True)
 
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if instance.is_charity:
+        CharityProfile.objects.get_or_create(user=instance)
+    else:
+        UserProfile.objects.get_or_create(user=instance)
 
-    def __str__(self):
-        return "{}".format(self.email)
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, created=False, **kwargs):
+    if created:
+        group = get_group(instance)
+        if sender.email is not None and len(str(instance.email)) >= 3:
+            slack.post_slack_message_to_new_app_registrations(
+                text=f"New user added! E-mail address starts: "
+                f"{instance.email[:3]}***. {group}"
+            )
+        else:
+            slack.post_slack_message_to_new_app_registrations(
+                text=f"New user added! E-mail address starts: <UNKNOWN EMAIL>. "
+                f"{group}"
+            )
 
-
-class UserProfile(models.Model):
-    GENDER_CHOICES = (
-        ('m', 'Male'),
-        ('f', 'Female'),
-        ('x', 'Non-binary'),
-    )
-
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
-    dob = models.DateField(blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
-    address = models.CharField(max_length=255, blank=True)
-    city = models.CharField(max_length=50, blank=True)
-    postcode = models.CharField(max_length=8, blank=True)
-    telephone = models.CharField(max_length=12, blank=True)
+    instance.userprofile.save()

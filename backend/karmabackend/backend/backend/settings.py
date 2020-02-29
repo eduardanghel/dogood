@@ -28,17 +28,34 @@ ALLOWED_HOSTS = ["192.168.1.215", "localhost", "127.0.0.1", "*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'karmaapp.apps.KarmaappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.humanize",
+    'karmaapp.apps.KarmaappConfig',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
+    "django.contrib.sites",
+    "rest_auth.registration",
+    "post_office",
+    "oauth2_provider",
 ]
+
+CSRF_USE_SESSIONS = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_HSTS_PRELOAD = (
+    True  # https://www.troyhunt.com/understanding-http-strict-transport/
+)
+SESSION_COOKIE_HTTPONLY = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+X_FRAME_OPTIONS = "DENY"
+
+LOGOUT_REDIRECT_URL = "/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,7 +99,19 @@ REST_FRAMEWORK = {
     ],
 }
 
-AUTH_USER_MODEL = 'karmaapp.User'
+# django.contrib.auth
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+]
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -181,3 +210,54 @@ JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
 REST_USE_JWT = True
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# Mailgun settings
+EMAIL_HOST = "smtp.eu.mailgun.org"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "postmaster@mg.karma-zomp.co.uk"
+EMAIL_HOST_PASSWORD = "a293cb0e5954f8a2e4da6819b8e628ae-9dda225e-68f3d2b6"
+EMAIL_USE_TLS = True
+
+# Default email addresses
+SERVER_EMAIL = "no-reply@karma-zomp.co.uk"
+DEFAULT_FROM_EMAIL = "no-reply@karma-zomp.co.uk"
+
+
+# django-allauth
+# https://django-allauth.readthedocs.io/en/latest/
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+
+# django-oauth-toolkit
+# https://django-oauth-toolkit.readthedocs.io/en/latest/
+OAUTH2_PROVIDER = {
+    "SCOPES": {
+        "read": "Read scope",
+        "write": "Write scope",
+        "groups": "Access to your groups",
+        "introspection": "Introspect token scope",
+    },
+}
+
+# django-rest-auth settings: see:
+# http://django-rest-auth.readthedocs.io/en/latest/configuration.html
+OLD_PASSWORD_FIELD_ENABLED = True
+REST_AUTH_SERIALIZERS = {
+    "LOGIN_SERIALIZER": "karmaapp.serializers.serializers.LoginSerializer",
+    "PASSWORD_RESET_SERIALIZER": "account.serializers.PasswordResetSerializer",
+}
+
+# django-rest-framework
+# https://www.django-rest-framework.org/api-guide/settings/
+REST_FRAMEWORK = {
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        "utils.authentication.ExpiringTokenAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    "DEFAULT_PAGINATION_CLASS": None,
+    "PAGE_SIZE": None,
+}

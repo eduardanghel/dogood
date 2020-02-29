@@ -5,25 +5,24 @@ from django.utils import timezone
 from oauth2_provider.models import AccessToken, Application, RefreshToken
 import oauthlib.common
 
+
+
 from karmaapp.models.user import User
 
-class CharityProfile(models.Model):
-    CHARITY_TYPE = (
-        ('1', 'Non-government organisation'),
-        ('2', 'Other type'),
-        ('3', 'Other type 2'),
-    )
-    EXEMPTION_TYPE = (
-        ('1', 'Low income/excepted'),
-        ('2', 'Exempt by Charity Commission'),
+class UserProfile(models.Model):
+    GENDER_CHOICES = (
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ('x', 'Non-binary'),
     )
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='charity_profile')
-    date_of_registration = models.DateField()
-    type = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True)
-    charity_number = models.IntegerField()
-    exemption = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True)
-    logo = models.URLField(blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='user_profile')
+    dob = models.DateField(blank=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
+    address = models.CharField(max_length=255, blank=True)
+    city = models.CharField(max_length=50, blank=True)
+    postcode = models.CharField(max_length=8, blank=True)
+    telephone = models.CharField(max_length=12, blank=True)
     terms_consent = models.BooleanField(default=False)
     terms_consent_datetime = models.DateTimeField(null=True, default=None)
     token = models.CharField(max_length=200, blank=True, default="")
