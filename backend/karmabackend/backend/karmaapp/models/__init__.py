@@ -1,9 +1,9 @@
-from karmaapp.models.question import Question
 from karmaapp.models.user import UserProfile, User
+from karmaapp.models.charities import CharityProfile
 
 
 __all__ = [
-    "Question",
     "UserProfile",
     "User",
+    "CharityProfile",
 ]
