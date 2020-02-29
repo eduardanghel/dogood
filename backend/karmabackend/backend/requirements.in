@@ -1,0 +1,7 @@
+# requirements.in
+coverage
+django
+djangorestframework
+psycopg2
+djangorestframework-jwt
+django-rest-auth
