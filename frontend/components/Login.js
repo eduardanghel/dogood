@@ -18,9 +18,10 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.paragraph}>
-            Login
-            </Text>
+        <View style={{flexDirection:'row'}}>
+                 <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0'                   style={{marginLeft: '20%',marginTop:'25%'}}/></TouchableOpacity>
+                 <Text style={styles.paragraph}>Login</Text>
+                </View>
           <Text style={styles.text}>
             Welcome back!
             </Text>
@@ -74,10 +75,11 @@ const styles = StyleSheet.create({
     margin: 24,
     fontSize: 22,
     fontWeight: '500',
-    textAlign: 'left',
-    position: 'absolute',
+    //textAlign: 'left',
+    //position: 'absolute',
     left: 27,
-    marginLeft: 37
+    marginLeft: -60,
+    marginBottom: 10
   },
   text: {
     margin: 25,
