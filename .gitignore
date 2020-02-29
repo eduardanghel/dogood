@@ -10,6 +10,11 @@ backend/karmabackend/backend/karmaapp/views/__pycache__/
 backend/karmabackend/backend/karmaapp/admin/__pycache__/
 backend/karmabackend/backend/karmaapp/migrations/__pycache__/
 backend/karmabackend/venv/
+backend/karmabackend/backend/backend/__pycache__/
+backend/karmabackend/backend/charities/__pycache__/
+backend/karmabackend/backend/charities/models/__pycache__/
+backend/karmabackend/backend/karmaapp/__pycache__/
+backend/karmabackend/backend/karmaapp/models/__pycache__/
 frontend/.expo/
 frontend/node_modules/
 
