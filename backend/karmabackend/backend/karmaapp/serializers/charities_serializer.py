@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from karmaapp.models.charities import CharityProfile
-from karmaapp.models.user_profile import User
+from karmaapp.models.user import CharityProfile
+from karmaapp.models.user import User
 
 
 class CharityProfileSerializer(serializers.ModelSerializer):
