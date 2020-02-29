@@ -168,7 +168,7 @@ STATIC_URL = '/static/'
 
 JWT_AUTH = {
     # If the secret is wrong, it will raise a jwt.DecodeError telling you as such. You can still get at the payload by setting the JWT_VERIFY to False.
-    'JWT_VERIFY': False,
+    'JWT_VERIFY': True,
 
     # You can turn off expiration time verification by setting JWT_VERIFY_EXPIRATION to False.
     # If set to False, JWTs will last forever meaning a leaked token could be used by an attacker indefinitely.
