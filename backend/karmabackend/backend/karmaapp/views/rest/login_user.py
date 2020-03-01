@@ -1,10 +1,9 @@
 from http import HTTPStatus
 
-from karmaapp.models import User
 from rest_framework.response import Response
-
 from rest_framework.views import APIView
 
+from karmaapp.models import User
 from karmaapp.serializers.sign_up_flow_serializer import UserLoginSerializer
 
 

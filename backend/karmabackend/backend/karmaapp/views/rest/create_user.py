@@ -1,13 +1,12 @@
 import logging
 from http import HTTPStatus
 
-from karmaapp.models import User
 from django.db import transaction
 from django.utils.decorators import method_decorator
 from rest_framework.response import Response
-
 from rest_framework.views import APIView
 
+from karmaapp.models import User
 from karmaapp.serializers.sign_up_flow_serializer import UserSerializer
 from karmaapp.views.rest.serializers.user_profile import UserProfileWriteSerializer
 
@@ -50,6 +49,5 @@ class CreateUserAPI(APIView):
             )
             serializer.is_valid(raise_exception=True)
             serializer.save()
-
 
         return Response(status=HTTPStatus.CREATED)

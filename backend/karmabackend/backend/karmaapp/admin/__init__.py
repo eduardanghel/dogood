@@ -2,7 +2,8 @@ from django.conf.locale.en import formats as en_formats
 
 from karmaapp.admin import (  # noqa
     user,
-    charities
+    charities,
+    activity
 )
 
 # Monkey patch Django's DATETIME_FORMAT for english

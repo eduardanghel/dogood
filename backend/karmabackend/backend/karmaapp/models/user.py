@@ -1,17 +1,19 @@
 from datetime import timedelta
 
+import oauthlib.common
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from oauth2_provider.models import AccessToken, Application, RefreshToken
-import oauthlib.common
 
+from karmaapp.models.cause import Cause
 
 
 class User(AbstractUser):
-    is_charity = models.BooleanField(default=True)
+    is_charity = models.BooleanField(default=False, blank=True, null=True)
+
 
 class CharityProfile(models.Model):
     CHARITY_TYPE = (
@@ -25,21 +27,22 @@ class CharityProfile(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='charity_profile')
-    date_of_registration = models.DateField()
-    type = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True)
-    charity_number = models.IntegerField()
-    exemption = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True)
-    logo = models.URLField(blank=True)
-    terms_consent = models.BooleanField(default=False)
-    terms_consent_datetime = models.DateTimeField(null=True, default=None)
-    token = models.CharField(max_length=200, blank=True, default="")
-    is_activated = models.BooleanField(default=True)
-    activation_token = models.CharField(max_length=100, blank=True, default="")
-    activation_token_valid_until = models.DateTimeField(default=timezone.now)
-    password_reset_token = models.CharField(max_length=100, blank=True, default="")
-    password_reset_token_valid_until = models.DateField(default=timezone.now)
-    magic_link_token = models.CharField(max_length=100, blank=True, default="")
-    magic_link_token_valid_until = models.DateField(default=timezone.now)
+    date_of_registration = models.DateField(null=True, blank=True)
+    type = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True, blank=True)
+    charity_number = models.IntegerField(null=True, blank=True)
+    exemption = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True, blank=True)
+    logo = models.URLField(null=True, blank=True)
+    causes = models.ManyToManyField(Cause)
+    terms_consent = models.BooleanField(default=False, null=True, blank=True)
+    terms_consent_datetime = models.DateTimeField(null=True, default=None, blank=True)
+    token = models.CharField(max_length=200, blank=True, default="", null=True)
+    is_activated = models.BooleanField(default=True, null=True, blank=True)
+    activation_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    activation_token_valid_until = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    password_reset_token_valid_until = models.DateField(default=timezone.now, null=True, blank=True)
+    magic_link_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    magic_link_token_valid_until = models.DateField(default=timezone.now, null=True, blank=True)
 
     def get_access_token(self):
         access_token = AccessToken.objects.create(
@@ -75,22 +78,23 @@ class UserProfile(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='user_profile')
-    dob = models.DateField(blank=True)
+    dob = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
-    address = models.CharField(max_length=255, blank=True)
-    city = models.CharField(max_length=50, blank=True)
-    postcode = models.CharField(max_length=8, blank=True)
-    telephone = models.CharField(max_length=12, blank=True)
-    terms_consent = models.BooleanField(default=False)
-    terms_consent_datetime = models.DateTimeField(null=True, default=None)
-    token = models.CharField(max_length=200, blank=True, default="")
-    is_activated = models.BooleanField(default=True)
-    activation_token = models.CharField(max_length=100, blank=True, default="")
-    activation_token_valid_until = models.DateTimeField(default=timezone.now)
-    password_reset_token = models.CharField(max_length=100, blank=True, default="")
-    password_reset_token_valid_until = models.DateField(default=timezone.now)
-    magic_link_token = models.CharField(max_length=100, blank=True, default="")
-    magic_link_token_valid_until = models.DateField(default=timezone.now)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    city = models.CharField(max_length=50, blank=True, null=True)
+    postcode = models.CharField(max_length=8, blank=True, null=True)
+    telephone = models.CharField(max_length=12, blank=True, null=True)
+    causes = models.ManyToManyField(Cause)
+    terms_consent = models.BooleanField(default=False, blank=True, null=True)
+    terms_consent_datetime = models.DateTimeField(null=True, default=None, blank=True)
+    token = models.CharField(max_length=200, blank=True, default="", null=True)
+    is_activated = models.BooleanField(default=True, blank=True, null=True)
+    activation_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    activation_token_valid_until = models.DateTimeField(default=timezone.now, blank=True, null=True)
+    password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    password_reset_token_valid_until = models.DateField(default=timezone.now, blank=True, null=True)
+    magic_link_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    magic_link_token_valid_until = models.DateField(default=timezone.now, blank=True, null=True)
 
     def get_access_token(self):
         access_token = AccessToken.objects.create(
@@ -125,7 +129,10 @@ def create_user_profile(sender, instance, created, **kwargs):
     else:
         UserProfile.objects.get_or_create(user=instance)
 
+
 @receiver(post_save, sender=User)
-def save_user_profile(sender, instance, created=False, **kwargs):
-    if created:
-       instance.userprofile.save()
+def save_user_profile(sender, instance, **kwargs):
+    if instance.is_charity:
+        instance.charity_profile.save()
+    else:
+        UserProfile.objects.get_or_create(user=instance)

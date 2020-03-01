@@ -7,12 +7,12 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from karmaapp import authentication
-from karmaapp.views.rest.serializers.user_profile import UserProfileWriteSerializer, UserProfileSerializer
+from karmaapp.views.rest.serializers.charity_profile import CharityProfileSerializer, CharityProfileWriteSerializer
 
 logger = logging.getLogger(__name__)
 
 
-class UserProfileAPI(APIView):
+class CharityProfileAPI(APIView):
     authentication_classes = [
         authentication.ExpiringTokenAuthentication,
         OAuth2Authentication,
@@ -20,14 +20,14 @@ class UserProfileAPI(APIView):
 
     def get(self, request):
         """
-        Returns the user profile for the current user.
+        Returns the Charity profile for the current user.
         """
-        serializer = UserProfileSerializer(request.user.user_profile)
+        serializer = CharityProfileSerializer(request.user.charity_profile)
         return JsonResponse(serializer.data)
 
     def post(self, request):
         """
-        Create a user profile for the current user.
+        Create a Charity profile for the current user.
         """
         # If they haven't ticked the terms, we aren't letting them them through
         if not request.data.get("terms_consent"):
@@ -35,7 +35,7 @@ class UserProfileAPI(APIView):
                 data="Terms must be accepted!", status=HTTPStatus.BAD_REQUEST
             )
 
-        serializer = UserProfileWriteSerializer(
+        serializer = CharityProfileWriteSerializer(
             data=request.data, partial=False, context={"user": request.user}
         )
         response = self._update_user_profile(request, request.user, serializer)
@@ -44,10 +44,10 @@ class UserProfileAPI(APIView):
 
     def patch(self, request):
         """
-        Updates the current user's user profile.
+        Updates the current user's charity profile.
         """
-        serializer = UserProfileWriteSerializer(
-            request.user.user_profile, data=request.data, partial=True
+        serializer = CharityProfileWriteSerializer(
+            request.user.charity_profile, data=request.data, partial=True
         )
         return self._update_user_profile(request, request.user, serializer)
 
@@ -55,4 +55,4 @@ class UserProfileAPI(APIView):
         serializer.is_valid(raise_exception=True)
 
         serializer.save()
-        return Response(UserProfileSerializer(user.user_profile).data)
+        return Response(CharityProfileSerializer(user.charity_profile).data)

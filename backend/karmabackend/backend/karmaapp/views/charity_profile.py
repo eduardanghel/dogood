@@ -1,10 +1,9 @@
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny
 
 from karmaapp.models import User
-from karmaapp.serializers import CharityUserSerializer
-
-from rest_framework.permissions import AllowAny
 from karmaapp.permissions import IsLoggedInUserOrAdmin, IsAdminUser
+from karmaapp.serializers import CharityUserSerializer
 
 
 class CharityUserViewSet(viewsets.ModelViewSet):

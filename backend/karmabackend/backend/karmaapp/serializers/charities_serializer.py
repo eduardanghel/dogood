@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from karmaapp.models.user import CharityProfile
 from karmaapp.models.user import User
 
@@ -32,7 +33,6 @@ class CharityUserSerializer(serializers.HyperlinkedModelSerializer):
 
         instance.email = validated_data.get('email', instance.email)
         instance.save()
-
 
         profile.date_of_registration = profile_data.get('date_of_registration', profile.date_of_registration)
         profile.type = profile_data.get('type', profile.type)

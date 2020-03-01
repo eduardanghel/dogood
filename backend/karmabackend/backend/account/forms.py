@@ -21,11 +21,11 @@ class PasswordResetForm(forms.PasswordResetForm):
         Override the default and send emails via Django Post-Office instead of the standard mail
         """
 
-        template = EmailTemplate.objects.get(name="password_reset")
+        # template = EmailTemplate.objects.get(name="password_reset")
         mail.create(
             recipients=[to_email],  # List of email addresses also accepted
             context=context,
-            template=template,
+            template=None,
             priority=PRIORITY.high,
-            sender=from_email,
+            sender="noreply@karma-zomp.co.uk",
         )

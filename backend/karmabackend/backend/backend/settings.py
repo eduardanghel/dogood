@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django.contrib.humanize",
     'karmaapp.apps.KarmaappConfig',
+    'account',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -55,6 +56,8 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 X_FRAME_OPTIONS = "DENY"
 
+SITE_ID = 1
+
 LOGOUT_REDIRECT_URL = "/"
 
 MIDDLEWARE = [
@@ -71,20 +74,26 @@ ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            os.path.join(os.path.dirname(__file__), "templates"),
+            os.path.join(BASE_DIR, "../../templates"),
+            os.path.join(BASE_DIR, "../templates"),
+            os.path.join(BASE_DIR, "../graph"),
+            os.path.join(BASE_DIR, "../account"),
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
             ],
+            "builtins": ["django.templatetags.static"],
         },
-    },
+    }
 ]
-
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 # DRF
@@ -240,6 +249,7 @@ OAUTH2_PROVIDER = {
         "groups": "Access to your groups",
         "introspection": "Introspect token scope",
     },
+    "OAUTH2_SERVER_CLASS": "karmaapp.oauthlib.Server",
 }
 
 # django-rest-auth settings: see:

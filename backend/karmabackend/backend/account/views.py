@@ -2,12 +2,12 @@ from django.contrib.auth import views as auth_views
 
 from account import forms
 
-templates_dir = "templates/reg"
+templates_dir = "auth/reg"
 
 
 # Password reset
 class WebResetPasswordRequest(auth_views.PasswordResetView):
-    template_name = f"{templates_dir}/password_reset_form.html"
+    # template_name = f"{templates_dir}/password_reset_form.html"
     form_class = forms.PasswordResetForm
 
 
