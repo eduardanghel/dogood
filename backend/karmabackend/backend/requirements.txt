@@ -5,16 +5,24 @@
 #    pip-compile
 #
 asgiref==3.2.3            # via django
-coverage==5.0.3           # via -r requirements.in (line 2)
-django-rest-auth==0.9.5   # via -r requirements.in (line 7)
-django==3.0.3             # via -r requirements.in (line 3), django-rest-auth, djangorestframework
-djangorestframework-jwt==1.11.0  # via -r requirements.in (line 6)
-djangorestframework==3.11.0  # via -r requirements.in (line 4), django-rest-auth
-psycopg2==2.8.4           # via -r requirements.in (line 5)
+certifi==2019.11.28       # via requests
+chardet==3.0.4            # via requests
+click==7.0                # via pip-tools
+coverage==5.0.3           # via -r requirements.in
+django-oauth-toolkit==1.2.0  # via -r requirements.in
+django-post-office==3.3.1  # via -r requirements.in
+django-rest-auth==0.9.5   # via -r requirements.in
+django==3.0.3             # via -r requirements.in, django-oauth-toolkit, django-post-office, django-rest-auth, djangorestframework, jsonfield
+djangorestframework-jwt==1.11.0  # via -r requirements.in
+djangorestframework==3.11.0  # via -r requirements.in, django-rest-auth
+idna==2.9                 # via requests
+jsonfield==3.1.0          # via django-post-office
+oauthlib==3.1.0           # via django-oauth-toolkit
+pip-tools==4.5.1          # via -r requirements.in
+psycopg2==2.8.4           # via -r requirements.in
 pyjwt==1.7.1              # via djangorestframework-jwt
 pytz==2019.3              # via django
-six==1.14.0               # via django-rest-auth
-sqlparse==0.3.0           # via django
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
+requests==2.23.0          # via django-oauth-toolkit
+six==1.14.0               # via django-rest-auth, pip-tools
+sqlparse==0.3.1           # via django
+urllib3==1.25.8           # via requests

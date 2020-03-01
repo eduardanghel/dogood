@@ -1,9 +1,10 @@
 from django.urls import path, include
 from rest_framework import routers
-from karmaapp.views import UserViewSet
+
+from karmaapp.views.charity_profile import CharityUserViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r"charity-user", CharityUserViewSet)
 
 urlpatterns = [
     path(r'', include(router.urls)),
