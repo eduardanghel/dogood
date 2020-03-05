@@ -3,6 +3,15 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 class Card extends Component {
+    constructor(props) {
+        super(props);
+        this.navigate.bind(this);
+    }
+
+    navigate(txt) {
+        this.navigate(txt);
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -14,15 +23,16 @@ class Card extends Component {
                     <Text style={{ marginVertical: 5 }}>Lorem ipsum dolor sit amet, consectetur adip isicing elit,
                    sed do eiusm ut labore et dolore magna aliqua
                     </Text>
-                    <View style={styles.signupButtonView}>
+                    <View>
                         <LinearGradient
-                            style={{ borderRadius: 30, }}
+                            style={styles.signupButtonView}
                             colors={['#00c5c4', '#01a7a6']}
                             start={{ x: 1, y: 0 }}
                             end={{ x: 0, y: 0 }}
                         >
-                            <TouchableOpacity style={styles.signupButton}>
-                                <Text style={styles.signup}>Sign up</Text>
+                            <TouchableOpacity
+                                onPress={() => this.navigate(this.props.page)}>
+                                <Text style={styles.signup} >Sign up</Text>
                             </TouchableOpacity>
                         </LinearGradient>
                     </View>
@@ -45,17 +55,23 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 3 },
-        shadowRadius: 20,
+        shadowRadius: 6,
         shadowOpacity: 0.26,
         elevation: 8,
         padding: 20,
         backgroundColor: 'white'
     },
     signupButtonView: {
-        alignItems: 'center'
+        borderRadius: 22,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        padding: 20,
+        height: 44,
+        width: 200,
     },
     signupButton: {
-        borderRadius: 30,
+        borderRadius: 22,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
@@ -65,7 +81,7 @@ const styles = StyleSheet.create({
     },
     signup: {
         color: 'white',
-        fontSize: 20
+        fontSize: 20,
     },
     sty: {
         borderRadius: 30,

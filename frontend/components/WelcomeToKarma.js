@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 import heart from '../assets/heart.png';
 import earth from '../assets/earth.png';
@@ -25,20 +23,20 @@ export default class WelcomeToKarma extends Component {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             style={styles.scrollViewView}>
-            <Card imageUri={heart} question="Are you an individual?"></Card>
-            <Card imageUri={earth} question="Are you an organization?"></Card>
+            <Card imageUri={heart} question="Are you an individual?" page="UserRegistration"></Card>
+            <Card imageUri={earth} question="Are you an organization?" page=""></Card>
           </ScrollView>
           <View style={styles.bottomView}>
             <Text style={styles.boldText}>Already on Karma?</Text>
             <View style={styles.buttonView}>
               <LinearGradient
-                style={{ borderRadius: 30, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}
+                style={{ borderRadius: 22, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}
                 colors={['#00c5c4', '#01a7a6']}
                 start={{ x: 1, y: 0 }}
                 end={{ x: 0, y: 0 }}>
                 <TouchableOpacity
-                  style={styles.loginButton}
-                  onPress={() => navigate('Login')}
+                style={styles.loginButton}
+                  onPress={() => navigate('Loginate')}
                 >
                   <Text style={styles.login}>Login</Text>
                 </TouchableOpacity>
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   loginButton: {
-    borderRadius: 30,
+    borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
