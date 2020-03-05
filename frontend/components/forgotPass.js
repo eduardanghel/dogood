@@ -10,6 +10,7 @@ export default class ForgotPass extends React.Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View>
@@ -37,7 +38,7 @@ export default class ForgotPass extends React.Component {
                         start={{ x: 1, y: 0 }}
                         end={{ x: 0, y: 0 }}
                     >
-                        <TouchableOpacity><Text style={styles.te}>Reset Password</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigate("OpenEmail")}><Text style={styles.te}>Reset Password</Text></TouchableOpacity>
                     </LinearGradient>
                 </View>
             </View>
@@ -69,11 +70,11 @@ const styles = StyleSheet.create({
 
     },
     sty: {
-        borderRadius: 25,
-        borderTopLeftRadius: 30,
-        borderBottomLeftRadius: 30,
-        borderTopRightRadius: 30,
-        borderBottomRightRadius: 30,
+        borderRadius: 22,
+        //borderTopLeftRadius: 30,
+        //borderBottomLeftRadius: 30,
+        //borderTopRightRadius: 30,
+        //borderBottomRightRadius: 30,
         //   position:'relative',
         marginTop: 320,
 
