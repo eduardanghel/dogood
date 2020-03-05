@@ -13,6 +13,7 @@ export default class OpenEmail extends React.Component {
         return(
             <View style={{flex:1, backgroundColor: 'white'}}>
             {/*<View>
+            <View>
                 <Text></Text>
                 <Text></Text>
                 <Text></Text>

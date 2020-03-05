@@ -39,6 +39,7 @@ export default class ForgotPass extends React.Component {
                         end={{ x: 0, y: 0 }}
                     >
                         <TouchableOpacity onPress={() => navigate("OpenEmail")}><Text style={styles.te}>Reset Password</Text></TouchableOpacity>
+                        <TouchableOpacity><Text style={styles.te}>Reset Password</Text></TouchableOpacity>
                     </LinearGradient>
                 </View>
             </View>
@@ -75,6 +76,11 @@ const styles = StyleSheet.create({
         //borderBottomLeftRadius: 30,
         //borderTopRightRadius: 30,
         //borderBottomRightRadius: 30,
+        borderRadius: 25,
+        borderTopLeftRadius: 30,
+        borderBottomLeftRadius: 30,
+        borderTopRightRadius: 30,
+        borderBottomRightRadius: 30,
         //   position:'relative',
         marginTop: 320,
 
