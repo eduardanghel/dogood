@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 
+
+import Icons from 'react-native-vector-icons/MaterialIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 import COLORS from './Colors.js';
 import ClassicButton from './ClassicButton.js';
