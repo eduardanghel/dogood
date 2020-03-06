@@ -12,7 +12,6 @@ import OpenEmail from "./components/OpenEmail.js";
 import Card from "./components/Card.js";
 import Feed from "./components/Feed.js";
 
-
 function InitialScreen({ navigation }) {
   return (
 
@@ -93,8 +92,7 @@ export default function App() {
             }
           }} />
           <Stack.Screen name="Card" component={Card}/>
-          <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/>
-      </Stack.Navigator>
+          <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/></Stack.Navigator>
     </NavigationContainer>
   );
 }
