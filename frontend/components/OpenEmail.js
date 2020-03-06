@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput } from "react-native";
 import {LinearGradient} from 'expo-linear-gradient';
-import Icons from 'react-native-vector-icons/MaterialIcons';
 
 export default class OpenEmail extends React.Component {
 

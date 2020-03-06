@@ -19,9 +19,6 @@ export default class Login extends Component {
             Login
             </Text>
     */}
-          <Text style={styles.paragraph}>
-            Login
-            </Text>
           <Text style={styles.text}>
             Welcome back!
             </Text>
