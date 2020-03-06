@@ -19,6 +19,9 @@ export default class Login extends Component {
             Login
             </Text>
     */}
+          <Text style={styles.paragraph}>
+            Login
+            </Text>
           <Text style={styles.text}>
             Welcome back!
             </Text>
@@ -100,6 +103,10 @@ const styles = StyleSheet.create({
     //borderBottomRightRadius: 30,
     //borderTopLeftRadius: 30,
     //borderBottomLeftRadius: 30,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
     width: 300,
     paddingHorizontal: 16,
   },
