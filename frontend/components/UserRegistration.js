@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Constants from 'expo-constants';
-import Icons from 'react-native-vector-icons/MaterialIcons';
 
 export default class UserRegistration extends React.Component {
   render() {
@@ -19,14 +17,14 @@ export default class UserRegistration extends React.Component {
           <TextInput style={styles.textinput} placeholder="Password" />
           <TextInput style={styles.textinput} placeholder="Confirm Password" />
         </View>
-        <View style={styles.buttonView}>
+        <View>
           <LinearGradient
-            style={styles.button}
+            style={styles.buttonView}
             colors={['#00c5c4', '#01a7a6']}
             start={{ x: 1, y: 0 }}
             end={{ x: 0, y: 0 }}
           >
-            <TouchableOpacity style={styles.signupButton}>
+            <TouchableOpacity>
               <Text style={styles.btnText}>Sign Up</Text>
             </TouchableOpacity>
           </LinearGradient>
@@ -55,8 +53,9 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
   buttonView: {
-    paddingBottom: 30,
-    width: '100%',
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textinput: {
     fontSize: 16,
@@ -91,9 +90,12 @@ const styles = StyleSheet.create({
     margin: 2,
   },
   btnText: {
-    fontSize: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
     color: 'white',
-    textAlign: 'center',
-    fontWeight: 'bold',
+    fontSize: 20,
+    borderRadius: 22,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
