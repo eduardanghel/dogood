@@ -3,6 +3,8 @@ import {
   Text, View, StyleSheet, TextInput, Button, TouchableOpacity
 } from 'react-native';
 
+
+import Icons from 'react-native-vector-icons/MaterialIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default class Login extends Component {
