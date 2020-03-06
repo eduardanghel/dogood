@@ -3,20 +3,22 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 class Card extends Component {
+
     constructor(props) {
         super(props);
         this.navigate.bind(this);
     }
 
     navigate(txt) {
-        this.navigate(txt);
+        this.props.navigation.navigate(txt);
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <View style={{ justifyContent: 'space-between', alignItems: 'center', flex: 1 }}>
-                    <Image source={this.props.imageUri} style={{ width: '50%', height: '50%', resizeMode: 'cover' }}></Image>
+                    <Image source={this.props.imageUri} style={{ width: '50%', height: '50%', resizeMode: 'center' }}></Image>
                 </View>
                 <View style={{ justifyContent: 'center', flex: 1 }}>
                     <Text style={{ marginVertical: 5, fontWeight: 'bold' }}>{this.props.question}</Text>
@@ -42,6 +44,7 @@ class Card extends Component {
     }
 }
 
+
 export default Card;
 
 const styles = StyleSheet.create({
@@ -65,10 +68,6 @@ const styles = StyleSheet.create({
         borderRadius: 22,
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
-        padding: 20,
-        height: 44,
-        width: 200,
     },
     signupButton: {
         borderRadius: 22,
@@ -80,8 +79,13 @@ const styles = StyleSheet.create({
         width: 200,
     },
     signup: {
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         color: 'white',
         fontSize: 20,
+        borderRadius: 22,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     sty: {
         borderRadius: 30,

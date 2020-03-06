@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
-import Constants from 'expo-constants';
 
-
-import Icons from 'react-native-vector-icons/MaterialIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default class Login extends Component {
@@ -57,7 +54,7 @@ export default class Login extends Component {
             start={{ x: 1, y: 0 }}
             end={{ x: 0, y: 0 }}
           >
-            <TouchableOpacity><Text style={styles.loginButton}>Login</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('Feed')}><Text style={styles.loginButton}>Login</Text></TouchableOpacity>
           </LinearGradient>
         </View>
       </View>
