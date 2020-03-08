@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-class Card extends Component {
+class ActivityCard extends Component {
 
     constructor(props) {
         super(props);
@@ -36,7 +36,7 @@ class Card extends Component {
 }
 
 
-export default Card;
+export default ActivityCard;
 
 const styles = StyleSheet.create({
     container: {
