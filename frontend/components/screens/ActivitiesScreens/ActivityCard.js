@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import { LinearGradient } from 'expo-linear-gradient';
 
 class Card extends Component {
 
