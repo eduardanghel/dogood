@@ -9,12 +9,11 @@ import Login from "./components/Login.js";
 import ForgotPass from "./components/ForgotPass.js";
 import UserRegistration from "./components/UserRegistration.js";
 import OpenEmail from "./components/OpenEmail.js";
-import Card from "./components/Card.js";
+//import Card from "./components/Card.js";
 import Feed from "./components/Feed.js";
 
 function InitialScreen({ navigation }) {
   return (
-
     <View style={styles.container}>
       <LinearGradient
         style={{ alignItems: 'center', justifyContent: 'center', flex: 1, width: '100%' }}
@@ -26,7 +25,7 @@ function InitialScreen({ navigation }) {
         <Text style={styles.text}>adipisicing elit sed do</Text>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => navigation.navigate('Back')}
+          onPress={() => navigation.navigate('WelcomeToKarma')}
         >
           <Text style={{ color: "white", fontSize: 20, }}>Sign Up</Text>
         </TouchableOpacity>
@@ -46,14 +45,15 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={InitialScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Back" component={WelcomeToKarma} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName="InitialScreen">
+        <Stack.Screen name="InitialScreen" component={InitialScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="WelcomeToKarma" component={WelcomeToKarma} options={{ headerShown: false }} />
         <Stack.Screen name="UserRegistration"
           component={UserRegistration}
           options={{
             headerTintColor: '#01b0b0',
             title: 'Sign up',
+            headerBackTitle: 'Back',
             headerTitleStyle: {
               textAlign: 'left',
               fontWeight: 'bold',
@@ -65,6 +65,7 @@ export default function App() {
           options={{
             headerTintColor: '#01b0b0',
             title: 'Login',
+            headerBackTitle: 'Back',
             headerTitleStyle: {
               textAlign: 'left',
               color: 'black',
@@ -75,6 +76,7 @@ export default function App() {
           options={{
             headerTintColor: '#01b0b0',
             title: 'Forgot Password',
+            headerBackTitle: 'Login',
             headerTitleStyle: {
               textAlign: 'left',
               color: 'black',
@@ -85,14 +87,16 @@ export default function App() {
           options={{
             headerTintColor: '#01b0b0',
             title: "Forgot Password",
+            headerBackTitle: 'Back',
             headerTitleStyle: {
               textAlign: 'left',
               color: 'black',
               fontSize: 22,
             }
           }} />
-          <Stack.Screen name="Card" component={Card}/>
-          <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/></Stack.Navigator>
+        {/*<Stack.Screen name="Card" component={Card}/>*/}
+        <Stack.Screen name="Feed" component={Feed} options={{ headerShown: false }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
@@ -133,6 +137,7 @@ const styles = StyleSheet.create({
     bottom: 10,
     position: 'absolute',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 10,
   },
 });
