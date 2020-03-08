@@ -11,7 +11,7 @@ export default class About extends React.Component {
 
         onValueChange : function(year,month,date){}
     }
-constructor(props){
+    constructor(props){
     super(props);
     this.state={
         year:this.props.selectedYear,
@@ -65,7 +65,6 @@ constructor(props){
         for(var i = minYear; i <= maxYear; i++){
             years.push(<Picker.Item label={i.toLocaleString()} value={i} />)
         }
-        years.push(<Picker.Item label={"-------"} value={i} />)
         return years;
     }
 
@@ -103,7 +102,6 @@ constructor(props){
                 <Text></Text>
             </View>
             <View style={{flexDirection:'row'}}>
-                <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0' style={{marginLeft: '20%',marginTop:'3%'}}/></TouchableOpacity>
                 <Text style={styles.text}>    About</Text>
             </View>
             <View style={{marginLeft: 23,marginRight: 23,}}>
