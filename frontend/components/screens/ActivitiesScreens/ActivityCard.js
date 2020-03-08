@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
-class Card extends Component {
+class ActivityCard extends Component {
 
     constructor(props) {
         super(props);
@@ -14,30 +14,21 @@ class Card extends Component {
     }
 
     render() {
-       // const { navigate } = this.props.navigation;
         return (
-            <View style={styles.container}>
-                <View style={{ justifyContent: 'space-between', alignItems: 'center', flex: 1 }}>
-                    <Image source={this.props.imageUri} style={{ width: '50%', height: '50%', resizeMode: 'center' }}></Image>
-                </View>
-                <View style={{ justifyContent: 'center', flex: 1 }}>
-                    <Text style={{ marginVertical: 5, fontWeight: 'bold' }}>{this.props.question}</Text>
-                    <Text style={{ marginVertical: 5 }}>Lorem ipsum dolor sit amet, consectetur adip isicing elit,
-                   sed do eiusm ut labore et dolore magna aliqua
-                    </Text>
+            <View>
+                <View style={{ flexDirection: 'row', backgroundColor: 'grey' }}>
+                    <Image>{/*Placing the round image here*/}</Image>
                     <View>
-                        <LinearGradient
-                            style={styles.signupButtonView}
-                            colors={['#00c5c4', '#01a7a6']}
-                            start={{ x: 1, y: 0 }}
-                            end={{ x: 0, y: 0 }}
-                        >
-                            <TouchableOpacity
-                                onPress={() => this.navigate(this.props.page)}>
-                                <Text style={styles.signup} >Sign up</Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text>Organization name here</Text>
+                            <Icon>{/*The icon we want here*/}</Icon>
+                        </View>
+                        <Text>The location here</Text>
                     </View>
+                    <Icon>{/*The other icon we want here*/}</Icon>
+                </View>
+                <View>
+                    {/*This one is gonna be hard */}
                 </View>
             </View>
         )
@@ -45,7 +36,7 @@ class Card extends Component {
 }
 
 
-export default Card;
+export default ActivityCard;
 
 const styles = StyleSheet.create({
     container: {
@@ -91,4 +82,3 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     }
 });
-

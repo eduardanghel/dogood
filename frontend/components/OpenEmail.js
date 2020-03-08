@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput } from "react-native";
 import {LinearGradient} from 'expo-linear-gradient';
-import Icons from 'react-native-vector-icons/MaterialIcons';
 
 export default class OpenEmail extends React.Component {
 
@@ -12,7 +11,7 @@ export default class OpenEmail extends React.Component {
     render(){
         return(
             <View style={{flex:1, backgroundColor: 'white'}}>
-            <View>
+            {/*<View>
                 <Text></Text>
                 <Text></Text>
                 <Text></Text>
@@ -21,6 +20,7 @@ export default class OpenEmail extends React.Component {
                 <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0' style={{marginLeft: '20%',marginTop:'3%'}}/></TouchableOpacity>
                 <Text style={styles.text}>    Forgot Password</Text>
             </View>
+            */}
             <View style={{marginLeft: 30,marginRight: 30,}}>
                 <Text></Text>
                 <Text style={styles.tex}>We have sent an email to janedoe@gmail.com please check your mail.</Text>

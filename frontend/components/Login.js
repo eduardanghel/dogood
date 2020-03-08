@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
-import Constants from 'expo-constants';
 
-
-import Icons from 'react-native-vector-icons/MaterialIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default class Login extends Component {
@@ -18,10 +15,10 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View>
-        <View style={{flexDirection:'row'}}>
-                 <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0'                   style={{marginLeft: '20%',marginTop:'25%'}}/></TouchableOpacity>
-                 <Text style={styles.paragraph}>Login</Text>
-                </View>
+          {/*<Text style={styles.paragraph}>
+            Login
+            </Text>
+    */}
           <Text style={styles.text}>
             Welcome back!
             </Text>
@@ -57,7 +54,7 @@ export default class Login extends Component {
             start={{ x: 1, y: 0 }}
             end={{ x: 0, y: 0 }}
           >
-            <TouchableOpacity><Text style={styles.loginButton}>Login</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('Feed')}><Text style={styles.loginButton}>Login</Text></TouchableOpacity>
           </LinearGradient>
         </View>
       </View>
@@ -100,10 +97,10 @@ const styles = StyleSheet.create({
   button: {
     marginLeft: 15,
     borderRadius: 22,
-    borderTopRightRadius: 30,
-    borderBottomRightRadius: 30,
-    borderTopLeftRadius: 30,
-    borderBottomLeftRadius: 30,
+    //borderTopRightRadius: 30,
+    //borderBottomRightRadius: 30,
+    //borderTopLeftRadius: 30,
+    //borderBottomLeftRadius: 30,
     width: 300,
     paddingHorizontal: 16,
   },

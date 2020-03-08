@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 import heart from '../assets/heart.png';
 import earth from '../assets/earth.png';
@@ -23,24 +21,26 @@ export default class WelcomeToKarma extends Component {
           <ScrollView
             scrollEventThrottle={16}
             horizontal={true}
+            alwaysBounceVertical={false}
             showsHorizontalScrollIndicator={false}
             style={styles.scrollViewView}>
-            <Card imageUri={heart} question="Are you an individual?"></Card>
-            <Card imageUri={earth} question="Are you an organization?"></Card>
+            <Card navigation={this.props.navigation} imageUri={heart} question="Are you an individual?" page="UserRegistration"></Card>
+            <Card navigation={this.props.navigation} imageUri={earth} question="Are you an organization?" page=""></Card>
           </ScrollView>
           <View style={styles.bottomView}>
             <Text style={styles.boldText}>Already on Karma?</Text>
             <View style={styles.buttonView}>
               <LinearGradient
-                style={{ borderRadius: 30, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}
+                style={{ borderRadius: 22, alignItems: 'center', justifyContent: 'center',}}
                 colors={['#00c5c4', '#01a7a6']}
                 start={{ x: 1, y: 0 }}
                 end={{ x: 0, y: 0 }}>
                 <TouchableOpacity
-                  style={styles.loginButton}
-                  onPress={() => navigate('Login')}
+                  onPress={() => navigate('Loginate')}
                 >
-                  <Text style={styles.login}>Login</Text>
+                  <View style={styles.loginButton}>
+                    <Text style={styles.login}>Login</Text>
+                  </View>
                 </TouchableOpacity>
               </LinearGradient>
             </View>
@@ -65,8 +65,6 @@ const styles = StyleSheet.create({
   },
   scrollViewView: {
     //alignItems: 'center',
-    //pagingEnabled: 'true',
-    //showPageIndicator: 'true',
     marginBottom: 20,
   },
   bottomView: {
@@ -100,19 +98,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   loginButton: {
-    borderRadius: 30,
+    borderRadius: 23,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
-    height: 44,
-    width: '85%',
-    padding: 20,
     backgroundColor: 'white',
+    width: 300,
+    height: 44,
     margin: 2,
   },
   login: {
     color: '#01b0b0',
-    textAlign: 'center',
     fontSize: 20,
+    textAlign: 'left',
   },
 });
