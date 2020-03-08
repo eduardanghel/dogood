@@ -9,8 +9,8 @@ export default class AllActivities extends Component {
                 <View style={styles.feed}>
                     <Text style={{ color: 'white' }}>The feed should display here</Text>
                     <FlatList
-                    data={[{key: 'a'}, {key: 'b'}]}
-                    renderItem={({item}) => <Text>{item.key}</Text>}/>
+                        data={[{ key: 'a' }, { key: 'b' }]}
+                        renderItem={({ item }) => <Text>{item.key}</Text>} />
                     {/*Here we need a way to get every single activity that this user is interested in and add them to the flatList*/}
                 </View>
             </SafeAreaView>

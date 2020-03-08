@@ -9,7 +9,7 @@ import Login from "./components/Login.js";
 import ForgotPass from "./components/ForgotPass.js";
 import UserRegistration from "./components/UserRegistration.js";
 import OpenEmail from "./components/OpenEmail.js";
-
+import Feed from "./components/Feed.js";
 
 function InitialScreen({ navigation }) {
   return (
@@ -90,6 +90,7 @@ export default function App() {
               fontSize: 22,
             }
           }} />
+          <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
