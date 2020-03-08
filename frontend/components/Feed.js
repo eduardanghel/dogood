@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Activities from './screens/Activities.js';
+import Notifications from './screens/Notifications.js';
 
 //The following functions are just temporary as the screens haven't been coded yet
 
@@ -16,13 +17,7 @@ function MyCausesScreen() {
     );
 }
 
-function NotificationScreen() {
-    return (
-        <View style={styles.tabContainer}>
-            <Text>Notification!</Text>
-        </View>
-    );
-}
+
 
 function ProfileScreen() {
     return (
@@ -73,7 +68,7 @@ export default class Feed extends Component {
                 }}>
                 <Tab.Screen name="Activities" component={Activities} />
                 <Tab.Screen name="My Causes" component={MyCausesScreen} />
-                <Tab.Screen name="Notification" component={NotificationScreen} />
+                <Tab.Screen name="Notification" component={Notifications} />
                 <Tab.Screen name="Profile" component={ProfileScreen} />
             </Tab.Navigator>
         );
