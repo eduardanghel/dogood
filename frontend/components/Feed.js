@@ -32,6 +32,7 @@ function ProfileScreen() {
 //End of temporary functions
 
 
+
 const Tab = createBottomTabNavigator();
 
 export default class Feed extends Component {
