@@ -7,7 +7,6 @@ import heart from '../assets/heart.png';
 import earth from '../assets/earth.png';
 import Card from './Card.js';
 
-
 export default class WelcomeToKarma extends Component {
   render() {
     const { navigate } = this.props.navigation;

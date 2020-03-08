@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 class ActivityCard extends Component {
-
     constructor(props) {
         super(props);
         this.navigate.bind(this);

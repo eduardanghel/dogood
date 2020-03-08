@@ -76,8 +76,5 @@ const styles = StyleSheet.create({
         //borderBottomRightRadius: 30,
         //   position:'relative',
         marginTop: 320,
-
-
     }
 })
-

@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 class Card extends Component {
-
     constructor(props) {
         super(props);
         this.navigate.bind(this);
@@ -14,7 +13,7 @@ class Card extends Component {
     }
 
     render() {
-       // const { navigate } = this.props.navigation;
+        // const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <View style={{ justifyContent: 'space-between', alignItems: 'center', flex: 1 }}>

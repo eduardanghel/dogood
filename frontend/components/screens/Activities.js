@@ -29,6 +29,7 @@ function ActivitiesFavorites() {
         </View>
     );
 }
+
 // End of temporary functions
 
 const Tab = createMaterialTopTabNavigator();
@@ -47,7 +48,7 @@ class Activities extends Component {
                     labelStyle: {
                         fontSize: 12,
                     }
-                        
+
                 }}>
                 <Tab.Screen name='All' component={AllActivities} />
                 <Tab.Screen name='Causes' component={ActivitiesCauses} />

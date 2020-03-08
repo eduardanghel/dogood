@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     //marginRight: 40,
     paddingVertical: 10,
-    marginVertical:2,
+    marginVertical: 2,
   },
   button: {
     //marginLeft: 15,
