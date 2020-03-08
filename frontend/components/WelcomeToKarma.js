@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   scrollViewView: {
-    alignItems: 'center',
+    //alignItems: 'center',
     marginBottom: 20,
   },
   bottomView: {

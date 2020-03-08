@@ -1,95 +1,69 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-export default class Activities extends Component {
+import AllActivities from './ActivitiesScreens/AllActivities.js';
+
+//The following are temporary functions as the screens they should represent aren't done yet
+function ActivitiesCauses() {
+    return (
+        <View style={styles.container}>
+            <Text>Activities Causes!</Text>
+        </View>
+    );
+}
+
+function ActivitiesGoing() {
+    return (
+        <View style={styles.container}>
+            <Text>Activities Going!</Text>
+        </View>
+    );
+}
+
+function ActivitiesFavorites() {
+    return (
+        <View style={styles.container}>
+            <Text>Activities Favorites!</Text>
+        </View>
+    );
+}
+// End of temporary functions
+
+const Tab = createMaterialTopTabNavigator();
+
+class Activities extends Component {
     render() {
-        return(<SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.title}>
-                    Activities
-                </Text>
-                <View style={styles.filterActivities}>
-                    <View style={styles.textView}>
-                        <TouchableOpacity>
-                            <Text style={styles.textFilter}>All</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.textView}>
-                        <TouchableOpacity >
-                            <Text style={styles.textFilter}>Causes</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.textView}>
-                        <TouchableOpacity >
-                            <Text style={styles.textFilter}>Going</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.textView}>
-                        <TouchableOpacity >
-                            <Text style={styles.favorites}>Favorites</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-            <View style={styles.feed}>
-                {/*Here we need a way to get every single activity that this user is interested in and add them to the flatList*/}
-            </View>
-            <View style={styles.bottom}>
-            </View>
-        </SafeAreaView>
+        return (
+            <Tab.Navigator initialRouteName='All'
+                style={{
+                    paddingTop: Constants.statusBarHeight, backgroundColor: 'white'
+                }}
+                tabBarOptions={{
+                    activeTintColor: 'white',
+                    inactiveTintColor: 'grey',
+                    indicatorStyle: { backgroundColor: '#01b0b0', height: '100%', borderRadius: 30 },
+                    labelStyle: {
+                        fontSize: 12,
+                    }
+                        
+                }}>
+                <Tab.Screen name='All' component={AllActivities} />
+                <Tab.Screen name='Causes' component={ActivitiesCauses} />
+                <Tab.Screen name='Going' component={ActivitiesGoing} />
+                <Tab.Screen name='Favorites' component={ActivitiesFavorites} />
+            </Tab.Navigator >
         )
     }
 }
 
+export default Activities;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        marginTop: Constants.statusBarHeight,
-    },
-    header: {
-        marginTop: 10,
-        marginRight: 20,
-        marginLeft: 20,
-        width: '75%',
-    },
-    feed: {
-
-    },
-    bottom: {
-
-    },
-    title: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    filterActivities: {
-        flexDirection: 'row',
-        marginHorizontal: 10,
-        justifyContent: 'center',
-        marginBottom: 10,
-    },
-    textView: {
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#01b0b0',
-        marginHorizontal: 5,
-    },
-    textFilter: {
         justifyContent: 'center',
         alignItems: 'center',
-        color: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-    },
-    favorites: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-    },
+    }
 })

@@ -1,98 +1,88 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, TabBarIOS } from 'react-native';
 import Constants from 'expo-constants';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
+import Activities from './screens/Activities.js';
+
+//The following functions are just temporary as the screens haven't been coded yet
+
+function MyCausesScreen() {
+    return (
+        <View style={styles.tabContainer}>
+            <Text>My Causes!</Text>
+        </View>
+    );
+}
+
+function NotificationScreen() {
+    return (
+        <View style={styles.tabContainer}>
+            <Text>Notification!</Text>
+        </View>
+    );
+}
+
+function ProfileScreen() {
+    return (
+        <View style={styles.tabContainer}>
+            <Text>Profile!</Text>
+        </View>
+    );
+}
+
+//End of temporary functions
+
+const Tab = createBottomTabNavigator();
 
 export default class Feed extends Component {
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.title}>
-                    Activities
-                </Text>
-                <View style={styles.filterActivities}>
-                    <View style={styles.textView}>
-                        <TouchableOpacity>
-                            <Text style={styles.textFilter}>All</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.textView}>
-                        <TouchableOpacity >
-                            <Text style={styles.textFilter}>Causes</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.textView}>
-                        <TouchableOpacity >
-                            <Text style={styles.textFilter}>Going</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.textView}>
-                        <TouchableOpacity >
-                            <Text style={styles.favorites}>Favorites</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-            <View style={styles.feed}>
-                {/*Here we need a way to get every single activity that this user is interested in and add them to the flatList*/}
-            </View>
-            <View style={styles.bottom}>
-            </View>
-        </SafeAreaView>
-        )
+            <Tab.Navigator initialRouteName="Activities"
+                screenOptions={({ route }) => ({
+                    tabBarIcon: ({ focused, color, size }) => {
+                        let iconName;
+
+                        if (route.name === 'Activities') {
+                            iconName = focused
+                                ? 'trophy'
+                                : 'trophy';
+                        }
+                        else if (route.name === 'My Causes') {
+                            iconName = focused
+                                ? 'heart'
+                                : 'heart';
+                        }
+                        else if (route.name === 'Notification') {
+                            iconName = focused
+                                ? 'bell'
+                                : 'bell';
+                        }
+                        else if (route.name === 'Profile') {
+                            iconName = focused
+                                ? 'user'
+                                : 'user';
+                        }
+                        return <Icon name={iconName} color={color} size={size} />;
+                    },
+                })}
+                tabBarOptions={{
+                    activeTintColor: '#01b0b0',
+                }}>
+                <Tab.Screen name="Activities" component={Activities} />
+                <Tab.Screen name="My Causes" component={MyCausesScreen} />
+                <Tab.Screen name="Notification" component={NotificationScreen} />
+                <Tab.Screen name="Profile" component={ProfileScreen} />
+            </Tab.Navigator>
+        );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    tabContainer: {
         flex: 1,
-        alignItems: 'center',
-        marginTop: Constants.statusBarHeight,
-    },
-    header: {
-        marginTop: 10,
-        marginRight: 20,
-        marginLeft: 20,
-        width: '75%',
-    },
-    feed: {
-
-    },
-    bottom: {
-
-    },
-    title: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    filterActivities: {
-        flexDirection: 'row',
-        marginHorizontal: 10,
-        justifyContent: 'center',
-        marginBottom: 10,
-    },
-    textView: {
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#01b0b0',
-        marginHorizontal: 5,
-    },
-    textFilter: {
         justifyContent: 'center',
         alignItems: 'center',
-        color: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-    },
-    favorites: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-    },
+    }
 })
