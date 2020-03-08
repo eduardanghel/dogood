@@ -1,0 +1,10 @@
+# requirements.in
+coverage
+django
+djangorestframework
+psycopg2
+djangorestframework-jwt
+django-rest-auth
+pip-tools
+django-oauth-toolkit
+django-post-office

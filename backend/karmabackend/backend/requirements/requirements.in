@@ -1,5 +1,0 @@
-# requirements.in
-coverage
-django
-djangorestframework
-psycopg2

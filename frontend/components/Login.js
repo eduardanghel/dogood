@@ -72,10 +72,11 @@ const styles = StyleSheet.create({
     margin: 24,
     fontSize: 22,
     fontWeight: '500',
-    textAlign: 'left',
-    position: 'absolute',
+    //textAlign: 'left',
+    //position: 'absolute',
     left: 27,
-    marginLeft: 37
+    marginLeft: -60,
+    marginBottom: 10
   },
   text: {
     margin: 25,

@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from .models import Question
-from .models import UserProfile
+from .admin.charities import CharityProfile
+from .admin.user import User, UserProfile
 
-admin.site.register(Question)
+admin.site.register(User)
 admin.site.register(UserProfile)
+admin.site.register(CharityProfile)
