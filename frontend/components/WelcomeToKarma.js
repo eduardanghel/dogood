@@ -64,9 +64,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   scrollViewView: {
-    alignItems: 'center',
-    pagingEnabled: 'true',
-    showPageIndicator: 'true',
+    //alignItems: 'center',
+    //pagingEnabled: 'true',
+    //showPageIndicator: 'true',
     marginBottom: 20,
   },
   bottomView: {
