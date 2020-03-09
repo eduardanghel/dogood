@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
+import COLORS from './Colors.js';
+import ClassicButton from './ClassicButton.js';
 
 export default class Login extends Component {
   constructor(props) {
@@ -42,20 +44,16 @@ export default class Login extends Component {
           <Button
             title="Forgot Password?"
             fontSize='10'
-            color='#01b0b0'
+            color={COLORS.classicGreen}
             onPress={() => navigate('ForgotPass')}
           />
         </View>
 
-        <View style={{ flex: 3, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 24 }}>
-          <LinearGradient
-            style={styles.button}
-            colors={['#00c5c4', '#01a7a6']}
-            start={{ x: 1, y: 0 }}
-            end={{ x: 0, y: 0 }}
-          >
-            <TouchableOpacity onPress={() => navigate('Feed')}><Text style={styles.loginButton}>Login</Text></TouchableOpacity>
-          </LinearGradient>
+        <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 20}}>
+        <ClassicButton textOnButton="Login"
+          lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+          page='Feed'
+          navigation={this.props.navigation}></ClassicButton>
         </View>
       </View>
     );
@@ -83,14 +81,14 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '500',
     textAlign: 'left',
-    color: '#01b0b0',
+    color: COLORS.classicGreen,
 
   },
   input: {
     height: 50,
     padding: 10,
     margin: 18,
-    borderBottomColor: '#D3D3D3',
+    borderBottomColor: 'grey',
     borderBottomWidth: 1,
 
   },

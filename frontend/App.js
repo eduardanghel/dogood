@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LinearGradient } from 'expo-linear-gradient';
+import COLORS from './components/Colors.js';
 
 import WelcomeToKarma from "./components/WelcomeToKarma.js";
 import Login from "./components/Login.js";
@@ -10,6 +11,9 @@ import ForgotPass from "./components/ForgotPass.js";
 import UserRegistration from "./components/UserRegistration.js";
 import OpenEmail from "./components/OpenEmail.js";
 import Feed from "./components/Feed.js";
+import BeAVolunteer from "./components/BeAVolunteer.js";
+import ContactInfo from "./components/ContactInfo.js";
+import About from './components/About.js';
 
 
 function InitialScreen({ navigation }) {
@@ -17,10 +21,12 @@ function InitialScreen({ navigation }) {
 
     <View style={styles.container}>
       <LinearGradient
-        style={{ alignItems: 'center', justifyContent: 'center', flex: 1, width: '100%' }}
-        colors={['#00c5c4', '#01a7a6']}
+        style={styles.linearGradient}
+        colors={[COLORS.lightGreen, COLORS.darkGreen]}
         start={{ x: 1, y: 0 }}
-        end={{ x: 0, y: 0 }}>
+        end={{ x: 0, y: 1 }}
+        
+        >
         <Text style={styles.textHeader}>KARMA</Text>
         <Text style={styles.text}>Lorem ipsum dolo ecte </Text>
         <Text style={styles.text}>adipisicing elit sed do</Text>
@@ -52,7 +58,7 @@ export default function App() {
         <Stack.Screen name="UserRegistration"
           component={UserRegistration}
           options={{
-            headerTintColor: '#01b0b0',
+            headerTintColor: COLORS.classicGreen,
             title: 'Sign up',
             headerTitleStyle: {
               textAlign: 'left',
@@ -63,7 +69,7 @@ export default function App() {
           }} />
         <Stack.Screen name="Loginate" component={Login}
           options={{
-            headerTintColor: '#01b0b0',
+            headerTintColor: COLORS.classicGreen,
             title: 'Login',
             headerTitleStyle: {
               textAlign: 'left',
@@ -73,7 +79,7 @@ export default function App() {
           }} />
         <Stack.Screen name="ForgotPass" component={ForgotPass}
           options={{
-            headerTintColor: '#01b0b0',
+            headerTintColor: COLORS.classicGreen,
             title: 'Forgot Password',
             headerTitleStyle: {
               textAlign: 'left',
@@ -83,7 +89,7 @@ export default function App() {
           }} />
         <Stack.Screen name="OpenEmail" component={OpenEmail}
           options={{
-            headerTintColor: '#01b0b0',
+            headerTintColor: COLORS.classicGreen,
             title: "Forgot Password",
             headerTitleStyle: {
               textAlign: 'left',
@@ -102,6 +108,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  linearGradient: {
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    flex: 1, 
+    width: '100%'
   },
   textHeader: {
     color: 'white',

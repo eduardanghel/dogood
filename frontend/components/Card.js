@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import ClassicButton from './ClassicButton.js';
+import COLORS from './Colors.js';
+
 class Card extends Component {
     constructor(props) {
         super(props);
@@ -22,19 +25,11 @@ class Card extends Component {
                     <Text style={styles.questionText}>{this.props.question}</Text>
                     <Text style={styles.bodyText}>{this.props.text}</Text>
                 </View>
-                <View style={styles.buttonView}>
-                <TouchableOpacity onPress={() => this.navigate(this.props.page)}
-                >
-                    <LinearGradient
-                        style={styles.button}
-                        colors={['#00c5c4', '#01a7a6']}
-                        start={{ x: 1, y: 0 }}
-                        end={{ x: 0, y: 0 }}
-                    >
-                        <Text style={styles.buttonText}>Sign up</Text>
-                    </LinearGradient>
-                </TouchableOpacity>
-            </View>
+                <ClassicButton textOnButton="Sign up"
+                lightEndColor={COLORS.lightGreen} 
+                darkEndColor={COLORS.darkGreen}
+                navigation={this.props.navigation}
+                page={this.props.page}/>
             </View>
         )
     }
@@ -60,7 +55,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomWidth: 10,
-        borderBottomColor: '#01b0b0',
+        borderBottomColor: COLORS.classicGreen,
     },
     imageView: {
         justifyContent: 'center',

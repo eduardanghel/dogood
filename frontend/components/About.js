@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput, Picker,
 import { LinearGradient } from 'expo-linear-gradient';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
+import COLORS from './Colors.js';
+import Button from './ClassicButton.js';
+
 export default class About extends React.Component {
     static defaultProps = {
         selectedYear: (new Date()).getFullYear(),
@@ -103,7 +106,7 @@ export default class About extends React.Component {
                         <Text></Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0' style={{ marginLeft: '20%', marginTop: '3%' }} /></TouchableOpacity>
+                        <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen} style={{ marginLeft: '20%', marginTop: '3%' }} /></TouchableOpacity>
                         <Text style={styles.text}>    About</Text>
                     </View>
                     <View style={{ marginLeft: 23, marginRight: 23, }}>
@@ -165,15 +168,9 @@ export default class About extends React.Component {
                         </View>
                     </View>
                     <View style={styles.fle}>
-                        <Text></Text>
-                        <LinearGradient
-                            style={styles.sty}
-                            colors={['#00c5c4', '#01a7a6']}
-                            start={{ x: 1, y: 0 }}
-                            end={{ x: 0, y: 0 }}
-                        >
-                            <TouchableOpacity><Text style={styles.te}>Next</Text></TouchableOpacity>
-                        </LinearGradient>
+                        <Button textOnButton="Next"
+                            lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                        />
                     </View>
                 </View>
             </ScrollView>
@@ -206,18 +203,18 @@ const styles = StyleSheet.create({
     },
     tex: {
         // textAlign:'center',
-        color: '#666666',
+        color: 'grey',
 
     },
     tests: {
         // textAlign:'center',
-        color: '#01a7a6',
+        color: COLORS.classicGreen,
         fontSize: 18,
 
     },
     test: {
         // textAlign:'center',
-        color: '#01a7a6',
+        color: COLORS.classicGreen,
         fontSize: 22,
 
     },
@@ -234,8 +231,8 @@ const styles = StyleSheet.create({
     uplo: {
 
         borderWidth: 1,
-        color: 'gray',
-        borderColor: 'gray',
+        color: 'grey',
+        borderColor: 'grey',
         width: 200,
         height: 42,
         borderRadius: 22,
@@ -256,14 +253,14 @@ const styles = StyleSheet.create({
 
     },
     fle: {
-        flex: 1,
-        justifyContent: "flex-end",
-        marginLeft: 30,
-        marginRight: 30,
+        width: '100%', 
+        justifyContent: 
+        'center', alignItems: 
+        'center',
         marginBottom: 40,
     },
     fles: {
-        backgroundColor: '#01a7a6',
+        backgroundColor: COLORS.classicGreen,
         borderWidth: 0,
         width: 45,
         height: 45,
@@ -282,7 +279,7 @@ const styles = StyleSheet.create({
         // textAlign:'center'
     },
     testtts: {
-        color: 'gray',
+        color: 'grey',
         alignSelf: 'center',
         paddingTop: 11,
         // textAlign:'center'
@@ -293,7 +290,7 @@ const styles = StyleSheet.create({
         width: 150,
         height: 42,
         borderRadius: 50,
-        borderColor: 'gray',
+        borderColor: 'grey',
         marginBottom: 20,
 
     },
@@ -301,7 +298,7 @@ const styles = StyleSheet.create({
         // flexDirection: 'row',
         width: 150,
         height: 42,
-        backgroundColor: '#01a7a6',
+        backgroundColor: COLORS.classicGreen,
         borderRadius: 50,
         marginBottom: 20,
     },

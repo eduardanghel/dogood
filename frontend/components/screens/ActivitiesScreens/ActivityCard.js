@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
+import COLORS from '../../Colors.js';
+
 class ActivityCard extends Component {
     constructor(props) {
         super(props);
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
         width: 250,
         borderRadius: 20,
         borderBottomWidth: 10,
-        borderBottomColor: '#01b0b0',
+        borderBottomColor: COLORS.classicGreen,
         marginHorizontal: 10,
         marginVertical: 10,
         shadowColor: 'black',

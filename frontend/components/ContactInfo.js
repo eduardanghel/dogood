@@ -4,56 +4,48 @@ import Constants from 'expo-constants';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import ClassicButton from './ClassicButton.js';
+import COLORS from './Colors.js';
+
 export default class Contact extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity><Icons name={'arrow-back'} size={25} color='#01b0b0' style={{ marginLeft: '20%', marginTop: '25%' }} /></TouchableOpacity>
+                    <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen} style={{ marginLeft: '20%', marginTop: '25%' }} /></TouchableOpacity>
                     <Text style={styles.text}>Contact Info</Text>
                 </View>
-                <Text style={styles.te}>
-                    Where are you located?
+                    <Text style={styles.te}>
+                        Where are you located?
                 </Text>
-                <Text style={styles.de}>
-                    Charities need to know this info, and it lets us show your local events
+                    <Text style={styles.de}>
+                        Charities need to know this info, and it lets us show your local events
                 </Text>
-                <Text style={styles.padding}>
-                    Address Line 1
+                    <Text style={styles.padding}>
+                        Address Line 1
                 </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-                <Text style={styles.padding}>
-                    Address Line 2
+                    <TextInput style={styles.textinput} placeholder="" />
+                    <Text style={styles.padding}>
+                        Address Line 2
                 </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-                <Text style={styles.padding}>
-                    County / State
+                    <TextInput style={styles.textinput} placeholder="" />
+                    <Text style={styles.padding}>
+                        County / State
                 </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-                <Text style={styles.padding}>
-                    County / State                        Postcode
+                    <TextInput style={styles.textinput} placeholder="" />
+                    <Text style={styles.padding}>
+                        County / State                        Postcode
                 </Text>
-                <View style={styles.row}>
-                    <TextInput style={styles.textinput2} placeholder="                       " />
-                    <TextInput style={styles.textinput2} placeholder="                           " />
-                </View>
-                <Text style={styles.padding}>
-                    Phone Number
+                    <View style={styles.row}>
+                        <TextInput style={styles.textinput2} placeholder="                       " />
+                        <TextInput style={styles.textinput2} placeholder="                           " />
+                    </View>
+                    <Text style={styles.padding}>
+                        Phone Number
                 </Text>
-                <TextInput style={styles.textinput} placeholder="" />
+                    <TextInput style={styles.textinput} placeholder="" />
 
-                <View style={{ flex: 3, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 24 }}>
-                    <LinearGradient
-                        style={styles.button}
-                        colors={['#00c5c4', '#01a7a6']}
-                        start={{ x: 1, y: 0 }}
-                        end={{ x: 0, y: 0 }}
-                    >
-                        <TouchableOpacity>
-                            <Text style={styles.login}>Next</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                </View>
+                <ClassicButton page="" textOnButton="Next" lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}></ClassicButton>
 
             </View>
         );
@@ -72,13 +64,13 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '500',
         textAlign: 'left',
-        color: '#01b0b0',
+        color: COLORS.classicGreen,
     },
     de: {
         fontSize: 14,
         margin: 25,
         marginTop: 1,
-        color: '#666666',
+        color: 'grey',
     },
     textinput: {
         fontSize: 15,
@@ -86,7 +78,7 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         paddingBottom: 8,
         marginBottom: 10,
-        borderBottomColor: '#DCDCDC',
+        borderBottomColor: 'grey',
         borderBottomWidth: 1,
         marginLeft: 25,
         marginRight: 25
@@ -98,7 +90,7 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
         marginBottom: 10,
         marginTop: 1,
-        borderBottomColor: '#DCDCDC',
+        borderBottomColor: 'grey',
         borderBottomWidth: 1,
         marginLeft: 25,
         marginRight: 63,
