@@ -4,29 +4,29 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import Button from './ClassicButton.js';
 import COLORS from './Colors.js';
+import ClassicButton from "./ClassicButton";
 
 export default class UserRegistration extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.regform}>
-        <View>
-          <Text style={styles.h1}>Create a new account</Text>
+        <View style={styles.regform}>
+          <View>
+            <Text style={styles.h1}>Create a new account</Text>
+          </View>
+          <View style={styles.fields}>
+            <TextInput style={styles.textinput} placeholder="First Name" />
+            <TextInput style={styles.textinput} placeholder="Last Name" />
+            <TextInput style={styles.textinput} placeholder="Email" />
+            <TextInput style={styles.textinput} placeholder="Choose a username" />
+            <TextInput style={styles.textinput} placeholder="Password" />
+            <TextInput style={styles.textinput} placeholder="Confirm Password" />
+          </View>
+          <ClassicButton textOnButton="Next"
+                         lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                         page='IDValidation'
+                         navigation={this.props.navigation}/>
         </View>
-        <View style={styles.fields}>
-          <TextInput style={styles.textinput} placeholder="First Name" />
-          <TextInput style={styles.textinput} placeholder="Last Name" />
-          <TextInput style={styles.textinput} placeholder="Email" />
-          <TextInput style={styles.textinput} placeholder="Choose a username" />
-          <TextInput style={styles.textinput} placeholder="Password" />
-          <TextInput style={styles.textinput} placeholder="Confirm Password" />
-        </View>
-        <Button textOnButton="Sign up"
-        lightEndColor={COLORS.lightGreen}
-        darkEndColor={COLORS.darkGreen}
-        page=""
-        navigation={this.props.navigation}></Button>
-      </View>
     );
   }
 }
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: COLORS.backgroundGrey,
   },
   h1: {
     fontSize: 24,
