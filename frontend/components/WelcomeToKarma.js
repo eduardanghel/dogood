@@ -12,49 +12,49 @@ export default class WelcomeToKarma extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.welcomeText}>
-          <Text style={styles.header}>Welcome to KARMA</Text>
-          <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do eiusmod</Text>
-        </View>
-        <ScrollView
-          scrollEventThrottle={16}
-          horizontal={true}
-          alwaysBounceVertical={false}
-          showsHorizontalScrollIndicator={false}
-          style={styles.scrollViewView}>
-          <Card
-            imageUri={heartHands} question="Are you an individual?"
-            text="Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusm ut labore et dolore magna aliqua"
-            navigation={this.props.navigation}
-            page="UserRegistration"
-          />
-          <Card
-            imageUri={earth} question="Are you an organization?"
-            text="Lorem ipsum dolor sit amet, consectetur adip isicing elit,sed do eiusm ut labore et dolore magna aliqua"
-            navigation={this.props.navigation}
-            page=""
-          />
-        </ScrollView>
-        <View style={styles.bottomView}>
-          <Text style={styles.boldText}>Already on Karma?</Text>
-          <View style={styles.buttonView}>
-            <LinearGradient
-              style={styles.buttonContainer}
-              colors={[COLORS.lightGreen, COLORS.darkGreen]}
-              start={{ x: 1, y: 0 }}
-              end={{ x: 0, y: 1 }}>
-              <TouchableOpacity
-                onPress={() => navigate('Loginate')}
-              >
-                <View style={styles.loginButton}>
-                  <Text style={styles.login}>Login</Text>
-                </View>
-              </TouchableOpacity>
-            </LinearGradient>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.welcomeText}>
+            <Text style={styles.header}>Welcome to KARMA</Text>
+            <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do eiusmod</Text>
           </View>
-        </View>
-      </SafeAreaView>
+          <ScrollView
+              scrollEventThrottle={16}
+              horizontal={true}
+              alwaysBounceVertical={false}
+              showsHorizontalScrollIndicator={false}
+              style={styles.scrollViewView}>
+            <Card
+                imageUri={heartHands} question="Are you an individual?"
+                text="Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusm ut labore et dolore magna aliqua"
+                navigation={this.props.navigation}
+                page="UserRegistration"
+            />
+            <Card
+                imageUri={earth} question="Are you an organization?"
+                text="Lorem ipsum dolor sit amet, consectetur adip isicing elit,sed do eiusm ut labore et dolore magna aliqua"
+                navigation={this.props.navigation}
+                page=""
+            />
+          </ScrollView>
+          <View style={styles.bottomView}>
+            <Text style={styles.boldText}>Already on Karma?</Text>
+            <View style={styles.buttonView}>
+              <LinearGradient
+                  style={styles.buttonContainer}
+                  colors={[COLORS.lightGreen, COLORS.darkGreen]}
+                  start={{ x: 1, y: 0 }}
+                  end={{ x: 0, y: 1 }}>
+                <TouchableOpacity
+                    onPress={() => navigate('Loginate')}
+                >
+                  <View style={styles.loginButton}>
+                    <Text style={styles.login}>Login</Text>
+                  </View>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
+          </View>
+        </SafeAreaView>
     );
   }
 }

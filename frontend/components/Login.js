@@ -15,47 +15,47 @@ export default class Login extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <View>
-          {/*<Text style={styles.paragraph}>
+        <View style={styles.container}>
+          <View>
+            {/*<Text style={styles.paragraph}>
             Login
             </Text>
     */}
-          <Text style={styles.text}>
-            Welcome back!
+            <Text style={styles.text}>
+              Welcome back!
             </Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Email Address"
-            placeholderTextColor='grey'
-            onChangeText={(text) => this.setState({ text })}
-            value={this.state.text}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            placeholderTextColor='grey'
-            onChangeText={(password) => this.setState({ password })}
-            value={this.state.password}
-          />
-        </View>
+            <TextInput
+                style={styles.input}
+                placeholder="Email Address"
+                placeholderTextColor='grey'
+                onChangeText={(text) => this.setState({ text })}
+                value={this.state.text}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Password"
+                placeholderTextColor='grey'
+                onChangeText={(password) => this.setState({ password })}
+                value={this.state.password}
+            />
+          </View>
 
-        <View style={{ flex: 1, marginLeft: 170 }} >
-          <Button
-            title="Forgot Password?"
-            fontSize='10'
-            color={COLORS.classicGreen}
-            onPress={() => navigate('ForgotPass')}
-          />
-        </View>
+          <View style={{ flex: 1, marginLeft: 170 }} >
+            <Button
+                title="Forgot Password?"
+                fontSize='10'
+                color={COLORS.classicGreen}
+                onPress={() => navigate('ForgotPass')}
+            />
+          </View>
 
-        <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 20}}>
-        <ClassicButton textOnButton="Login"
-          lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-          page='Feed'
-          navigation={this.props.navigation}></ClassicButton>
+          <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 20}}>
+            <ClassicButton textOnButton="Login"
+                           lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                           page='Feed'
+                           navigation={this.props.navigation}></ClassicButton>
+          </View>
         </View>
-      </View>
     );
   }
 }

@@ -6,27 +6,27 @@ const colors = {
     darkGreen: '#019797',           //This is the darker part of the gradients
     lightRed: '#e18688',            //This is the lighter red used in VolunteerCard.js
     darkRed: '#d75e60',             //This is the darker red used in VolunteerCard.js
-    backgroundGrey: '#F5F5F5',      //This grey is famed for being an easy to look background grey color
+    backgroundGrey: '#FFFFFF',      //This grey is famed for being an easy to look background grey color
 }
 
 export default colors;
 
 {/** To use the Colors in a file:
-        First import the colors in your file:
-            import COLORS from './Colors.js';
+ First import the colors in your file:
+ import COLORS from './Colors.js';
 
-        Then whenever you want to use a color, simply write:
-        COLORS.theColorYouWant
-        Of Course you can still use the colors like : 
-            Color: 'white'
-        However I would strongly suggest that for every color where we use it's color code (eg: #something), we instead add it to this document
+ Then whenever you want to use a color, simply write:
+ COLORS.theColorYouWant
+ Of Course you can still use the colors like :
+ Color: 'white'
+ However I would strongly suggest that for every color where we use it's color code (eg: #something), we instead add it to this document
 
-Here is an example:
+ Here is an example:
 
-const styles = StyleSheet.create({
+ const styles = StyleSheet.create({
     Container: {
         Color: COLORS.classicGreen,
         BackgroundCOLOR: COLORS.backgroundGrey,
     }
 })
-*/}
+ */}
