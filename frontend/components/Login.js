@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
+import {
+  Text, View, StyleSheet, TextInput, Button, TouchableOpacity
+} from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -15,39 +17,42 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View>
-          {/*<Text style={styles.paragraph}>
+          {/* <Text style={styles.paragraph}>
             Login
             </Text>
     */}
           <Text style={styles.text}>
             Welcome back!
-            </Text>
+          </Text>
           <TextInput
             style={styles.input}
             placeholder="Email Address"
-            placeholderTextColor='grey'
+            placeholderTextColor="grey"
             onChangeText={(text) => this.setState({ text })}
             value={this.state.text}
           />
           <TextInput
             style={styles.input}
             placeholder="Password"
-            placeholderTextColor='grey'
+            placeholderTextColor="grey"
             onChangeText={(password) => this.setState({ password })}
             value={this.state.password}
           />
         </View>
 
-        <View style={{ flex: 1, marginLeft: 170 }} >
+        <View style={{ flex: 1, marginLeft: 170 }}>
           <Button
             title="Forgot Password?"
-            fontSize='10'
-            color='#01b0b0'
+            fontSize="10"
+            color="#01b0b0"
             onPress={() => navigate('ForgotPass')}
           />
         </View>
 
-        <View style={{ flex: 3, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 24 }}>
+        <View style={{
+          flex: 3, justifyContent: 'space-evenly', alignItems: 'center', marginVertical: 24
+        }}
+        >
           <LinearGradient
             style={styles.button}
             colors={['#00c5c4', '#01a7a6']}
@@ -72,8 +77,8 @@ const styles = StyleSheet.create({
     margin: 24,
     fontSize: 22,
     fontWeight: '500',
-    //textAlign: 'left',
-    //position: 'absolute',
+    // textAlign: 'left',
+    // position: 'absolute',
     left: 27,
     marginLeft: -60,
     marginBottom: 10
@@ -97,10 +102,10 @@ const styles = StyleSheet.create({
   button: {
     marginLeft: 15,
     borderRadius: 22,
-    //borderTopRightRadius: 30,
-    //borderBottomRightRadius: 30,
-    //borderTopLeftRadius: 30,
-    //borderBottomLeftRadius: 30,
+    // borderTopRightRadius: 30,
+    // borderBottomRightRadius: 30,
+    // borderTopLeftRadius: 30,
+    // borderBottomLeftRadius: 30,
     width: 300,
     paddingHorizontal: 16,
   },

@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet, Text, View, TouchableOpacity
+} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import WelcomeToKarma from "./components/WelcomeToKarma.js";
-import Login from "./components/Login.js";
-import ForgotPass from "./components/ForgotPass.js";
-import UserRegistration from "./components/UserRegistration.js";
-import OpenEmail from "./components/OpenEmail.js";
-import Feed from "./components/Feed.js";
+import WelcomeToKarma from './components/WelcomeToKarma';
+import Login from './components/Login';
+import ForgotPass from './components/ForgotPass';
+import UserRegistration from './components/UserRegistration';
+import OpenEmail from './components/OpenEmail';
+import Feed from './components/Feed';
+import UserRegistration2 from './components/UserRegistration2';
 
 
 function InitialScreen({ navigation }) {
@@ -17,10 +20,13 @@ function InitialScreen({ navigation }) {
 
     <View style={styles.container}>
       <LinearGradient
-        style={{ alignItems: 'center', justifyContent: 'center', flex: 1, width: '100%' }}
+        style={{
+          alignItems: 'center', justifyContent: 'center', flex: 1, width: '100%'
+        }}
         colors={['#00c5c4', '#01a7a6']}
         start={{ x: 1, y: 0 }}
-        end={{ x: 0, y: 0 }}>
+        end={{ x: 0, y: 0 }}
+      >
         <Text style={styles.textHeader}>KARMA</Text>
         <Text style={styles.text}>Lorem ipsum dolo ecte </Text>
         <Text style={styles.text}>adipisicing elit sed do</Text>
@@ -28,14 +34,14 @@ function InitialScreen({ navigation }) {
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('Back')}
         >
-          <Text style={{ color: "white", fontSize: 20, }}>Sign Up</Text>
+          <Text style={{ color: 'white', fontSize: 20, }}>Sign Up</Text>
         </TouchableOpacity>
         <Text
           style={styles.loginText}
           onPress={() => navigation.navigate('Loginate')}
         >
           Already have an account? Login
-            </Text>
+        </Text>
       </LinearGradient>
     </View>
   );
@@ -49,7 +55,8 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={InitialScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Back" component={WelcomeToKarma} options={{ headerShown: false }} />
-        <Stack.Screen name="UserRegistration"
+        <Stack.Screen
+          name="UserRegistration"
           component={UserRegistration}
           options={{
             headerTintColor: '#01b0b0',
@@ -60,8 +67,11 @@ export default function App() {
               fontSize: 22,
               color: 'black',
             }
-          }} />
-        <Stack.Screen name="Loginate" component={Login}
+          }}
+        />
+        <Stack.Screen
+          name="Loginate"
+          component={Login}
           options={{
             headerTintColor: '#01b0b0',
             title: 'Login',
@@ -70,8 +80,11 @@ export default function App() {
               color: 'black',
               fontSize: 22,
             }
-          }} />
-        <Stack.Screen name="ForgotPass" component={ForgotPass}
+          }}
+        />
+        <Stack.Screen
+          name="ForgotPass"
+          component={ForgotPass}
           options={{
             headerTintColor: '#01b0b0',
             title: 'Forgot Password',
@@ -80,18 +93,23 @@ export default function App() {
               color: 'black',
               fontSize: 22,
             }
-          }} />
-        <Stack.Screen name="OpenEmail" component={OpenEmail}
+          }}
+        />
+        <Stack.Screen
+          name="OpenEmail"
+          component={OpenEmail}
           options={{
             headerTintColor: '#01b0b0',
-            title: "Forgot Password",
+            title: 'Forgot Password',
             headerTitleStyle: {
               textAlign: 'left',
               color: 'black',
               fontSize: 22,
             }
-          }} />
-          <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}} />
+          }}
+        />
+        <Stack.Screen name="Feed" component={Feed} options={{ headerShown: false }} />
+        <Stack.Screen name="UserRegistration2" component={UserRegistration2} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -126,7 +144,7 @@ const styles = StyleSheet.create({
     bottom: 60,
   },
   loginText: {
-    color: "white",
+    color: 'white',
     fontSize: 15,
     marginTop: 10,
     marginBottom: 20,

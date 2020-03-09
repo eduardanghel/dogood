@@ -1,11 +1,14 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import {
+  StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
 
 import heart from '../assets/heart.png';
 import earth from '../assets/earth.png';
-import Card from './Card.js';
+import Card from './Card';
 
 export default class WelcomeToKarma extends Component {
   render() {
@@ -15,25 +18,30 @@ export default class WelcomeToKarma extends Component {
         <View style={styles.container}>
           <View style={styles.welcomeText}>
             <Text style={styles.header}>Welcome to KARMA</Text>
-            <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do eiusmod</Text>
+            <Text style={styles.text}>
+              Lorem ipsum dolo sit amet,
+              consectetur adip isicing elit, sed do eiusmod
+            </Text>
           </View>
           <ScrollView
             scrollEventThrottle={16}
-            horizontal={true}
+            horizontal
             alwaysBounceVertical={false}
             showsHorizontalScrollIndicator={false}
-            style={styles.scrollViewView}>
-            <Card navigation={this.props.navigation} imageUri={heart} question="Are you an individual?" page="UserRegistration"></Card>
-            <Card navigation={this.props.navigation} imageUri={earth} question="Are you an organization?" page=""></Card>
+            style={styles.scrollViewView}
+          >
+            <Card navigation={this.props.navigation} imageUri={heart} question="Are you an individual?" page="UserRegistration" />
+            <Card navigation={this.props.navigation} imageUri={earth} question="Are you an organization?" page="" />
           </ScrollView>
           <View style={styles.bottomView}>
             <Text style={styles.boldText}>Already on Karma?</Text>
             <View style={styles.buttonView}>
               <LinearGradient
-                style={{ borderRadius: 22, alignItems: 'center', justifyContent: 'center',}}
+                style={{ borderRadius: 22, alignItems: 'center', justifyContent: 'center', }}
                 colors={['#00c5c4', '#01a7a6']}
                 start={{ x: 1, y: 0 }}
-                end={{ x: 0, y: 0 }}>
+                end={{ x: 0, y: 0 }}
+              >
                 <TouchableOpacity
                   onPress={() => navigate('Loginate')}
                 >
@@ -63,7 +71,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   scrollViewView: {
-    //alignItems: 'center',
     marginBottom: 20,
   },
   bottomView: {

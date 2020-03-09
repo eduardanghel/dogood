@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint *.js **/*.js"
   },
   "jest": {
     "preset": "react-native"
@@ -21,11 +22,15 @@
     "background": "^0.3.3",
     "button": "^1.1.1",
     "canvas": "^2.6.1",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "evil-icons": "^1.10.1",
     "expo": "~36.0.0",
+    "expo-constants": "^8.0.0",
+    "expo-linear-gradient": "^8.0.0",
     "react": "16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "0.61.5",
+    "react-native-checkbox-form": "^1.1.5",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-paper": "^3.6.0",
@@ -41,8 +46,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "babel-preset-expo": "~8.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
     "jest": "^25.1.0",
     "react-test-renderer": "^16.12.0"
   },

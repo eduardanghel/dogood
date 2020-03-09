@@ -1,33 +1,36 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import {
+  View, Text, StyleSheet
+} from 'react-native';
 import Constants from 'expo-constants';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import AllActivities from './ActivitiesScreens/AllActivities.js';
+import AllActivities from './ActivitiesScreens/AllActivities';
 
-//The following are temporary functions as the screens they should represent aren't done yet
+// The following are temporary functions as the screens they should represent aren't done yet
 function ActivitiesCauses() {
-    return (
-        <View style={styles.container}>
-            <Text>Activities Causes!</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text>Activities Causes!</Text>
+    </View>
+  );
 }
 
 function ActivitiesGoing() {
-    return (
-        <View style={styles.container}>
-            <Text>Activities Going!</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text>Activities Going!</Text>
+    </View>
+  );
 }
 
 function ActivitiesFavorites() {
-    return (
-        <View style={styles.container}>
-            <Text>Activities Favorites!</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text>Activities Favorites!</Text>
+    </View>
+  );
 }
 
 // End of temporary functions
@@ -35,36 +38,38 @@ function ActivitiesFavorites() {
 const Tab = createMaterialTopTabNavigator();
 
 class Activities extends Component {
-    render() {
-        return (
-            <Tab.Navigator initialRouteName='All'
-                style={{
-                    paddingTop: Constants.statusBarHeight, backgroundColor: 'white'
-                }}
-                tabBarOptions={{
-                    activeTintColor: 'white',
-                    inactiveTintColor: 'grey',
-                    indicatorStyle: { backgroundColor: '#01b0b0', height: '100%', borderRadius: 30 },
-                    labelStyle: {
-                        fontSize: 12,
-                    }
+  render() {
+    return (
+      <Tab.Navigator
+        initialRouteName="All"
+        style={{
+          paddingTop: Constants.statusBarHeight, backgroundColor: 'white'
+        }}
+        tabBarOptions={{
+          activeTintColor: 'white',
+          inactiveTintColor: 'grey',
+          indicatorStyle: { backgroundColor: '#01b0b0', height: '100%', borderRadius: 30 },
+          labelStyle: {
+            fontSize: 12,
+          }
 
-                }}>
-                <Tab.Screen name='All' component={AllActivities} />
-                <Tab.Screen name='Causes' component={ActivitiesCauses} />
-                <Tab.Screen name='Going' component={ActivitiesGoing} />
-                <Tab.Screen name='Favorites' component={ActivitiesFavorites} />
-            </Tab.Navigator >
-        )
-    }
+        }}
+      >
+        <Tab.Screen name="All" component={AllActivities} />
+        <Tab.Screen name="Causes" component={ActivitiesCauses} />
+        <Tab.Screen name="Going" component={ActivitiesGoing} />
+        <Tab.Screen name="Favorites" component={ActivitiesFavorites} />
+      </Tab.Navigator>
+    );
+  }
 }
 
 export default Activities;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-})
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+});

@@ -1,9 +1,13 @@
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet, Text, View, TextInput, TouchableOpacity
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default class UserRegistration extends React.Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.regform}>
         <View>
@@ -14,8 +18,8 @@ export default class UserRegistration extends React.Component {
           <TextInput style={styles.textinput} placeholder="Last Name" />
           <TextInput style={styles.textinput} placeholder="Email" />
           <TextInput style={styles.textinput} placeholder="Choose a username" />
-          <TextInput style={styles.textinput} placeholder="Password" />
-          <TextInput style={styles.textinput} placeholder="Confirm Password" />
+          <TextInput secureTextEntry style={styles.textinput} placeholder="Password" />
+          <TextInput secureTextEntry style={styles.textinput} placeholder="Confirm Password" />
         </View>
         <View>
           <LinearGradient
@@ -24,8 +28,8 @@ export default class UserRegistration extends React.Component {
             start={{ x: 1, y: 0 }}
             end={{ x: 0, y: 0 }}
           >
-            <TouchableOpacity>
-              <Text style={styles.btnText}>Sign Up</Text>
+            <TouchableOpacity onPress={() => navigate('UserRegistration2')}>
+              <Text style={styles.signupButton}>Next</Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
@@ -60,22 +64,13 @@ const styles = StyleSheet.create({
   textinput: {
     fontSize: 16,
     color: 'grey',
-    //paddingTop: 20,
-    //paddingBottom: 10,
-    //marginBottom: 20,
     borderBottomColor: 'grey',
     borderBottomWidth: 1,
-    //marginRight: 40,
     paddingVertical: 10,
     marginVertical: 2,
   },
   button: {
-    //marginLeft: 15,
     borderRadius: 30,
-    //borderTopRightRadius: 30,
-    //borderBottomRightRadius: 30,
-    //borderTopLeftRadius: 30,
-    //borderBottomLeftRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%'
