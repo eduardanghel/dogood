@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import AllActivities from './ActivitiesScreens/AllActivities.js';
+import COLORS from '../Colors.js';
 
 //The following are temporary functions as the screens they should represent aren't done yet
 function ActivitiesCauses() {
@@ -39,12 +40,12 @@ class Activities extends Component {
         return (
             <Tab.Navigator initialRouteName='All'
                 style={{
-                    paddingTop: Constants.statusBarHeight, backgroundColor: 'white'
+                    marginTop: Constants.statusBarHeight, backgroundColor: 'white',
                 }}
                 tabBarOptions={{
                     activeTintColor: 'white',
                     inactiveTintColor: 'grey',
-                    indicatorStyle: { backgroundColor: '#01b0b0', height: '100%', borderRadius: 30 },
+                    indicatorStyle: { backgroundColor: COLORS.classicGreen, height: '100%', borderRadius: 30 },
                     labelStyle: {
                         fontSize: 12,
                     }

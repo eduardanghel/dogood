@@ -6,7 +6,7 @@ import Constants from 'expo-constants';
 //import { createStackNavigator } from '@react-navigation/stack';
 
 import VolunteerCard from "./VolunteerCard.js";
-
+import COLORS from './Colors.js';
 
 export default class BeAVolunteer extends Component {
   render() {
@@ -23,9 +23,9 @@ export default class BeAVolunteer extends Component {
             alwaysBounceVertical={false}
             showsVerticalScrollIndicator={false}>
               <VolunteerCard header="Be a volunteer" body="Browse and sign up for activities in your area." textButton="Search"
-                lightColour="#00c5c4" darkColour="#01a7a6"/>
+                lightColour={COLORS.lightGreen} darkColour={COLORS.darkGreen}/>
               <VolunteerCard header="Request help" body="Get help on tasks from your trusted community." textButton="Request"
-                lightColour="#e18688" darkColour="#d75e60"/>
+                lightColour={COLORS.lightRed} darkColour={COLORS.darkRed}/>
           </ScrollView>
         </View>
       </SafeAreaView>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   safeStyle:{
     flex:1,
     paddingTop:Constants.statusBarHeight,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: COLORS.backgroundGrey,
   },
   container: {
     paddingHorizontal:40,

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+
+import ClassicButton from './ClassicButton.js';
      
 class VolunteerCard extends Component {
     render() {
@@ -17,24 +19,17 @@ class VolunteerCard extends Component {
                 </LinearGradient>
                 <View style={styles.body}> 
                     <Text style={styles.bodyText}> {this.props.body} </Text>
-                    <View style={{width: '90%'}}>
-                        <TouchableOpacity>
-                            <LinearGradient 
-                                colors={[this.props.lightColour, this.props.darkColour]}
-                                start={{ x: 1, y: 0 }}
-                                end={{ x: 0, y: 0 }}
-                                style={styles.button}> 
-                                    <Text style={styles.buttonText}> {this.props.textButton} </Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                    </View>
+                    <ClassicButton textOnButton={this.props.textButton}
+                    lightEndColor={this.props.lightColour} darkEndColor={this.props.darkColour}
+                    navigation={this.props.navigation}
+                    page={this.props.page}/>
                 </View>    
             </View>
         )
     }
 }
 
-export default Card;
+export default VolunteerCard;
 
 const styles = StyleSheet.create({
     container: {
@@ -51,9 +46,11 @@ const styles = StyleSheet.create({
         elevation: 8,
         backgroundColor: 'white',
         justifyContent: 'center',
+        alignItems: 'center'
     },
     cardHeader: {
         padding: 20,
+        width: '100%',
     },
     headerText:{
         color:'white',
@@ -76,6 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent:'center',
         paddingVertical:20,
+        width: '90%',
     },
     bodyText:{
         marginBottom:30

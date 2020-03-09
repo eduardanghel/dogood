@@ -24,50 +24,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
     },
-    header: {
-        marginTop: 10,
-        marginRight: 20,
-        marginLeft: 20,
-        width: '75%',
-    },
     feed: {
         backgroundColor: 'blue',
         flex: 1,
         width: '90%',
-    },
-    bottom: {
-
-    },
-    title: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    filterActivities: {
-        flexDirection: 'row',
-        marginHorizontal: 10,
-        justifyContent: 'center',
-        marginBottom: 10,
-    },
-    textView: {
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#01b0b0',
-        marginHorizontal: 5,
-    },
-    textFilter: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-    },
-    favorites: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 5,
     },
 })

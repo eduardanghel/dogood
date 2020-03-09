@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
+import COLORS from './Colors.js';
 
 import heartHands from '../assets/heartHands.png';
 import earth from '../assets/peopleGlobe.png';
@@ -40,9 +41,9 @@ export default class WelcomeToKarma extends Component {
           <View style={styles.buttonView}>
             <LinearGradient
               style={styles.buttonContainer}
-              colors={['#00c5c4', '#01a7a6']}
+              colors={[COLORS.lightGreen, COLORS.darkGreen]}
               start={{ x: 1, y: 0 }}
-              end={{ x: 0, y: 0 }}>
+              end={{ x: 0, y: 1 }}>
               <TouchableOpacity
                 onPress={() => navigate('Loginate')}
               >
@@ -62,7 +63,7 @@ export default class WelcomeToKarma extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: COLORS.backgroundGrey,
     marginTop: Constants.statusBarHeight,
     paddingTop: 5,
     alignItems: 'center',
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   buttonView: {
     backgroundColor: 'white',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
   },
   buttonContainer: {
     borderRadius: 22,
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   loginButton: {
-    borderRadius: 23,
+    borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     margin: 2,
   },
   login: {
-    color: '#01b0b0',
+    color: COLORS.classicGreen,
     fontSize: 20,
     textAlign: 'left',
   },

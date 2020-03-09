@@ -2,8 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import Button from './ClassicButton.js';
+import COLORS from './Colors.js';
+
 export default class UserRegistration extends React.Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.regform}>
         <View>
@@ -17,18 +21,11 @@ export default class UserRegistration extends React.Component {
           <TextInput style={styles.textinput} placeholder="Password" />
           <TextInput style={styles.textinput} placeholder="Confirm Password" />
         </View>
-        <View>
-          <LinearGradient
-            style={styles.buttonView}
-            colors={['#00c5c4', '#01a7a6']}
-            start={{ x: 1, y: 0 }}
-            end={{ x: 0, y: 0 }}
-          >
-            <TouchableOpacity>
-              <Text style={styles.btnText}>Sign Up</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-        </View>
+        <Button textOnButton="Sign up"
+        lightEndColor={COLORS.lightGreen}
+        darkEndColor={COLORS.darkGreen}
+        page=""
+        navigation={this.props.navigation}></Button>
       </View>
     );
   }
@@ -39,10 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   h1: {
     fontSize: 24,
-    color: '#01b0b0',
+    color: COLORS.classicGreen,
     fontWeight: 'bold',
     textAlignVertical: 'top',
     marginHorizontal: 20,
@@ -51,6 +49,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingVertical: 10,
     paddingBottom: 30,
+    width: '95%',
   },
   buttonView: {
     borderRadius: 22,

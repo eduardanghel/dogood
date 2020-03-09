@@ -7,6 +7,8 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import Activities from './screens/Activities.js';
 //import Notifications from './screens/Notifications.js';
 
+import COLORS from './Colors.js';
+
 //The following functions are just temporary as the screens haven't been coded yet
 
 function MyCausesScreen() {
@@ -64,7 +66,7 @@ export default class Feed extends Component {
                     },
                 })}
                 tabBarOptions={{
-                    activeTintColor: '#01b0b0',
+                    activeTintColor: COLORS.classicGreen,
                 }}>
                 <Tab.Screen name="Activities" component={Activities} />
                 <Tab.Screen name="My Causes" component={MyCausesScreen} />

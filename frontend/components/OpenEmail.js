@@ -2,6 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
+import COLORS from './Colors.js';
+import Button from './ClassicButton.js';
+
 export default class OpenEmail extends React.Component {
 
     componentDidMount() {
@@ -9,8 +12,9 @@ export default class OpenEmail extends React.Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center' }}>
                 {/*<View>
                 <Text></Text>
                 <Text></Text>
@@ -26,16 +30,10 @@ export default class OpenEmail extends React.Component {
                     <Text style={styles.tex}>We have sent an email to janedoe@gmail.com please check your mail.</Text>
                     <Text></Text>
                 </View>
-                <View style={{ marginLeft: 30, marginRight: 30 }}>
-                    <LinearGradient
-                        style={styles.sty}
-                        colors={['#00c5c4', '#01a7a6']}
-                        start={{ x: 1, y: 0 }}
-                        end={{ x: 0, y: 0 }}
-                    >
-                        <TouchableOpacity><Text style={styles.te}>Open Inbox</Text></TouchableOpacity>
-                    </LinearGradient>
-                </View>
+                <Button textOnButton="Open Inbox" 
+                lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                navigation={this.props.navigation}
+                page=""></Button>
             </View>
         )
     }
@@ -51,7 +49,7 @@ const styles = StyleSheet.create({
     },
     tex: {
         // textAlign:'center',
-        color: '#666666',
+        color: 'grey',
 
     },
     te: {
