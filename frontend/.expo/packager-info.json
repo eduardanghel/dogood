@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 20012,
-  "expoServerNgrokUrl": "https://kn-mbx.oscarp.frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.kn-mbx.oscarp.frontend.exp.direct",
-  "ngrokPid": 15720
+  "packagerPid": 23741,
+  "expoServerNgrokUrl": "https://kn-mbx.anonymous.frontend.exp.direct",
+  "packagerNgrokUrl": "https://packager.kn-mbx.anonymous.frontend.exp.direct",
+  "ngrokPid": 23783
 }
