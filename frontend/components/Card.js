@@ -13,31 +13,28 @@ class Card extends Component {
     }
 
     render() {
-        // const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
-                <View style={{ justifyContent: 'space-between', alignItems: 'center', flex: 1 }}>
-                    <Image source={this.props.imageUri} style={{ width: '50%', height: '50%', resizeMode: 'center' }}></Image>
+                <View style={styles.imageView}>
+                    <Image source={this.props.imageUri} style={{ resizeMode: 'cover' }}></Image>
                 </View>
-                <View style={{ justifyContent: 'center', flex: 1 }}>
-                    <Text style={{ marginVertical: 5, fontWeight: 'bold' }}>{this.props.question}</Text>
-                    <Text style={{ marginVertical: 5 }}>Lorem ipsum dolor sit amet, consectetur adip isicing elit,
-                   sed do eiusm ut labore et dolore magna aliqua
-                    </Text>
-                    <View>
-                        <LinearGradient
-                            style={styles.signupButtonView}
-                            colors={['#00c5c4', '#01a7a6']}
-                            start={{ x: 1, y: 0 }}
-                            end={{ x: 0, y: 0 }}
-                        >
-                            <TouchableOpacity
-                                onPress={() => this.navigate(this.props.page)}>
-                                <Text style={styles.signup} >Sign up</Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
-                    </View>
+                <View style={styles.body}>
+                    <Text style={styles.questionText}>{this.props.question}</Text>
+                    <Text style={styles.bodyText}>{this.props.text}</Text>
                 </View>
+                <View style={styles.buttonView}>
+                <TouchableOpacity onPress={() => this.navigate(this.props.page)}
+                >
+                    <LinearGradient
+                        style={styles.button}
+                        colors={['#00c5c4', '#01a7a6']}
+                        start={{ x: 1, y: 0 }}
+                        end={{ x: 0, y: 0 }}
+                    >
+                        <Text style={styles.buttonText}>Sign up</Text>
+                    </LinearGradient>
+                </TouchableOpacity>
+            </View>
             </View>
         )
     }
@@ -48,11 +45,10 @@ export default Card;
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         height: '95%',
         width: 250,
-        borderRadius: 20,
-        borderBottomWidth: 10,
-        borderBottomColor: '#01b0b0',
+        borderRadius: 3,
         marginHorizontal: 10,
         marginVertical: 10,
         shadowColor: 'black',
@@ -60,33 +56,44 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         shadowOpacity: 0.26,
         elevation: 8,
-        padding: 20,
-        backgroundColor: 'white'
-    },
-    signupButtonView: {
-        borderRadius: 22,
-        alignItems: 'center',
+        backgroundColor: 'white',
         justifyContent: 'center',
-    },
-    signupButton: {
-        borderRadius: 22,
         alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        padding: 20,
-        height: 44,
-        width: 200,
+        borderBottomWidth: 10,
+        borderBottomColor: '#01b0b0',
     },
-    signup: {
+    imageView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    body: {
         paddingHorizontal: 20,
-        paddingVertical: 10,
+        justifyContent: 'center',
+    },
+    questionText: {
+        paddingVertical: 5,
+        fontWeight: 'bold',
+        alignItems: 'center'
+    },
+    bodyText: {
+        marginVertical: 5,
+    },
+    buttonView: {
+        width: '85%',
+        marginTop: 10,
+    },
+    button: {
+        borderRadius: 22,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+    },
+    buttonText: {
         color: 'white',
         fontSize: 20,
         borderRadius: 22,
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent:'center',
+        paddingVertical:10,
     },
-    sty: {
-        borderRadius: 30,
-    }
 });
