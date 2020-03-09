@@ -3,46 +3,54 @@ import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView } fr
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
 
-import heart from '../assets/heart.png';
-import earth from '../assets/earth.png';
+import heartHands from '../assets/heartHands.png';
+import earth from '../assets/peopleGlobe.png';
 import Card from './Card.js';
 
 export default class WelcomeToKarma extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={styles.container}>
-          <View style={styles.welcomeText}>
-            <Text style={styles.header}>Welcome to KARMA</Text>
-            <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do eiusmod</Text>
-          </View>
-          <ScrollView
-            scrollEventThrottle={16}
-            horizontal={true}
-            alwaysBounceVertical={false}
-            showsHorizontalScrollIndicator={false}
-            style={styles.scrollViewView}>
-            <Card navigation={this.props.navigation} imageUri={heart} question="Are you an individual?" page="UserRegistration"></Card>
-            <Card navigation={this.props.navigation} imageUri={earth} question="Are you an organization?" page=""></Card>
-          </ScrollView>
-          <View style={styles.bottomView}>
-            <Text style={styles.boldText}>Already on Karma?</Text>
-            <View style={styles.buttonView}>
-              <LinearGradient
-                style={{ borderRadius: 22, alignItems: 'center', justifyContent: 'center',}}
-                colors={['#00c5c4', '#01a7a6']}
-                start={{ x: 1, y: 0 }}
-                end={{ x: 0, y: 0 }}>
-                <TouchableOpacity
-                  onPress={() => navigate('Loginate')}
-                >
-                  <View style={styles.loginButton}>
-                    <Text style={styles.login}>Login</Text>
-                  </View>
-                </TouchableOpacity>
-              </LinearGradient>
-            </View>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.welcomeText}>
+          <Text style={styles.header}>Welcome to KARMA</Text>
+          <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do eiusmod</Text>
+        </View>
+        <ScrollView
+          scrollEventThrottle={16}
+          horizontal={true}
+          alwaysBounceVertical={false}
+          showsHorizontalScrollIndicator={false}
+          style={styles.scrollViewView}>
+          <Card
+            imageUri={heartHands} question="Are you an individual?"
+            text="Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusm ut labore et dolore magna aliqua"
+            navigation={this.props.navigation}
+            page="UserRegistration"
+          />
+          <Card
+            imageUri={earth} question="Are you an organization?"
+            text="Lorem ipsum dolor sit amet, consectetur adip isicing elit,sed do eiusm ut labore et dolore magna aliqua"
+            navigation={this.props.navigation}
+            page=""
+          />
+        </ScrollView>
+        <View style={styles.bottomView}>
+          <Text style={styles.boldText}>Already on Karma?</Text>
+          <View style={styles.buttonView}>
+            <LinearGradient
+              style={styles.buttonContainer}
+              colors={['#00c5c4', '#01a7a6']}
+              start={{ x: 1, y: 0 }}
+              end={{ x: 0, y: 0 }}>
+              <TouchableOpacity
+                onPress={() => navigate('Loginate')}
+              >
+                <View style={styles.loginButton}>
+                  <Text style={styles.login}>Login</Text>
+                </View>
+              </TouchableOpacity>
+            </LinearGradient>
           </View>
         </View>
       </SafeAreaView>
@@ -56,29 +64,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5F5F5',
     marginTop: Constants.statusBarHeight,
+    paddingTop: 5,
     alignItems: 'center',
     justifyContent: 'center',
   },
   welcomeText: {
     marginBottom: 10,
   },
-  scrollViewView: {
-    //alignItems: 'center',
-    marginBottom: 20,
-  },
-  bottomView: {
-    backgroundColor: 'white',
-    width: '100%',
-    marginHorizontal: 20,
-    paddingBottom: 30,
-  },
-  buttonView: {
-    backgroundColor: 'white',
-    alignItems: 'center',
-    width: '100%'
-  },
   header: {
-    fontSize: 20,
+    fontSize: 30,
     marginHorizontal: 20,
     marginVertical: 10,
     textAlign: 'left'
@@ -89,12 +83,31 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     textAlign: 'left'
   },
+  scrollViewView: {
+    marginBottom: 20,
+  },
+  bottomView: {
+    backgroundColor: 'white',
+    width: '100%',
+    marginHorizontal: 20,
+    paddingBottom: 30,
+  },
   boldText: {
     fontSize: 15,
     marginHorizontal: 20,
     marginVertical: 10,
     textAlign: 'left',
     fontWeight: 'bold'
+  },
+  buttonView: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    width: '100%'
+  },
+  buttonContainer: {
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   loginButton: {
     borderRadius: 23,
