@@ -19,7 +19,10 @@ export default class AddPhoneNumber extends React.Component {
                         We will send you a verification code to verify your phone.
                     </Text>
                     <Text />
-                    <TextInput style={styles.textInput} placeholder="+44 " />
+                    <View style={styles.input}>
+                        <Text style={styles.phonetxt}>+44</Text>
+                        <TextInput style={styles.textInput} placeholder="                                                                          " />
+                    </View>
                 </View>
                 <View style={styles.buttonView}>
                     <ClassicButton
@@ -61,12 +64,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
+        marginBottom: 30,
     },
     textInput: {
         fontSize: 16,
         color: 'grey',
-        borderBottomColor: 'grey',
+        borderBottomColor: 'lightgray',
         borderBottomWidth: 1,
+        marginLeft: 10,
+        marginRight: 30,
         // paddingVertical: 10,
         marginVertical: 2,
     },
@@ -76,4 +82,14 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     width: '95%',
     },
+    input: {
+        flexDirection: 'row',
+        marginLeft: 30,
+        marginRight: 30,
+    },
+    phonetxt: {
+        marginTop: 2,
+        fontSize: 16,
+        fontWeight: 'bold',
+    }
 });

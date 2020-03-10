@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://cy-hjp.edydotmail.frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.cy-hjp.edydotmail.frontend.exp.direct",
-  "ngrokPid": 22493
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
