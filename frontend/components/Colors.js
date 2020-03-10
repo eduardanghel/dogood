@@ -6,7 +6,7 @@ const colors = {
     darkGreen: '#019797',           //This is the darker part of the gradients
     lightRed: '#e18688',            //This is the lighter red used in VolunteerCard.js
     darkRed: '#d75e60',             //This is the darker red used in VolunteerCard.js
-    backgroundGrey: '#FFFFFF',      //This grey is famed for being an easy to look background grey color
+    backgroundGrey: '#f2f3f7',      //This grey is famed for being an easy to look background grey color
 }
 
 export default colors;

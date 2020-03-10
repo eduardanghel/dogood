@@ -12,6 +12,8 @@ import UserRegistration from "./components/UserRegistration.js";
 import OpenEmail from "./components/OpenEmail.js";
 import Feed from "./components/Feed.js";
 import IDValidation from "./components/IDValidation";
+import AddPhoneNumber from "./components/AddPhoneNumber";
+import VerifyPhoneNumber from "./components/VerifyPhoneNumber";
 import BeAVolunteer from "./components/BeAVolunteer.js";
 import ContactInfo from "./components/ContactInfo.js";
 import About from './components/About.js';
@@ -100,6 +102,9 @@ export default function App() {
                         }} />
           <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}} />
           <Stack.Screen name="IDValidation" component={IDValidation} options={{headerShown: false}} />
+          <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber} options={{headerShown: false}} />
+          <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} options={{headerShown: false}} />
+
         </Stack.Navigator>
       </NavigationContainer>
   );
