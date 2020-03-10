@@ -20,9 +20,8 @@ export default class VerifyPhoneNumber extends React.Component {
                     <Text style={styles.text}>
                         Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod.
                     </Text>
-                    <TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1}} A/>
+                    <TextInput style={styles.textInput} A/>
                     <Text />
-                    <TextInput style={styles.textInput} placeholder="+44 " />
                 </View>
                 <View style={styles.buttonView}>
                     <ClassicButton
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 16,
-        color: '#3e3e3e',
+        color: 'grey',
         textAlignVertical: 'top',
         // textAlign: 'center',
         marginHorizontal: 20,
@@ -64,14 +63,19 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
+        marginBottom: 30,
     },
     textInput: {
-        fontSize: 16,
-        color: 'grey',
-        borderBottomColor: 'grey',
-        borderBottomWidth: 1,
-        // paddingVertical: 10,
-        marginVertical: 2,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
     },
     fields: {
         marginVertical: 10,
