@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 1676,
-  "expoServerNgrokUrl": "https://kn-mbx.oscarp.frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.kn-mbx.oscarp.frontend.exp.direct",
-  "ngrokPid": 17328
+  "devToolsPort": 19003,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://cy-hjp.edydotmail.frontend.exp.direct",
+  "packagerNgrokUrl": "https://packager.cy-hjp.edydotmail.frontend.exp.direct",
+  "ngrokPid": 22493
 }
