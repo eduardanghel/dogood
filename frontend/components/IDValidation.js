@@ -30,7 +30,7 @@ export default class IDValidation extends React.Component {
                     <ClassicButton
                     textOnButton="Verify now"
                     lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                    page='Feed'
+                    page='AddPhoneNumber'
                     navigation={this.props.navigation}/>
                 </View>
             </SafeAreaView>
