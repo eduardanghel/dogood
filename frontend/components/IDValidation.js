@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
+        marginBottom: 30,
     },
     image: {
         alignSelf: 'center',

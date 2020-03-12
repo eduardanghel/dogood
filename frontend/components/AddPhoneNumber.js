@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
     phonetxt: {
         marginTop: 2,
         fontSize: 16,
-        fontWeight: 'bold',
+        color: 'grey',
     }
 });
