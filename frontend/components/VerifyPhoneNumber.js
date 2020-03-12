@@ -27,7 +27,7 @@ export default class VerifyPhoneNumber extends React.Component {
                     <ClassicButton
                         textOnButton="Next"
                         lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                        page='VerifyPhoneNumber'
+                        page='About'
                         navigation={this.props.navigation}/>
                 </View>
             </SafeAreaView>

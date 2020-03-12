@@ -170,6 +170,8 @@ export default class About extends React.Component {
                     <View style={styles.fle}>
                         <Button textOnButton="Next"
                             lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                            navigation={this.props.navigation}
+                            page="ContactInfo"
                         />
                     </View>
                 </View>
