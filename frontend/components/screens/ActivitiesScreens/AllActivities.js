@@ -6,7 +6,7 @@ import {
   FlatList,
 } from 'react-native';
 
-import EventCard from './EventCard.js';
+import EventCard from './EventCard';
 import shark from '../../../assets/promo_5.png';
 import garden from '../../../assets/garden.png';
 

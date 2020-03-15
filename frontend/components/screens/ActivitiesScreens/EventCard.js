@@ -9,9 +9,9 @@ import HeartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AddUser from 'react-native-vector-icons/Entypo';
 import ArrowIcon from 'react-native-vector-icons/AntDesign';
 
-import TimeAndSpots from './TimeOrSpots.js';
-import COLOR from '../../Colors.js';
-import DetailedEventPage from './DetailedEventPage.js';
+import TimeAndSpots from './TimeOrSpots';
+import COLOR from '../../Colors';
+import DetailedEventPage from './DetailedEventPage';
 
 
 
