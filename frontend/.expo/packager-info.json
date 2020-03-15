@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 12476,
-  "expoServerNgrokUrl": "https://7b-qhw.oscarp.frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.7b-qhw.oscarp.frontend.exp.direct",
-  "ngrokPid": 14696
+
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

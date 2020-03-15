@@ -101,10 +101,11 @@ export default function App() {
                           }
                         }} />
           <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}} />
-          <Stack.Screen name="IDValidation" component={IDValidation} options={{headerShown: false}} />
-          <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber} options={{headerShown: false}} />
-          <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} options={{headerShown: false}} />
-
+          <Stack.Screen name="IDValidation" component={IDValidation} />
+          <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber} />
+          <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber}/>
+          <Stack.Screen name="About" component={About}/>
+          <Stack.Screen name="ContactInfo" component={ContactInfo} />
         </Stack.Navigator>
       </NavigationContainer>
   );

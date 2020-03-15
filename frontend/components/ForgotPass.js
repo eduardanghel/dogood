@@ -14,7 +14,7 @@ export default class ForgotPass extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, backgroundColor: 'white', flexDirection: 'column', alignContent: 'center' }}>
                 <View>
                     <Text></Text>
                     <Text></Text>
@@ -33,7 +33,7 @@ export default class ForgotPass extends React.Component {
                         value={null} placeholder='Email address'
                     />
                 </View>
-                <Button textOnButton="Reset Password" 
+                <Button style={styles.button} textOnButton="Reset Password" 
                 lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
                 navigation={this.props.navigation}
                 page="OpenEmail"></Button>
@@ -73,5 +73,8 @@ const styles = StyleSheet.create({
         //borderBottomRightRadius: 30,
         //   position:'relative',
         marginTop: 320,
+    },
+    button: {
+        
     }
 })

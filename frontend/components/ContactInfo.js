@@ -45,7 +45,12 @@ export default class Contact extends React.Component {
                 </Text>
                     <TextInput style={styles.textinput} placeholder="" />
 
-                <ClassicButton page="" textOnButton="Next" lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}></ClassicButton>
+                <ClassicButton 
+                textOnButton="Next"
+                lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                navigation={this.props.navigation}
+                page="feed"
+                ></ClassicButton>
 
             </View>
         );
