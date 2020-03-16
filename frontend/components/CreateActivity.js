@@ -136,45 +136,59 @@ export default class App extends React.Component {
                 />
                 <Text style={styles.text2}>Address </Text>
                 <Text style={styles.text3}>Please leave this blank if you will be sending this via email once a volunteer has confirm </Text>
+                <View style = {styles.lineStyle} />
                 <View style={styles.container}>
-                    <TextInput style={styles.textinput} editable={false} placeholder="Make address visible" />
+                    <Text style={styles.textinput}> Make address visible</Text>
                     <Switch
                         style={styles.switc}
                         onValueChange = {this.toggleSwitch}
                         value = {this.state.switchValue}/>
                 </View>
+                <View style = {styles.lineStyle} />
                 <TextInput style={styles.textinput2} editable={true} placeholder="What will volunteers do?" />
                 <TextInput style={styles.textinput2} editable={true} placeholder="Who to contact?" />
                 <TextInput style={styles.textinput2} editable={true} placeholder="Where?" />
                 <Text style={styles.im}>Important </Text> 
                 <View style={styles.container}>
-                    <TextInput style={styles.textinput3} editable={false} placeholder="Minimun age is 18" />
+                    <Text style={styles.textinput}> Minimum age is 18</Text>
                     <Switch
-                        style={styles.swit}
+                        style={styles.switc}
                         onValueChange = {this.toggleSwitch}
                         value = {this.state.switchValue}/>
                 </View>
+                <View style = {styles.lineStyle} />
                 <View style={styles.container}>
-                    <TextInput style={styles.textinput3} editable={false} placeholder="Photo ID required" />
+                    <Text style={styles.textinput}> Women only</Text>
                     <Switch
-                        style={styles.swit}
+                        style={styles.switc}
                         onValueChange = {this.toggleSwitch}
                         value = {this.state.switchValue}/>
                 </View>
+                <View style = {styles.lineStyle} />
                 <View style={styles.container}>
-                    <TextInput style={styles.textinput3} editable={false} placeholder="This is a physical activity" />
-                   <Switch
-                        style={styles.swit}
-                        onValueChange = {this.toggleSwitch}
-                        value = {this.state.switchValue}/>
-                </View>
-                <View style={styles.container}>
-                    <TextInput style={styles.textinput3} editable={false}  multiline ={true}placeholder="Additional information will be provided by email" />
+                    <Text style={styles.textinput}>  Photo ID required</Text>
                     <Switch
-                        style={styles.swit}
+                        style={styles.switc}
                         onValueChange = {this.toggleSwitch}
                         value = {this.state.switchValue}/>
                 </View>
+                <View style = {styles.lineStyle} />
+                <View style={styles.container}>
+                    <Text style={styles.textinput}> This is a physical activity</Text>
+                    <Switch
+                        style={styles.switc}
+                        onValueChange = {this.toggleSwitch}
+                        value = {this.state.switchValue}/>
+                </View>
+                <View style = {styles.lineStyle} />
+                <View style={styles.container}>
+                    <Text style={styles.textinput}> Additional information will be provided by email</Text>
+                    <Switch
+                        style={styles.switc}
+                        onValueChange = {this.toggleSwitch}
+                        value = {this.state.switchValue}/>
+                </View>
+                <View style = {styles.lineStyle} />
             </View>
         </ScrollView>
       );
@@ -258,13 +272,13 @@ export default class App extends React.Component {
         color: 'grey',
         borderBottomColor: 'grey',
         borderTopColor: 'grey',
-        borderBottomWidth: 1,
-        borderTopWidth:1,
+        borderBottomWidth: 0,
+        borderTopWidth:0,
         paddingVertical: 10,
         marginVertical: 2,
         width: 250,
         marginLeft: 30,
-        marginTop: 41,
+        marginTop: 1,
         padding:1,
         paddingTop: 10,
         paddingRight: 10,
@@ -276,23 +290,10 @@ export default class App extends React.Component {
         color: 'grey',
         borderBottomColor: 'grey',
         borderBottomWidth: 1,
-        width: 250,
+        width: 300,
         marginLeft: 51,
         paddingVertical: 10,
         marginVertical: 2,
-    },
-    textinput3: {
-        fontSize: 16,
-        color: 'grey',
-        borderBottomColor: 'grey',
-        borderTopColor: 'grey',
-        //borderBottomWidth: 1,
-        paddingVertical: 10,
-        marginVertical: 2,
-        width: 250,
-        marginLeft: 41,
-        marginTop: 15,
-        padding:1
     },
     im: {
         fontSize: 16,
@@ -302,15 +303,20 @@ export default class App extends React.Component {
         marginTop: 20,
         marginBottom: 1,
     },
-    swit: {
-        marginTop:20,
-        transform: [{ scaleX: .9 }, { scaleY: .9 }],
-    },
     switc: {
-        marginTop:30,
+        marginTop:2,
         transform: [{ scaleX: .9 }, { scaleY: .9 }],
         padding: 10,
-    }
+    },
+    lineStyle:{
+        borderWidth: 0.5,
+        borderColor:'grey',
+        marginTop:10,
+        marginLeft:30,
+        width: 300,
+        alignSelf: 'center',
+   }
   });
+
 
   
