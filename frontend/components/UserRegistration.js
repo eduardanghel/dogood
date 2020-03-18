@@ -1,10 +1,82 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View, Button, Alert} from 'react-native';
 
 import ClassicButton from './ClassicButton';
 import COLORS from './Colors';
+import axios from 'axios';
 
 export default class UserRegistration extends React.Component {
+    state = {
+        username: '',
+        email: '',
+        password1: '',
+        password2: '',
+        firstName: '',
+        lastName: '',
+        termsChecked: true,
+    };
+
+    onUsernameChange(text) {
+        this.setState({username: text});
+        console.log(this.state.username);
+    }
+
+    onEmailChange(text) {
+        this.setState({email: text});
+        console.log(this.state.email);
+    }
+
+    onPassword1Change(text) {
+        this.setState({password1: text});
+        console.log(this.state.password1);
+    }
+
+    onPassword2Change(text) {
+        this.setState({password2: text});
+        console.log(this.state.password2);
+    }
+
+    onFirstNameChange(text) {
+        this.setState({firstName: text});
+        console.log(this.state.firstName);
+
+    }
+
+    onLastNameChange(text) {
+        this.setState({lastName: text});
+        console.log(this.state.lastName);
+    }
+
+    // need to add checkbox (for android) and switch (for ios)
+    onTermsChanged(text) {
+        this.setState({termsChecked: true});
+    }
+
+    handleRequest() {
+        const base_url = 'http://karma-zomp.co.uk/users/'
+
+        var bodyFormData = new FormData();
+        bodyFormData.append('username', this.state.username);
+        bodyFormData.append('email', this.state.email);
+        bodyFormData.append('first_name', this.state.firstName);
+        bodyFormData.append('last_name', this.state.lastName);
+        bodyFormData.append('terms_consent', this.state.termsChecked);
+
+        if (this.state.password1 == this.state.password2){
+            bodyFormData.append('password', this.state.password1);
+        }
+        else {
+            Alert.alert("The passwords don't match.");
+            this.state.password1 = '';
+            this.state.password2 = '';
+        }
+
+        axios
+            .post(base_url, bodyFormData)
+            .then(response => ({ response }))
+            .catch(error => console.log(error));
+    }
+
     render() {
         const {navigate} = this.props.navigation;
         return (
@@ -13,17 +85,69 @@ export default class UserRegistration extends React.Component {
                     <Text style={styles.h1}>Create a new account</Text>
                 </View>
                 <View style={styles.fields}>
-                    <TextInput style={styles.textinput} placeholder="First Name"/>
-                    <TextInput style={styles.textinput} placeholder="Last Name"/>
-                    <TextInput style={styles.textinput} placeholder="Email"/>
-                    <TextInput style={styles.textinput} placeholder="Choose a username"/>
-                    <TextInput style={styles.textinput} placeholder="Password"/>
-                    <TextInput style={styles.textinput} placeholder="Confirm Password"/>
+                    <TextInput
+                        autoCorrect={false}
+                        autoCapitalize="words"
+                        style={styles.textinput}
+                        placeholder="First Name"
+                        onChangeText={this.onFirstNameChange.bind(this)}
+                    />
+                    <TextInput
+                        autoCorrect={false}
+                        autoCapitalize="words"
+                        style={styles.textinput}
+                        placeholder="Last Name"
+                        onChangeText={this.onLastNameChange.bind(this)}
+                    />
+                    <TextInput
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        style={styles.textinput}
+                        placeholder="Email"
+                        onChangeText={this.onEmailChange.bind(this)}
+                    />
+                    <TextInput
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        style={styles.textinput}
+                        placeholder="Choose a username"
+                        onChangeText={this.onUsernameChange.bind(this)}
+                    />
+                    <TextInput
+                        secureTextEntry
+                        TextInput
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        style={styles.textinput}
+                        placeholder="Password"
+                        onChangeText={this.onPassword1Change.bind(this)}
+                    />
+                    <TextInput
+                        secureTextEntry
+                        TextInput
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        style={styles.textinput}
+                        placeholder="Confirm Password"
+                        onChangeText={this.onPassword2Change.bind(this)}
+                    />
+
                 </View>
-                <ClassicButton textOnButton="Next"
-                               lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                               page='IDValidation'
-                               navigation={this.props.navigation}/>
+                <Button
+                    style={{fontSize: 20, color: 'green'}}
+                    styleDisabled={{color: 'red'}}
+                    onPress={() => this.handleRequest()}
+                    title="Press Me"
+                >
+                    Press Me
+                </Button>
+
+                <ClassicButton
+                    text="Next"
+                   lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                   page='IDValidation'
+                   navigation={this.props.navigation}
+                />
             </View>
         );
     }
