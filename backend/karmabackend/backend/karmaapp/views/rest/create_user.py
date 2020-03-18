@@ -39,15 +39,19 @@ class CreateUserAPI(APIView):
                 )
             else:
                 user = User.objects.create_user(
-                    first_name=data["name"],
+                    first_name=data["first_name"],
                     last_name=data["last_name"],
                     username=data["email"].lower(),
                     email=data["email"].lower(),
                 )
             serializer = UserProfileWriteSerializer(
-                user.userprofile, data=data, partial=True
+                user.user_profile, data=data, partial=True
             )
             serializer.is_valid(raise_exception=True)
             serializer.save()
+            data = {
+                'user': user.id,
+                'user_profile': user.user_profile.id
+            }
 
-        return Response(status=HTTPStatus.CREATED)
+        return Response(data=data, status=HTTPStatus.CREATED)
