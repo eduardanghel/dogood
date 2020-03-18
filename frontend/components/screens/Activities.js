@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import Constants from 'expo-constants';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
-import AllActivities from './ActivitiesScreens/AllActivities.js';
-import COLORS from '../Colors.js';
+import AllActivities from './ActivitiesScreens/AllActivities';
+import COLORS from '../Colors';
 
 //The following are temporary functions as the screens they should represent aren't done yet
 function ActivitiesCauses() {
@@ -39,23 +39,23 @@ class Activities extends Component {
     render() {
         return (
             <Tab.Navigator initialRouteName='All'
-                style={{
-                    marginTop: Constants.statusBarHeight, backgroundColor: 'white',
-                }}
-                tabBarOptions={{
-                    activeTintColor: 'white',
-                    inactiveTintColor: 'grey',
-                    indicatorStyle: { backgroundColor: COLORS.classicGreen, height: '100%', borderRadius: 30 },
-                    labelStyle: {
-                        fontSize: 12,
-                    }
+                           style={{
+                               marginTop: Constants.statusBarHeight, backgroundColor: 'white',
+                           }}
+                           tabBarOptions={{
+                               activeTintColor: 'white',
+                               inactiveTintColor: 'grey',
+                               indicatorStyle: {backgroundColor: COLORS.classicGreen, height: '100%', borderRadius: 30},
+                               labelStyle: {
+                                   fontSize: 12,
+                               }
 
-                }}>
-                <Tab.Screen name='All' component={AllActivities} />
-                <Tab.Screen name='Causes' component={ActivitiesCauses} />
-                <Tab.Screen name='Going' component={ActivitiesGoing} />
-                <Tab.Screen name='Favorites' component={ActivitiesFavorites} />
-            </Tab.Navigator >
+                           }}>
+                <Tab.Screen name='All' component={AllActivities}/>
+                <Tab.Screen name='Causes' component={ActivitiesCauses}/>
+                <Tab.Screen name='Going' component={ActivitiesGoing}/>
+                <Tab.Screen name='Favorites' component={ActivitiesFavorites}/>
+            </Tab.Navigator>
         )
     }
 }
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     }
-})
+});

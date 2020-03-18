@@ -1,8 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import {
-    StyleSheet, Text, View, SafeAreaView, TextInput
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import COLORS from "./Colors";
 import ClassicButton from "./ClassicButton";
 
@@ -14,14 +12,15 @@ export default class AddPhoneNumber extends React.Component {
                     // style={styles.form}
                 >
                     <Text style={styles.title}>Verify your phone number</Text>
-                    <Text />
+                    <Text/>
                     <Text style={styles.text}>
                         We will send you a verification code to verify your phone.
                     </Text>
-                    <Text />
+                    <Text/>
                     <View style={styles.input}>
                         <Text style={styles.phonetxt}>+44</Text>
-                        <TextInput style={styles.textInput} placeholder="                                                                          " />
+                        <TextInput style={styles.textInput}
+                                   placeholder="                                                                          "/>
                     </View>
                 </View>
                 <View style={styles.buttonView}>
@@ -77,10 +76,10 @@ const styles = StyleSheet.create({
         marginVertical: 2,
     },
     fields: {
-    marginVertical: 10,
-    paddingVertical: 10,
-    paddingBottom: 30,
-    width: '95%',
+        marginVertical: 10,
+        paddingVertical: 10,
+        paddingBottom: 30,
+        width: '95%',
     },
     input: {
         flexDirection: 'row',

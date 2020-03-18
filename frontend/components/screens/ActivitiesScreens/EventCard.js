@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, {Component} from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import ReadMore from 'react-native-read-more-text';
 
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -24,7 +24,7 @@ You will need to specify each of the props stated under
 If you want an example on how to use it in a FlatList (a list where there's an unknown potentially big number of items) check  AllActivities.js
 If you want to use it in a ListView (a list where we know how many items there are, and the number isn't too big) then just add them manually with hard-coded values as under
 
-<EventCard 
+<EventCard
   organizationName='the name'                           //This is the name of the organization - eg: The P.E.E.R. Center Community Help
   eventTitle='the title'                                //The title of the event - eg: The P.E.E.R. Center
   verifiedIcon='check-circle'                           //This is the icon to show if the organization is verified or not. Put 'check-circle' if it is verified, or '' if it is not
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
   container: {},
   header: {
     flexDirection: 'row',
-    backgroundColor: COLOR.backgroundGrey2,
+    backgroundColor: COLOR.backgroundGrey,
     padding: 8,
   },
   headerCenterView: {

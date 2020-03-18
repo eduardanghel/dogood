@@ -1,10 +1,5 @@
-import React, { Component } from 'react';
-import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  FlatList,
-} from 'react-native';
+import React, {Component} from 'react';
+import {FlatList, SafeAreaView, StyleSheet, View,} from 'react-native';
 
 import EventCard from './EventCard';
 import shark from '../../../assets/promo_5.png';

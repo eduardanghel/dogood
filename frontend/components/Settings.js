@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon1 from 'react-native-vector-icons/Foundation'
 import Icon2 from 'react-native-vector-icons/Feather'
@@ -14,62 +14,62 @@ export default class Settings extends React.Component {
                 </View>
                 <View>
                     <TouchableOpacity style={styles.options}>
-                    <Icon
-                        name="warning"
-                        size={25}
-                        color='#01b0b0'
-                    />
-                    <Text style={styles.text}>Report a Problem</Text>
+                        <Icon
+                            name="warning"
+                            size={25}
+                            color='#01b0b0'
+                        />
+                        <Text style={styles.text}>Report a Problem</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.options}>
-                    <Text style={styles.icontxt}>K</Text>
-                    <Text style={styles.text}>About KARMA</Text>
+                        <Text style={styles.icontxt}>K</Text>
+                        <Text style={styles.text}>About KARMA</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.options}>
-                    <Icon1
-                        name="clipboard-notes"
-                        size={25}
-                        color='#01b0b0'
-                    />
-                    <Text style={styles.text}>Report a Problem</Text>
+                        <Icon1
+                            name="clipboard-notes"
+                            size={25}
+                            color='#01b0b0'
+                        />
+                        <Text style={styles.text}>Report a Problem</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.options}>
-                    <Icon
-                        name="eye"
-                        size={25}
-                        color='#01b0b0'
-                    />
-                    <Text style={styles.text}>Community Guidelines</Text>
+                        <Icon
+                            name="eye"
+                            size={25}
+                            color='#01b0b0'
+                        />
+                        <Text style={styles.text}>Community Guidelines</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.options}>
-                    <Icon2
-                        name="file-text"
-                        size={25}
-                        color='#01b0b0'
-                    />
-                    <Text style={styles.text}>Terms of Use</Text>
+                        <Icon2
+                            name="file-text"
+                            size={25}
+                            color='#01b0b0'
+                        />
+                        <Text style={styles.text}>Terms of Use</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.options}>
-                    <Icon
-                        name="mail"
-                        size={25}
-                        color='#01b0b0'
-                    />
-                    <Text style={styles.text}>Email Settings</Text>
+                        <Icon
+                            name="mail"
+                            size={25}
+                            color='#01b0b0'
+                        />
+                        <Text style={styles.text}>Email Settings</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.options}>
-                    <Icon3
-                        name="logout"
-                        size={25}
-                        color='#01b0b0'
-                    />
-                    <Text style={styles.text}>Log Out</Text>
+                        <Icon3
+                            name="logout"
+                            size={25}
+                            color='#01b0b0'
+                        />
+                        <Text style={styles.text}>Log Out</Text>
                     </TouchableOpacity>
                 </View>
             </View>
