@@ -189,6 +189,12 @@ export default class App extends React.Component {
                         value = {this.state.switchValue}/>
                 </View>
                 <View style = {styles.lineStyle} />
+                <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 20}}>
+                    <ClassicButton textOnButton="Create"
+                           lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                           page='Feed'
+                           navigation={this.props.navigation}></ClassicButton>
+                </View>
             </View>
         </ScrollView>
       );
