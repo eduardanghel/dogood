@@ -29,6 +29,15 @@ export default class AllActivities extends Component {
                 eventTime={item.eventTime}
                 spotsLeft={item.spotsLeft}
                 eventTitle={item.eventTitle}
+                progressBarProgress={item.progressBarProgress}
+                numberOfSpotsLeft={item.numberOfSpotsLeft}
+                frameOfEvent={item.frameOfEvent}
+                address={item.address}
+                whatWillTheyDo={item.whatWillTheyDo}
+                whoCanTheyContact={item.whoCanTheyContact}
+                whereShouldTheyGo={item.whereShouldTheyGo}
+                latitude={item.latitude}
+                longitude={item.longitude}
               />
             )}
             keyExtractor={item => item.key}
@@ -49,6 +58,15 @@ function Event({
   eventTime,
   spotsLeft,
   eventTitle,
+  progressBarProgress,
+  numberOfSpotsLeft,
+  frameOfEvent,
+  address,
+  whatWillTheyDo,
+  whoCanTheyContact,
+  whereShouldTheyGo,
+  latitude,
+  longitude,
 }) {
   return (
     <EventCard
@@ -61,6 +79,15 @@ function Event({
       eventTime={eventTime}
       spotsLeft={spotsLeft}
       eventTitle={eventTitle}
+      progressBarProgress={progressBarProgress}
+      numberOfSpotsLeft={numberOfSpotsLeft}
+      frameOfEvent={frameOfEvent}
+      address={address}
+      whatWillTheyDo={whatWillTheyDo}
+      whoCanTheyContact={whoCanTheyContact}
+      whereShouldTheyGo={whereShouldTheyGo}
+      latitude={latitude}
+      longitude={longitude}
     />
   );
 }
@@ -77,6 +104,18 @@ const DATA = [
     eventTime: '4:30PM',
     spotsLeft: '3 SPOTS LEFT',
     eventTitle: 'The P.E.E.R. Center Community Help',
+    progressBarProgress: 0.75,
+    numberOfSpotsLeft: '3/4 SPOTS LEFT',
+    frameOfEvent: '4:30 PM - 6:00 PM',
+    address: '205 N Hamilton Rd, Essex SS11 1EP',
+    whatWillTheyDo:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+    whoCanTheyContact:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    whereShouldTheyGo:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    latitude: 47.191567,
+    longitude: -52.837118,
   },
 
   {
@@ -90,6 +129,18 @@ const DATA = [
     eventTime: '10:00AM',
     spotsLeft: '60 SPOTS LEFT',
     eventTitle: 'Spring Nature Project',
+    progressBarProgress: 0.75,
+    numberOfSpotsLeft: '3/4 SPOTS LEFT',
+    frameOfEvent: '4:30 PM - 6:00 PM',
+    address: '205 N Hamilton Rd, Essex SS11 1EP',
+    whatWillTheyDo:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+    whoCanTheyContact:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    whereShouldTheyGo:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    latitude: 47.191567,
+    longitude: -52.837118,
   },
 ];
 

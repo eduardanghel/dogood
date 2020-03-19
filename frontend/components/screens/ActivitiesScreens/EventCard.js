@@ -7,16 +7,23 @@ import IconBis from 'react-native-vector-icons/MaterialIcons';
 import IconThree from 'react-native-vector-icons/Ionicons';
 import HeartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AddUser from 'react-native-vector-icons/Entypo';
+import ArrowIcon from 'react-native-vector-icons/AntDesign';
 
 import TimeAndSpots from './TimeOrSpots.js';
 import COLOR from '../../Colors.js';
+import DetailedEventPage from './DetailedEventPage.js';
 
 
 class EventCard extends Component {
 
   state={
     iconColor: 'grey',
+    modalVisible: false,
   };
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
 
   changeIconColor(){
     var changedColor;
@@ -49,14 +56,58 @@ class EventCard extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}>
+          <ArrowIcon
+            name="arrowleft"
+            color={COLOR.classicGreen}
+            size={20}
+            style={{ margin: 12 }}
+            onPress={() => {
+              this.setModalVisible(!this.state.modalVisible);
+            }}
+          />
+          <DetailedEventPage
+            organizationName={this.props.organizationName}
+            eventTitle={this.props.eventTitle}
+            verifiedIcon={this.props.verifiedIcon}
+            imageUri={this.props.imageUri}
+            eventLocation={this.props.eventLocation}
+            dayOfEvent={this.props.dayOfEvent}
+            monthOfEvent={this.props.monthOfEvent}
+            progressBarProgress={this.props.progressBarProgress}
+            numberOfSpotsLeft={this.props.numberOfSpotsLeft}
+            frameOfEvent={this.props.frameOfEvent}
+            address={this.props.address}
+            whatWillTheyDo={this.props.whatWillTheyDo}
+            whoCanTheyContact={this.props.whoCanTheyContact}
+            whereShouldTheyGo={this.props.whereShouldTheyGo}
+            latitude={this.props.latitude}
+            longitude={this.props.longitude}
+          />
+        </Modal>
+
         <View style={styles.header}>
           <Icon name="user" size={42} />
           <View style={styles.headerCenterView}>
             <View style={styles.nameAndIcon}>
-              <Text style={styles.organizationName}>{this.props.organizationName}</Text>
-              <IconBis name={this.props.verifiedIcon} color={COLOR.classicGreen} size={20} /> 
+              <Text style={styles.organizationName}>
+                {this.props.organizationName}
+              </Text>
+              <IconBis
+                name={this.props.verifiedIcon}
+                color={COLOR.classicGreen}
+                size={20}
+              />
             </View>
-            <Text style={styles.eventLocationText}>{this.props.eventLocation}</Text>
+            <Text style={styles.eventLocationText}>
+              {this.props.eventLocation}
+            </Text>
           </View>
           <IconThree
             name="ios-share"
@@ -66,7 +117,15 @@ class EventCard extends Component {
           />
         </View>
         <View style={{ backgroundColor: 'white' }}>
-          <Image source={this.props.imageUri} style={styles.backgroundImage} />
+          <TouchableOpacity
+            onPress={() => {
+              this.setModalVisible(true);
+            }}>
+            <Image
+              source={this.props.imageUri}
+              style={styles.backgroundImage}
+            />
+          </TouchableOpacity>
           <View style={styles.calendarDate}>
             <Text style={styles.textInCalendar}>{this.props.dayOfEvent}</Text>
             <Text style={styles.textInCalendar}>{this.props.monthOfEvent}</Text>
@@ -84,14 +143,12 @@ class EventCard extends Component {
         <View style={{ backgroundColor: 'white' }}>
           <View style={{ flexDirection: 'row' }}>
             <View style={styles.quickInfo}>
-              <TimeAndSpots time={this.props.eventTime}/>
+              <TimeAndSpots time={this.props.eventTime} />
               <TimeAndSpots spotsLeft={this.props.spotsLeft} />
             </View>
           </View>
           <View style={{ margin: 8 }}>
-            <Text style={styles.organizationName}>
-              {this.props.eventTitle}
-            </Text>
+            <Text style={styles.organizationName}>{this.props.eventTitle}</Text>
             <View style={styles.moreInfo}>
               <ReadMore
                 numberOfLines={2}
@@ -125,7 +182,7 @@ const styles = StyleSheet.create({
   container: {},
   header: {
     flexDirection: 'row',
-    backgroundColor: COLOR.backgroundGrey,
+    backgroundColor: COLOR.backgroundGrey2,
     padding: 8,
   },
   headerCenterView: {
