@@ -31,6 +31,7 @@ export default class AllActivities extends Component {
                 eventTitle={item.eventTitle}
                 progressBarProgress={item.progressBarProgress}
                 numberOfSpotsLeft={item.numberOfSpotsLeft}
+                extendedDate={item.extendedDate}
                 frameOfEvent={item.frameOfEvent}
                 address={item.address}
                 whatWillTheyDo={item.whatWillTheyDo}
@@ -60,6 +61,7 @@ function Event({
   eventTitle,
   progressBarProgress,
   numberOfSpotsLeft,
+  extendedDate,
   frameOfEvent,
   address,
   whatWillTheyDo,
@@ -81,6 +83,7 @@ function Event({
       eventTitle={eventTitle}
       progressBarProgress={progressBarProgress}
       numberOfSpotsLeft={numberOfSpotsLeft}
+      extendedDate={extendedDate}
       frameOfEvent={frameOfEvent}
       address={address}
       whatWillTheyDo={whatWillTheyDo}
@@ -106,6 +109,7 @@ const DATA = [
     eventTitle: 'The P.E.E.R. Center Community Help',
     progressBarProgress: 0.75,
     numberOfSpotsLeft: '3/4 SPOTS LEFT',
+    extendedDate: 'Thursday, January 30th 2020',
     frameOfEvent: '4:30 PM - 6:00 PM',
     address: '205 N Hamilton Rd, Essex SS11 1EP',
     whatWillTheyDo:
@@ -131,6 +135,7 @@ const DATA = [
     eventTitle: 'Spring Nature Project',
     progressBarProgress: 0.75,
     numberOfSpotsLeft: '3/4 SPOTS LEFT',
+    extendedDate: 'Thursday, January 30th 2020',
     frameOfEvent: '4:30 PM - 6:00 PM',
     address: '205 N Hamilton Rd, Essex SS11 1EP',
     whatWillTheyDo:

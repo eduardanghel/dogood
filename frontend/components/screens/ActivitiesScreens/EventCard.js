@@ -14,6 +14,39 @@ import COLOR from '../../Colors.js';
 import DetailedEventPage from './DetailedEventPage.js';
 
 
+
+{/** When using an EventCard do the following:
+First import it:
+import EventCard from 'wherever the location is compared to your file';
+
+Then just use it like this:
+You will need to specify each of the props stated under
+If you want an example on how to use it in a FlatList (a list where there's an unknown potentially big number of items) check  AllActivities.js
+If you want to use it in a ListView (a list where we know how many items there are, and the number isn't too big) then just add them manually with hard-coded values as under
+
+<EventCard 
+  organizationName='the name'                           //This is the name of the organization - eg: The P.E.E.R. Center Community Help
+  eventTitle='the title'                                //The title of the event - eg: The P.E.E.R. Center
+  verifiedIcon='check-circle'                           //This is the icon to show if the organization is verified or not. Put 'check-circle' if it is verified, or '' if it is not
+  imageUri='shark.png'                                  //The image associated with the event - eg: the image of the shark
+  eventLocation='the location'                          //The city/region of the event - eg: Essex
+  dayOfEvent='the number of the day'                    //The day of the event - eg: 30 - This is the number that appears on the calendar above the image
+  monthOfEvent='the 3 letter month'                     //The month of the event eg: - JAN This is the 3 letter month that appears under the number above on the calendar above the image
+  //All of the under are exclusively for the detailed event of the page and are shown when you press in the image, you still need to specify them
+  progressBarProgress=0.75                              //The progress bar shows how much the event is full, it should be a number between 0 and 1 - eg: 0.75
+  numberOfSpotsLeft='3/4 SPOTS LEFT'                    //The number of sports left in the event - eg: 3/4 SPOTS LEFT
+  extendedDate='Thursday, January 30th 2020'            //This is the date of the event under the format Day, Month day th Year - eg: Thursday, January 30th 2020
+  frameOfEvent='4:30 PM - 6:30 PM'                      //The time frame of the event - eg: 4:30 PM - 6:30 PM
+  address='205 N Hamilton Rd, Essex SS11 1EP'           //The full address of the event - eg: 205 N Hamilton Rd, Essex SS11 1EP
+  whatWillTheyDo='what will the volunteers do'          //The description of the event aka the text under 'What will the volunteers do'
+  whoCanTheyContact='who can the volunteers contact'    //The text under 'Who to contact'
+  whereShouldTheyGo='where should the volunteers go'    //The text under 'Where'
+  latitude=47.191567                                    //The latitude coordinates of the event used for the map - eg: 47.191567
+  longitude=-52.837118                                  //The longitude coordinate of the event - eg: -52.837118
+  />
+*/}
+
+
 class EventCard extends Component {
 
   state={
@@ -73,22 +106,24 @@ class EventCard extends Component {
             }}
           />
           <DetailedEventPage
-            organizationName={this.props.organizationName}
-            eventTitle={this.props.eventTitle}
-            verifiedIcon={this.props.verifiedIcon}
-            imageUri={this.props.imageUri}
-            eventLocation={this.props.eventLocation}
-            dayOfEvent={this.props.dayOfEvent}
-            monthOfEvent={this.props.monthOfEvent}
-            progressBarProgress={this.props.progressBarProgress}
-            numberOfSpotsLeft={this.props.numberOfSpotsLeft}
-            frameOfEvent={this.props.frameOfEvent}
-            address={this.props.address}
-            whatWillTheyDo={this.props.whatWillTheyDo}
-            whoCanTheyContact={this.props.whoCanTheyContact}
-            whereShouldTheyGo={this.props.whereShouldTheyGo}
-            latitude={this.props.latitude}
-            longitude={this.props.longitude}
+            organizationName={this.props.organizationName}       //This is the name of the organization - eg: The P.E.E.R. Center Community Help
+            eventTitle={this.props.eventTitle}                   //The title of the event - eg: The P.E.E.R. Center
+            verifiedIcon={this.props.verifiedIcon}               //This is the icon to show if the organization is verified or not. Put 'check-circle' if it is verified, or '' if it is not
+            imageUri={this.props.imageUri}                       //The image associated with the event - eg: the image of the shark
+            eventLocation={this.props.eventLocation}             //The city/region of the event - eg: Essex
+            dayOfEvent={this.props.dayOfEvent}                   //The day of the event - eg: 30 - This is the number that appears on the calendar above the image
+            monthOfEvent={this.props.monthOfEvent}               //The month of the event eg: - JAN This is the 3 letter month that appears under the number above on the calendar above the image
+            //All of the under are exclusively for the detailed event of the page and are shown when you press in the image, but you still need to specify them
+            progressBarProgress={this.props.progressBarProgress} //The progress bar shows how much the event is full, it should be a number between 0 and 1 - eg: 0.75
+            numberOfSpotsLeft={this.props.numberOfSpotsLeft}     //The number of sports left in the event - eg: 3/4 SPOTS LEFT
+            extendedDate={this.props.extendedDate}               //This is the date of the event under the format Day, Month day th Year - eg: Thursday, January 30th 2020
+            frameOfEvent={this.props.frameOfEvent}               //The time frame of the event - eg: 4:30 PM - 6:30 PM
+            address={this.props.address}                         //The full address of the event - eg: 205 N Hamilton Rd, Essex SS11 1EP
+            whatWillTheyDo={this.props.whatWillTheyDo}           //The description of the event aka the text under 'What will the volunteers do'
+            whoCanTheyContact={this.props.whoCanTheyContact}     //The text under 'Who to contact'
+            whereShouldTheyGo={this.props.whereShouldTheyGo}     //The text under 'Where'
+            latitude={this.props.latitude}                       //The latitude coordinates of the event used for the map - eg: 47.191567
+            longitude={this.props.longitude}                     //The longitude coordinate of the event - eg: -52.837118
           />
         </Modal>
 

@@ -119,9 +119,9 @@ class ActivityCard extends Component {
               <Icon name="calendar" color={'grey'} size={35} />
               <View style={{ marginHorizontal: 4 }}>
                 <Text style={{ fontWeight: 'bold', marginBottom: 2 }}>
-                  Thursday, January 30th 2020
+                  {this.props.extendedDate}
                 </Text>
-                <Text style={{ color: 'grey' }}>4:30 PM - 6:00 PM</Text>
+                <Text style={{ color: 'grey' }}>{this.props.frameOfEvent}</Text>
               </View>
             </View>
             <View //This view is for the location
@@ -129,7 +129,7 @@ class ActivityCard extends Component {
               <Icon name="location" color={'grey'} size={35} />
               <View style={{ marginHorizontal: 4 }}>
                 <Text style={{ fontWeight: 'bold' }}>
-                  205 N Hamilton Rd, Essex SS11 1EP
+                  {this.props.address}
                 </Text>
               </View>
             </View>
@@ -140,18 +140,11 @@ class ActivityCard extends Component {
               What will the volunteers do ?
             </Text>
             <Text style={styles.titleExplanation}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enimad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
+              {this.props.whatWillTheyDo}
             </Text>
             <Text style={styles.categoryTitle}>Who to contact?</Text>
             <Text style={styles.titleExplanation}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {this.props.whoCanTheyContact}
             </Text>
             <View //The view for the buttons
               style={styles.doubleButton}>
@@ -172,8 +165,7 @@ class ActivityCard extends Component {
             </View>
             <Text style={styles.categoryTitle}>Where</Text>
             <Text style={styles.titleExplanation}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {this.props.whereShouldTheyGo}
             </Text>
           </View>
           <View
