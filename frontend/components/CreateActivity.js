@@ -2,7 +2,8 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput, Picker, Image, ScrollView,Switch } from "react-native";
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import DatePicker from 'react-native-datepicker';
-//import { DatePickerDialog } from 'react-native-datepicker-dialog'
+import COLORS from './Colors.js';
+import ClassicButton from './ClassicButton.js';
 
 export default class App extends React.Component {
     constructor(props){
