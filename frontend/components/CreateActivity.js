@@ -2,7 +2,8 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput, Picker, Image, ScrollView,Switch } from "react-native";
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import DatePicker from 'react-native-datepicker';
-//import { DatePickerDialog } from 'react-native-datepicker-dialog'
+import COLORS from './Colors.js';
+import ClassicButton from './ClassicButton.js';
 
 export default class App extends React.Component {
     constructor(props){
@@ -189,6 +190,12 @@ export default class App extends React.Component {
                         value = {this.state.switchValue}/>
                 </View>
                 <View style = {styles.lineStyle} />
+                <View style={{width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 20}}>
+                    <ClassicButton textOnButton="Create"
+                           lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                           page='Feed'
+                           navigation={this.props.navigation}></ClassicButton>
+                </View>
             </View>
         </ScrollView>
       );
