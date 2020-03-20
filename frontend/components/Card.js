@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import React, {Component} from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
-import ClassicButton from './ClassicButton.js';
-import COLORS from './Colors.js';
+import ClassicButton from './ClassicButton';
+import COLORS from './Colors';
 
 class Card extends Component {
     constructor(props) {
@@ -19,17 +18,17 @@ class Card extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.imageView}>
-                    <Image source={this.props.imageUri} style={{ resizeMode: 'cover' }}></Image>
+                    <Image source={this.props.imageUri} style={{resizeMode: 'cover'}}></Image>
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.questionText}>{this.props.question}</Text>
                     <Text style={styles.bodyText}>{this.props.text}</Text>
                 </View>
                 <ClassicButton textOnButton="Sign up"
-                lightEndColor={COLORS.lightGreen} 
-                darkEndColor={COLORS.darkGreen}
-                navigation={this.props.navigation}
-                page={this.props.page}/>
+                               lightEndColor={COLORS.lightGreen}
+                               darkEndColor={COLORS.darkGreen}
+                               navigation={this.props.navigation}
+                               page={this.props.page}/>
             </View>
         )
     }
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 10,
         shadowColor: 'black',
-        shadowOffset: { width: 0, height: 3 },
+        shadowOffset: {width: 0, height: 3},
         shadowRadius: 6,
         shadowOpacity: 0.26,
         elevation: 8,
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         borderRadius: 22,
         alignItems: 'center',
-        justifyContent:'center',
-        paddingVertical:10,
+        justifyContent: 'center',
+        paddingVertical: 10,
     },
 });

@@ -56,16 +56,18 @@ class UserProfileWriteSerializer(UserProfileSerializer):
         }
 
     def create(self, validated_data):
+
+
         user = self.context["user"]
-        user.userprofile, created = UserProfile.objects.get_or_create(user=user)
-        user.userprofile = self._update_userprofile(user.userprofile, validated_data)
+        user.user_profile, created = UserProfile.objects.get_or_create(user=user)
+        user.user_profile = self._update_userprofile(user.user_profile, validated_data)
         user.save()
-        return user.userprofile
+        return user.user_profile
 
     def update(self, userprofile, validated_data):
-        userprofile = self._update_userprofile(userprofile, validated_data)
-        userprofile.save()
-        return userprofile
+        user_profile = self._update_userprofile(userprofile, validated_data)
+        user_profile.save()
+        return user_profile
 
     def _update_userprofile(self, userprofile, validated_data):
         if validated_data.get("terms_consent", None) is not None:

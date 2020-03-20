@@ -1,4 +1,3 @@
-backend/karmabackend/.dockerignore
 backend/karmabackend/backend/.coverage
 backend/karmabackend/backend/.idea/*
 backend/karmabackend/backend/__pycache__/
@@ -15,8 +14,13 @@ backend/karmabackend/backend/charities/__pycache__/
 backend/karmabackend/backend/charities/models/__pycache__/
 backend/karmabackend/backend/karmaapp/__pycache__/
 backend/karmabackend/backend/karmaapp/models/__pycache__/
+backend/karmabackend/backend/account/__pycache__/
+__pycache__/
+*.pyc
+frontend/.expo_shared/
 frontend/.expo/
 frontend/node_modules/
+frontend/ios/Pods/
 
 node_modules/**/*
 .expo/*

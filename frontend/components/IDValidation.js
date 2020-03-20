@@ -1,8 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import {
-    StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView
-} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import passport from '../assets/passport.png';
 import COLORS from "./Colors";
 import ClassicButton from "./ClassicButton";
@@ -12,15 +10,15 @@ export default class IDValidation extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.form}>
-                    <Image style={styles.image} source={passport} />
+                    <Image style={styles.image} source={passport}/>
                     <Text style={styles.title}>Verify your account</Text>
-                    <Text />
+                    <Text/>
                     <Text style={styles.paragraph}>
                         We need you to verify who you are for your safety and the safety of others.
                         It’s quick, easy and totally secure.
                     </Text>
-                    <Text />
-                    <Text />
+                    <Text/>
+                    <Text/>
                     <Text style={styles.paragraph}>
                         You will be asked to verify
                         using photo ID and your phone number.
@@ -28,10 +26,10 @@ export default class IDValidation extends React.Component {
                 </View>
                 <View style={styles.buttonView}>
                     <ClassicButton
-                    textOnButton="Verify now"
-                    lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                    page='AddPhoneNumber'
-                    navigation={this.props.navigation}/>
+                        textOnButton="Verify now"
+                        lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                        page='AddPhoneNumber'
+                        navigation={this.props.navigation}/>
                 </View>
             </SafeAreaView>
         );

@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
-import ClockIcon from './ClockIcon.js'
-import COLOR from '../../Colors.js';
+import ClockIcon from './ClockIcon'
+import COLOR from '../../Colors';
 
 export default class TimeAndSpots extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return(
-        <View style={styles.timeAndSpots}>
-              <ClockIcon/>
-              <Text style={styles.whiteText}>{this.props.textInput}</Text>
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={styles.timeAndSpots}>
+                <ClockIcon/>
+                <Text style={styles.whiteText}>{this.props.textInput}</Text>
             </View>
-    )
-  }
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-  timeAndSpots: {
-    flexDirection: 'row',
-    backgroundColor: COLOR.classicGreen,
-    justifyContent: 'center',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 22,
-    marginRight: 8, 
-  },
-  whiteText: {
-    color: 'white',
-    fontSize: 17,
-  },
-}) 
+    timeAndSpots: {
+        flexDirection: 'row',
+        backgroundColor: COLOR.classicGreen,
+        justifyContent: 'center',
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        borderRadius: 22,
+        marginRight: 8,
+    },
+    whiteText: {
+        color: 'white',
+        fontSize: 17,
+    },
+});
