@@ -1,10 +1,40 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Alert, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import COLORS from "./Colors";
 import ClassicButton from "./ClassicButton";
 
 export default class AddPhoneNumber extends React.Component {
+    state = {
+        phoneNumber: '',
+    }
+
+    onPhoneNumberChange(text) {
+        this.setState({phoneNumber: text});
+    }
+
+    handleRequest() {
+        const base_url = 'http://karma-zomp.co.uk/users/user_profile/'
+
+        var bodyFormData = new FormData();
+        bodyFormData.append('telephone', this.state.phoneNumber);
+
+
+        if (this.state.password1 == this.state.password2){
+            bodyFormData.append('password', this.state.password1);
+        }
+        else {
+            Alert.alert("The passwords don't match.");
+            this.state.password1 = '';
+            this.state.password2 = '';
+        }
+
+        axios
+            .post(base_url, bodyFormData)
+            .then(response => ({ response }))
+            .catch(error => console.log(error));
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
@@ -19,8 +49,11 @@ export default class AddPhoneNumber extends React.Component {
                     <Text/>
                     <View style={styles.input}>
                         <Text style={styles.phonetxt}>+44</Text>
-                        <TextInput style={styles.textInput}
-                                   placeholder="                                                                          "/>
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder="                                                                          "
+                            onChangeText={this.onPhoneNumberChange().bind(this)}
+                        />
                     </View>
                 </View>
                 <View style={styles.buttonView}>
