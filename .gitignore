@@ -20,7 +20,7 @@ __pycache__/
 frontend/.expo_shared/
 frontend/.expo/
 frontend/node_modules/
-frontend/ios/Pods
+frontend/ios/Pods/
 
 node_modules/**/*
 .expo/*
