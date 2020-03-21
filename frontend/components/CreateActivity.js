@@ -10,9 +10,9 @@ import {
 } from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import DatePicker from 'react-native-datepicker';
-import COLORS from './Colors.js';
-import ClassicButton from './ClassicButton.js';
-import CustomSwitch from './CustomSwitch.js';
+import COLORS from './Colors';
+import ClassicButton from './ClassicButton';
+import CustomSwitch from './CustomSwitch';
 
 export default class App extends React.Component {
   constructor(props) {

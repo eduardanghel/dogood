@@ -49,14 +49,12 @@ const styles = StyleSheet.create({
         color: '#01a7a6',
         fontWeight: '500', // semibold
         textAlignVertical: 'top',
-        // textAlign: 'center',
         marginHorizontal: 20,
     },
     text: {
         fontSize: 16,
         color: 'grey',
         textAlignVertical: 'top',
-        // textAlign: 'center',
         marginHorizontal: 20,
     },
     buttonView: {

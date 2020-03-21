@@ -1,10 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput, Picker, Image, ScrollView } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import {Image, Picker, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
-import COLORS from './Colors.js';
-import Button from './ClassicButton.js';
+import COLORS from './Colors';
+import Button from './ClassicButton';
 
 export default class About extends React.Component {
     static defaultProps = {
@@ -12,8 +11,10 @@ export default class About extends React.Component {
         selectedMonth: (new Date()).getMonth(),
         selectedDay: (new Date()).getDate(),
 
-        onValueChange: function (year, month, date) { }
-    }
+        onValueChange: function (year, month, date) {
+        }
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -25,6 +26,7 @@ export default class About extends React.Component {
             checked: 0
         }
     }
+
     componentDidMount() {
 
         console.disableYellowBox = true;
@@ -40,23 +42,25 @@ export default class About extends React.Component {
 
     getNumDaysInMonth(year, month) {
 
-        if (year == 0 && month == 1) { return 29; }
+        if (year == 0 && month == 1) {
+            return 29;
+        }
         return (new Date(year, month + 1, 0)).getDate()
     }
 
     renderMonth() {
         var monthNames = this.getMonth();
         return monthNames.map(function (month, index) {
-            return <Picker.Item label={month} value={index} />
+            return <Picker.Item label={month} value={index}/>
         })
     }
 
     renderDay() {
         var numDays = this.getNumDaysInMonth(this.state.year, this.state.month);
 
-        var days = []
+        var days = [];
         for (var i = 1; i <= numDays; i++) {
-            days.push(<Picker.Item label={i.toLocaleString()} value={i} />)
+            days.push(<Picker.Item label={i.toLocaleString()} value={i}/>)
         }
         return days;
     }
@@ -66,9 +70,9 @@ export default class About extends React.Component {
         var maxYear = (new Date()).getFullYear();
         var years = [];
         for (var i = minYear; i <= maxYear; i++) {
-            years.push(<Picker.Item label={i.toLocaleString()} value={i} />)
+            years.push(<Picker.Item label={i.toLocaleString()} value={i}/>)
         }
-        years.push(<Picker.Item label={"-------"} value={i} />)
+        years.push(<Picker.Item label={"-------"} value={i}/>);
         return years;
     }
 
@@ -76,40 +80,41 @@ export default class About extends React.Component {
         var maxDays = this.getNumDaysInMonth(this.state.year, month);
         var day = (this.state.day > maxDays) ? maxDays : this.state.day;
 
-        this.setState({ month: month, day: day }, () => {
+        this.setState({month: month, day: day}, () => {
             this.props.onValueChange(this.state.year, this.state.month, this.state.day);
         });
-    }
+    };
 
     onDayValueChanged = (day) => {
-        this.setState({ day: day }, () => {
+        this.setState({day: day}, () => {
             this.props.onValueChange(this.state.year, this.state.month, this.state.day)
         })
-    }
+    };
 
     onYearValueChanged = (year) => {
         var maxDays = this.getNumDaysInMonth(year, this.state.month);
         var day = (this.state.day > maxDays) ? maxDays : this.state.day;
 
-        this.setState({ year: year, day: day }, () => {
+        this.setState({year: year, day: day}, () => {
             this.props.onValueChange(this.state.year, this.state.month, this.state.day);
         });
-    }
+    };
 
     render() {
         return (
             <ScrollView>
-                <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{flex: 1, backgroundColor: 'white'}}>
                     <View>
                         <Text></Text>
                         <Text></Text>
                         <Text></Text>
                     </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen} style={{ marginLeft: '20%', marginTop: '3%' }} /></TouchableOpacity>
-                        <Text style={styles.text}>    About</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen}
+                                                 style={{marginLeft: '20%', marginTop: '3%'}}/></TouchableOpacity>
+                        <Text style={styles.text}> About</Text>
                     </View>
-                    <View style={{ marginLeft: 23, marginRight: 23, }}>
+                    <View style={{marginLeft: 23, marginRight: 23,}}>
                         <Text></Text>
                         <Text style={styles.test}>Tell us about yourself</Text>
                         <Text></Text>
@@ -117,27 +122,31 @@ export default class About extends React.Component {
                         <Text></Text>
 
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
-                        <TouchableOpacity style={styles.fles}><Icons name={'camera-alt'} size={20} color='white' /></TouchableOpacity>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-evenly',}}>
+                        <TouchableOpacity style={styles.fles}><Icons name={'camera-alt'} size={20}
+                                                                     color='white'/></TouchableOpacity>
                         <TouchableOpacity><Text style={styles.uplo}>Upload Photo</Text></TouchableOpacity>
                     </View>
-                    <View style={{ marginLeft: 23, marginRight: 23, }}>
+                    <View style={{marginLeft: 23, marginRight: 23,}}>
                         <Text></Text>
                         <Text style={styles.tests}>When is your birthday?</Text>
                     </View>
                     <View style={styles.container}>
-                        <Picker style={styles.picks} onValueChange={this.onDayValueChanged} selectedValue={this.state.day}>
+                        <Picker style={styles.picks} onValueChange={this.onDayValueChanged}
+                                selectedValue={this.state.day}>
                             {this.renderDay()}
                         </Picker>
-                        <Picker style={styles.pick} onValueChange={this.onMonthValueChanged} selectedValue={this.state.month}>
+                        <Picker style={styles.pick} onValueChange={this.onMonthValueChanged}
+                                selectedValue={this.state.month}>
                             {this.renderMonth()}
                         </Picker>
 
-                        <Picker style={styles.pickes} onValueChange={this.onYearValueChanged} selectedValue={this.state.year}>
+                        <Picker style={styles.pickes} onValueChange={this.onYearValueChanged}
+                                selectedValue={this.state.year}>
                             {this.renderYear()}
                         </Picker>
                     </View>
-                    <View style={{ marginLeft: 23, marginRight: 23 }}>
+                    <View style={{marginLeft: 23, marginRight: 23}}>
                         <Text style={styles.tests}>Choose your gender</Text>
                         <Text></Text>
                         <View>
@@ -145,7 +154,7 @@ export default class About extends React.Component {
 
                                 return (
                                     <View>
-                                        <View key={key} >
+                                        <View key={key}>
                                             {this.state.checked == key ?
                                                 <TouchableOpacity style={styles.btns}>
                                                     <Image style={styles.img} source={require("../assets/Images/rad.png")} />
@@ -153,7 +162,9 @@ export default class About extends React.Component {
                                                 </TouchableOpacity>
                                                 :
 
-                                                <TouchableOpacity onPress={() => { this.setState({ checked: key }) }} style={styles.btn}>
+                                                <TouchableOpacity onPress={() => { 
+                                                    this.setState({ checked: key }) 
+                                                }} style={styles.btn}>
                                                     <Image style={styles.img} source={require("../assets/Images/rads.png")} />
                                                     <Text style={styles.testtts}>{data}</Text>
                                                 </TouchableOpacity>
@@ -169,9 +180,9 @@ export default class About extends React.Component {
                     </View>
                     <View style={styles.fle}>
                         <Button textOnButton="Next"
-                            lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                            navigation={this.props.navigation}
-                            page="ContactInfo"
+                                lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                                navigation={this.props.navigation}
+                                page="ContactInfo"
                         />
                     </View>
                 </View>
@@ -204,18 +215,15 @@ const styles = StyleSheet.create({
 
     },
     tex: {
-        // textAlign:'center',
         color: 'grey',
 
     },
     tests: {
-        // textAlign:'center',
         color: COLORS.classicGreen,
         fontSize: 18,
 
     },
     test: {
-        // textAlign:'center',
         color: COLORS.classicGreen,
         fontSize: 22,
 
@@ -240,8 +248,6 @@ const styles = StyleSheet.create({
         borderRadius: 22,
         textAlign: 'center',
         paddingTop: 10,
-        // marginLeft:10,
-
     },
     sty: {
         borderRadius: 25,
@@ -249,16 +255,12 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 30,
         borderTopRightRadius: 30,
         borderBottomRightRadius: 30,
-        //   position:'relative',
-        //   marginTop:320,
-
-
     },
     fle: {
-        width: '100%', 
-        justifyContent: 
-        'center', alignItems: 
-        'center',
+        width: '100%',
+        justifyContent:
+            'center', alignItems:
+            'center',
         marginBottom: 40,
     },
     fles: {
@@ -287,7 +289,6 @@ const styles = StyleSheet.create({
         // textAlign:'center'
     },
     btn: {
-        // flexDirection: 'row',
         borderWidth: 1,
         width: 150,
         height: 42,
@@ -297,11 +298,10 @@ const styles = StyleSheet.create({
 
     },
     btns: {
-        // flexDirection: 'row',
         width: 150,
         height: 42,
         backgroundColor: COLORS.classicGreen,
         borderRadius: 50,
         marginBottom: 20,
     },
-})
+});

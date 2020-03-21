@@ -1,55 +1,54 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
-import Constants from 'expo-constants';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
-import { LinearGradient } from 'expo-linear-gradient';
 
-import ClassicButton from './ClassicButton.js';
-import COLORS from './Colors.js';
+import ClassicButton from './ClassicButton';
+import COLORS from './Colors';
 
 export default class Contact extends React.Component {
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-                <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen} style={{ marginLeft: '20%', marginTop: '25%' }} /></TouchableOpacity>
+            <View style={{flex: 1, backgroundColor: 'white'}}>
+                <View style={{flexDirection: 'row'}}>
+                    <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen}
+                                             style={{marginLeft: '20%', marginTop: '25%'}}/></TouchableOpacity>
                     <Text style={styles.text}>Contact Info</Text>
                 </View>
-                    <Text style={styles.te}>
-                        Where are you located?
+                <Text style={styles.te}>
+                    Where are you located?
                 </Text>
-                    <Text style={styles.de}>
-                        Charities need to know this info, and it lets us show your local events
+                <Text style={styles.de}>
+                    Charities need to know this info, and it lets us show your local events
                 </Text>
-                    <Text style={styles.padding}>
-                        Address Line 1
+                <Text style={styles.padding}>
+                    Address Line 1
                 </Text>
-                    <TextInput style={styles.textinput} placeholder="" />
-                    <Text style={styles.padding}>
-                        Address Line 2
+                <TextInput style={styles.textinput} placeholder=""/>
+                <Text style={styles.padding}>
+                    Address Line 2
                 </Text>
-                    <TextInput style={styles.textinput} placeholder="" />
-                    <Text style={styles.padding}>
-                        County / State
+                <TextInput style={styles.textinput} placeholder=""/>
+                <Text style={styles.padding}>
+                    County / State
                 </Text>
-                    <TextInput style={styles.textinput} placeholder="" />
-                    <Text style={styles.padding}>
-                        County / State                        Postcode
+                <TextInput style={styles.textinput} placeholder=""/>
+                <Text style={styles.padding}>
+                    County / State Postcode
                 </Text>
-                    <View style={styles.row}>
-                        <TextInput style={styles.textinput2} placeholder="                       " />
-                        <TextInput style={styles.textinput2} placeholder="                           " />
-                    </View>
-                    <Text style={styles.padding}>
-                        Phone Number
+                <View style={styles.row}>
+                    <TextInput style={styles.textinput2} placeholder="                       "/>
+                    <TextInput style={styles.textinput2} placeholder="                           "/>
+                </View>
+                <Text style={styles.padding}>
+                    Phone Number
                 </Text>
-                    <TextInput style={styles.textinput} placeholder="" />
+                <TextInput style={styles.textinput} placeholder=""/>
 
-                <ClassicButton 
-                textOnButton="Next"
-                lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                navigation={this.props.navigation}
-                page="feed"
+                <ClassicButton
+                    textOnButton="Next"
+                    lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                    navigation={this.props.navigation}
+                    page="feed"
                 ></ClassicButton>
 
             </View>
@@ -127,4 +126,4 @@ const styles = StyleSheet.create({
         width: 300,
         paddingHorizontal: 16,
     },
-})
+});

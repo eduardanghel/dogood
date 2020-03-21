@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import Constants from 'expo-constants';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 import AllActivities from './ActivitiesScreens/AllActivities.js';
 import Causes from './ActivitiesScreens/Causes.js';
@@ -33,17 +33,16 @@ class Activities extends Component {
     render() {
         return (
             <Tab.Navigator initialRouteName='All'
-                style={{
-                    marginTop: Constants.statusBarHeight, backgroundColor: 'white',
-                }}
-                tabBarOptions={{
-                    activeTintColor: 'white',
-                    inactiveTintColor: 'grey',
-                    indicatorStyle: { backgroundColor: COLORS.classicGreen, height: '100%', borderRadius: 30 },
-                    labelStyle: {
-                        fontSize: 12,
-                    }
-
+                           style={{
+                               marginTop: Constants.statusBarHeight, backgroundColor: 'white',
+                           }}
+                           tabBarOptions={{
+                               activeTintColor: 'white',
+                               inactiveTintColor: 'grey',
+                               indicatorStyle: {backgroundColor: COLORS.classicGreen, height: '100%', borderRadius: 30},
+                               labelStyle: {
+                                   fontSize: 12,
+                               }
                 }}>
                 <Tab.Screen name='All' component={AllActivities} />
                 <Tab.Screen name='Causes' component={Causes} />
@@ -62,4 +61,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     }
-})
+});

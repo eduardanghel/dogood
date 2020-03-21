@@ -1,22 +1,12 @@
-backend/karmabackend/.dockerignore
 backend/karmabackend/backend/.coverage
-backend/karmabackend/backend/.idea/*
-backend/karmabackend/backend/__pycache__/
 backend/karmabackend/backend/static/
-backend/karmabackend/backend/.coverage
 backend/karmabackend/backend/htmlcov/
-backend/karmabackend/backend/karmaapp/serializers/__pycache__/
-backend/karmabackend/backend/karmaapp/views/__pycache__/
-backend/karmabackend/backend/karmaapp/admin/__pycache__/
-backend/karmabackend/backend/karmaapp/migrations/__pycache__/
 backend/karmabackend/venv/
-backend/karmabackend/backend/backend/__pycache__/
-backend/karmabackend/backend/charities/__pycache__/
-backend/karmabackend/backend/charities/models/__pycache__/
-backend/karmabackend/backend/karmaapp/__pycache__/
-backend/karmabackend/backend/karmaapp/models/__pycache__/
+*.pyc
+frontend/.expo_shared/
 frontend/.expo/
 frontend/node_modules/
+frontend/ios/Pods/
 
 node_modules/**/*
 .expo/*
@@ -25,13 +15,23 @@ npm-debug.*
 *.p8
 *.p12
 *.key
+*.log
 *.mobileprovision
 *.orig.*
 web-build/
 web-report/
 
+# XCode
+**/xcuserdata/
+
 # macOS
 .DS_Store
 
-# IntelliJ
-frontend/.idea/
+# IntelliJ / PyCharm et al.
+*.idea
+
+# Android Studio
+frontend/android/.gradle
+frontend/android/app/build
+frontend/android/local.properties
+*.iml

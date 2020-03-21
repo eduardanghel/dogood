@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
+import {StatusBar, StyleSheet, Text, View} from "react-native";
 
-import COLORS from './Colors.js';
-import Button from './ClassicButton.js';
+import COLORS from './Colors';
+import Button from './ClassicButton';
 
 export default class OpenEmail extends React.Component {
 
@@ -12,9 +11,9 @@ export default class OpenEmail extends React.Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation
+        const {navigate} = this.props.navigation;
         return (
-            <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center' }}>
+            <View style={{flex: 1, backgroundColor: 'white', alignItems: 'center'}}>
                 {/*<View>
                 <Text></Text>
                 <Text></Text>
@@ -25,15 +24,15 @@ export default class OpenEmail extends React.Component {
                 <Text style={styles.text}>    Forgot Password</Text>
             </View>
             */}
-                <View style={{ marginLeft: 30, marginRight: 30, }}>
+                <View style={{marginLeft: 30, marginRight: 30,}}>
                     <Text></Text>
                     <Text style={styles.tex}>We have sent an email to janedoe@gmail.com please check your mail.</Text>
                     <Text></Text>
                 </View>
-                <Button textOnButton="Open Inbox" 
-                lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                navigation={this.props.navigation}
-                page=""></Button>
+                <Button textOnButton="Open Inbox"
+                        lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                        navigation={this.props.navigation}
+                        page=""></Button>
             </View>
         )
     }
@@ -48,7 +47,6 @@ const styles = StyleSheet.create({
 
     },
     tex: {
-        // textAlign:'center',
         color: 'grey',
 
     },
@@ -68,7 +66,6 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 30,
         borderTopRightRadius: 30,
         borderBottomRightRadius: 30,
-        //   position:'relative',
         marginTop: 357,
     }
-})
+});

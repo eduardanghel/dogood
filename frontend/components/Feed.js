@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, TabBarIOS } from 'react-native';
-import Constants from 'expo-constants';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-import Activities from './screens/Activities.js';
-import Notifications from './screens/Notifications.js';
+import Activities from './screens/Activities';
+import Notifications from './screens/Notifications';
 
-import COLORS from './Colors.js';
+import COLORS from './Colors';
 
 //The following functions are just temporary as the screens haven't been coded yet
 
@@ -18,7 +17,6 @@ function MyCausesScreen() {
         </View>
     );
 }
-
 
 
 function ProfileScreen() {
@@ -38,40 +36,37 @@ export default class Feed extends Component {
     render() {
         return (
             <Tab.Navigator initialRouteName="Activities"
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
+                           screenOptions={({route}) => ({
+                               tabBarIcon: ({focused, color, size}) => {
+                                   let iconName;
 
-                        if (route.name === 'Activities') {
-                            iconName = focused
-                                ? 'trophy'
-                                : 'trophy';
-                        }
-                        else if (route.name === 'My Causes') {
-                            iconName = focused
-                                ? 'heart'
-                                : 'heart';
-                        }
-                        else if (route.name === 'Notification') {
-                            iconName = focused
-                                ? 'bell'
-                                : 'bell';
-                        }
-                        else if (route.name === 'Profile') {
-                            iconName = focused
-                                ? 'user'
-                                : 'user';
-                        }
-                        return <Icon name={iconName} color={color} size={size} />;
-                    },
-                })}
-                tabBarOptions={{
-                    activeTintColor: COLORS.classicGreen,
-                }}>
-                <Tab.Screen name="Activities" component={Activities} />
-                <Tab.Screen name="My Causes" component={MyCausesScreen} />
-                <Tab.Screen name="Notification" component={Notifications} />
-                <Tab.Screen name="Profile" component={ProfileScreen} />
+                                   if (route.name === 'Activities') {
+                                       iconName = focused
+                                           ? 'trophy'
+                                           : 'trophy';
+                                   } else if (route.name === 'My Causes') {
+                                       iconName = focused
+                                           ? 'heart'
+                                           : 'heart';
+                                   } else if (route.name === 'Notification') {
+                                       iconName = focused
+                                           ? 'bell'
+                                           : 'bell';
+                                   } else if (route.name === 'Profile') {
+                                       iconName = focused
+                                           ? 'user'
+                                           : 'user';
+                                   }
+                                   return <Icon name={iconName} color={color} size={size}/>;
+                               },
+                           })}
+                           tabBarOptions={{
+                               activeTintColor: COLORS.classicGreen,
+                           }}>
+                <Tab.Screen name="Activities" component={Activities}/>
+                <Tab.Screen name="My Causes" component={MyCausesScreen}/>
+                <Tab.Screen name="Notification" component={Notifications}/>
+                <Tab.Screen name="Profile" component={ProfileScreen}/>
             </Tab.Navigator>
         );
     }
@@ -83,4 +78,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     }
-})
+});
