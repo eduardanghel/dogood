@@ -1,7 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import {
+    StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView
+} from 'react-native';
+import IMAGE from '../assets/AllImages.js';
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import passport from '../assets/passport.png';
 import COLORS from "./Colors";
 import ClassicButton from "./ClassicButton";
 
@@ -10,7 +13,7 @@ export default class IDValidation extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.form}>
-                    <Image style={styles.image} source={passport}/>
+                    <Image style={styles.image} source={IMAGE.passport} />
                     <Text style={styles.title}>Verify your account</Text>
                     <Text/>
                     <Text style={styles.paragraph}>
