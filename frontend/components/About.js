@@ -148,13 +148,13 @@ export default class About extends React.Component {
                                         <View key={key} >
                                             {this.state.checked == key ?
                                                 <TouchableOpacity style={styles.btns}>
-                                                    <Image style={styles.img} source={require("../assets/rad.png")} />
+                                                    <Image style={styles.img} source={require("../assets/Images/rad.png")} />
                                                     <Text style={styles.testtt}>{data}</Text>
                                                 </TouchableOpacity>
                                                 :
 
                                                 <TouchableOpacity onPress={() => { this.setState({ checked: key }) }} style={styles.btn}>
-                                                    <Image style={styles.img} source={require("../assets/rads.png")} />
+                                                    <Image style={styles.img} source={require("../assets/Images/rads.png")} />
                                                     <Text style={styles.testtts}>{data}</Text>
                                                 </TouchableOpacity>
 

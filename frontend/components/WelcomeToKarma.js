@@ -4,8 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
 import COLORS from './Colors.js';
 
-import heartHands from '../assets/heartHands.png';
-import earth from '../assets/peopleGlobe.png';
+import IMAGE from '../assets/AllImages.js';
 import Card from './Card.js';
 
 export default class WelcomeToKarma extends Component {
@@ -24,13 +23,13 @@ export default class WelcomeToKarma extends Component {
               showsHorizontalScrollIndicator={false}
               style={styles.scrollViewView}>
             <Card
-                imageUri={heartHands} question="Are you an individual?"
+                imageUri={IMAGE.heartHands} question="Are you an individual?"
                 text="Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusm ut labore et dolore magna aliqua"
                 navigation={this.props.navigation}
                 page="UserRegistration"
             />
             <Card
-                imageUri={earth} question="Are you an organization?"
+                imageUri={IMAGE.earth} question="Are you an organization?"
                 text="Lorem ipsum dolor sit amet, consectetur adip isicing elit,sed do eiusm ut labore et dolore magna aliqua"
                 navigation={this.props.navigation}
                 page=""
