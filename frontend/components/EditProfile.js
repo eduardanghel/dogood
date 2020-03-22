@@ -9,7 +9,7 @@ import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import {YellowBox} from 'react-native';
 import Slider from 'react-native-slider';
 import SwitchToggle from "react-native-switch-toggle";
-import Causes from './Causes';
+import Causes from './Causes.js';
 
 
 export default class Update extends React.Component {
