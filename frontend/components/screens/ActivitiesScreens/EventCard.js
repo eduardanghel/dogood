@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View, Modal, Alert} from 'react-native';
 import ReadMore from 'react-native-read-more-text';
 
 import Icon from 'react-native-vector-icons/EvilIcons';
