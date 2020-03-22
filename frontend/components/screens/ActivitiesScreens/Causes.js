@@ -7,10 +7,6 @@ import categories from '../../Lists/CategoriesOfCauses.js';
 import mapOfCategories from '../../Lists/MapOfCategories.js';
 
 export default class App extends React.Component {
-  constructor() {
-    super();
-    this.category = categories;
-  }
   render() {
     return (
       <ScrollView
@@ -18,9 +14,13 @@ export default class App extends React.Component {
         horizontal={false}
         showsVerticalScrollIndicator={false}
         style={styles.container}>
-        {this.category.map(title => (
-          <View style={{marginBottom: 12}}>
-            <Category categoryTitle={title} expandList="See All" DATA={mapOfCategories.get('Animals')}/>
+        {categories.map(title => (
+          <View style={{ marginBottom: 12 }}>
+            <Category
+              categoryTitle={title}
+              expandList="See All"
+              DATA={mapOfCategories.get(title)}
+            />
           </View>
         ))}
       </ScrollView>

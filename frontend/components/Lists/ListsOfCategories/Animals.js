@@ -1,6 +1,6 @@
 import IMAGE from '../../../assets/AllImages.js';
 
-export const list = [
+const list = [
   {
     organizationName: 'The P.E.E.R. Center',
     verifiedIcon: 'check-circle',

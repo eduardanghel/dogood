@@ -1,6 +1,6 @@
 import IMAGE from '../../../assets/AllImages.js';
 
-export const list = [
+const list = [
   {
     organizationName: "Alzheimer's Association",
     verifiedIcon: '',
@@ -51,6 +51,4 @@ export const list = [
   },
 ]
 
-export default {
-  list,
-}
+export default list;
