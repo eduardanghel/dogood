@@ -142,6 +142,7 @@ export default class Update extends React.Component {
                           }}
                           circleColorOff= "gray"
                           circleColorOn= {colors.initialDarkGreen}
+                          backgroundColorOn= {colors.initialLightGreen}
                           duration={400}
                         />
                     </View>
@@ -149,6 +150,7 @@ export default class Update extends React.Component {
                 <View style={{marginLeft: 30, marginTop: 20, marginRight: 30 }}>
                     <View style={{marginTop: 10, borderBottomWidth: 1, paddingBottom: 10, borderBottomColor: 'gray'}}>
                         <Text style={{fontSize: 20, color: 'gray'}}>Placeholder</Text>
+                        <TextInput></TextInput>
                     </View>
                 </View>
                 <View style={{marginLeft: 30, marginTop: 20, marginRight: 30 }}>
