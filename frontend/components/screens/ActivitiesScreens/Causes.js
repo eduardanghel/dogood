@@ -3,8 +3,8 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 
 import Category from './HorizontalEventList.js';
-import categories from './Lists/CategoriesOfCauses.js';
-import mapOfCategories from './Lists/MapOfCategories.js';
+import categories from '../../Lists/CategoriesOfCauses.js';
+import mapOfCategories from '../../Lists/MapOfCategories.js';
 
 export default class App extends React.Component {
   constructor() {
