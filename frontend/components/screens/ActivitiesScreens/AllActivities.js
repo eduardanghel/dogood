@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import AllEvents from './Lists/AllEventsList';
+import allEvents from '../../Lists/AllEventsList.js';
 import EventList from './VerticalEventList.js';
 
 export default class AllActivities extends Component {
   render() {
-    return <EventList DATA={AllEvents} />;
+    return <EventList DATA={allEvents} />;
   }
 }
