@@ -19,8 +19,7 @@ export default class Causes extends Component {
       
       <View style={styles.container}> 
       <View style={{flexDirection:'row'}}>
-                <TouchableOpacity><Icons name={'arrow-back'} size={30} color='#01b0b0' style={{marginLeft: '5%',marginTop:'3%'}}/></TouchableOpacity>
-                <Text style={{fontSize:23}}> Causes </Text>
+                <Text style={{fontSize:23}}>Causes</Text>
             </View>
             <Text style={{color:'#01b0b0',marginTop:20,fontSize:25}}>What causes do you care {"\n"} about?</Text>
             <View style= {{flexDirection:'row',marginLeft:15,marginTop:40}}>
