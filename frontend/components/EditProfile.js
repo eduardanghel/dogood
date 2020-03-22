@@ -21,6 +21,7 @@ export default class Update extends React.Component {
             value: 0.1,
             switchOn1: false,
             causeVisible: false,
+            value: 1,
         };
     }
     componentDidMount() {
@@ -109,10 +110,13 @@ export default class Update extends React.Component {
                 <View style={{marginLeft: 30, marginTop: 5, marginRight: 30 }}>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, paddingBottom: 2}}>
                         <Text style={{fontSize: 20, color: 'gray'}}>Distance</Text>
-                        <Text style={{fontSize: 20, color: 'gray'}}>5 miles</Text>
+                        <Text style={{fontSize: 20, color: 'gray'}}>{this.state.value} miles</Text>
                     </View>
                     <View>
                     <Slider
+                        minimumValue = {1}
+                        maximumValue = {10}
+                        step = {1}
                         thumbTintColor={colors.initialDarkGreen}
                         minimumTrackTintColor={colors.initialLightGreen}
                         maximumTrackTintColor={colors.backgroundGrey}
