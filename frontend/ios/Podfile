@@ -25,6 +25,7 @@ target 'karma-app' do
 pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
+pod 'Firebase/Auth', '~> 6.13.0'
 
  # Install React Native and its dependencies
  require_relative '../node_modules/react-native/scripts/autolink-ios.rb'
