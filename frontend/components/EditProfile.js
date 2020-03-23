@@ -12,7 +12,7 @@ import SwitchToggle from "react-native-switch-toggle";
 import Causes from './CausesSelection.js';
 
 
-export default class Update extends React.Component {
+export default class EditProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
