@@ -6,7 +6,9 @@ import {
   SafeAreaView
 } from 'react-native';
 
-import ActivityCard from './ActivityCard.js';
+// import ActivityCard from './ActivityCard.js';
+
+import ActivityCard from "./DetailedEventPage";
 
 export default class VerticalEventList extends React.Component {
   render() {

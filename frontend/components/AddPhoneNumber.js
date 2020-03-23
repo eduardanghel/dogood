@@ -3,36 +3,36 @@ import React from 'react';
 import {Alert, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import COLORS from "./Colors";
 import ClassicButton from "./ClassicButton";
+import Store from "./store/Store";
+import axios from "axios";
 
-export default class AddPhoneNumber extends React.Component {
+class AddPhoneNumber extends React.Component {
     state = {
-        phoneNumber: '',
-    }
+        authToken: this.props.authToken.get("OAuthToken"),
+        telephone: '',
+    };
 
-    onPhoneNumberChange(text) {
-        this.setState({phoneNumber: text});
+    onTelephoneChange(text) {
+        this.setState({telephone: text});
     }
 
     handleRequest() {
-        const base_url = 'http://karma-zomp.co.uk/users/user_profile/'
+        const base_url = 'http://karma-zomp.co.uk/users/user_profile/';
 
         var bodyFormData = new FormData();
-        bodyFormData.append('telephone', this.state.phoneNumber);
+        bodyFormData.append('telephone', this.state.telephone);
 
-
-        if (this.state.password1 == this.state.password2){
-            bodyFormData.append('password', this.state.password1);
-        }
-        else {
-            Alert.alert("The passwords don't match.");
-            this.state.password1 = '';
-            this.state.password2 = '';
+        const authorization = {
+            headers: {
+                Authorization: this.state.authToken
+            }
         }
 
         axios
-            .post(base_url, bodyFormData)
+            .patch(base_url, bodyFormData, authorization)
             .then(response => ({ response }))
             .catch(error => console.log(error));
+        this.props.userData.set("telephone")(this.state.telephone);
     }
 
     render() {
@@ -52,7 +52,7 @@ export default class AddPhoneNumber extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             placeholder="                                                                          "
-                            onChangeText={this.onPhoneNumberChange().bind(this)}
+                            onChangeText={this.onTelephoneChange.bind(this)}
                         />
                     </View>
                 </View>
@@ -67,6 +67,8 @@ export default class AddPhoneNumber extends React.Component {
         );
     }
 }
+
+export default Store.withStore(AddPhoneNumber);
 
 const styles = StyleSheet.create({
     container: {

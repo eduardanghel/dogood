@@ -17,6 +17,7 @@ import VerifyPhoneNumber from "./components/VerifyPhoneNumber";
 import ContactInfo from "./components/ContactInfo";
 import About from './components/About';
 
+import Store from "./components/store/Store";
 
 function InitialScreen({navigation}) {
     return (
@@ -53,60 +54,62 @@ const Stack = createStackNavigator();
 
 export default function App() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={InitialScreen} options={{headerShown: false}}/>
-                <Stack.Screen name="Back" component={WelcomeToKarma} options={{headerShown: false}}/>
-                <Stack.Screen name="UserRegistration"
-                              component={UserRegistration}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: 'Sign up',
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      fontWeight: 'bold',
-                                      fontSize: 22,
-                                      color: 'black',
-                                  }
-                              }}/>
-                <Stack.Screen name="Loginate" component={Login}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: 'Login',
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      color: 'black',
-                                      fontSize: 22,
-                                  }
-                              }}/>
-                <Stack.Screen name="ForgotPass" component={ForgotPass}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: 'Forgot Password',
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      color: 'black',
-                                      fontSize: 22,
-                                  }
-                              }}/>
-                <Stack.Screen name="OpenEmail" component={OpenEmail}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: "Forgot Password",
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      color: 'black',
-                                      fontSize: 22,
-                                  }
-                              }}/>
-                <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/>
-                <Stack.Screen name="IDValidation" component={IDValidation}/>
-                <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber}/>
-                <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber}/>
-                <Stack.Screen name="About" component={About}/>
-                <Stack.Screen name="ContactInfo" component={ContactInfo}/>
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Store.Container>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Home">
+                    <Stack.Screen name="Home" component={InitialScreen} options={{headerShown: false}}/>
+                    <Stack.Screen name="Back" component={WelcomeToKarma} options={{headerShown: false}}/>
+                    <Stack.Screen name="UserRegistration"
+                                  component={UserRegistration}
+                                  options={{
+                                      headerTintColor: COLORS.classicGreen,
+                                      title: 'Sign up',
+                                      headerTitleStyle: {
+                                          textAlign: 'left',
+                                          fontWeight: 'bold',
+                                          fontSize: 22,
+                                          color: 'black',
+                                      }
+                                  }}/>
+                    <Stack.Screen name="Loginate" component={Login}
+                                  options={{
+                                      headerTintColor: COLORS.classicGreen,
+                                      title: 'Login',
+                                      headerTitleStyle: {
+                                          textAlign: 'left',
+                                          color: 'black',
+                                          fontSize: 22,
+                                      }
+                                  }}/>
+                    <Stack.Screen name="ForgotPass" component={ForgotPass}
+                                  options={{
+                                      headerTintColor: COLORS.classicGreen,
+                                      title: 'Forgot Password',
+                                      headerTitleStyle: {
+                                          textAlign: 'left',
+                                          color: 'black',
+                                          fontSize: 22,
+                                      }
+                                  }}/>
+                    <Stack.Screen name="OpenEmail" component={OpenEmail}
+                                  options={{
+                                      headerTintColor: COLORS.classicGreen,
+                                      title: "Forgot Password",
+                                      headerTitleStyle: {
+                                          textAlign: 'left',
+                                          color: 'black',
+                                          fontSize: 22,
+                                      }
+                                  }}/>
+                    <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/>
+                    <Stack.Screen name="IDValidation" component={IDValidation}/>
+                    <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber}/>
+                    <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber}/>
+                    <Stack.Screen name="About" component={About}/>
+                    <Stack.Screen name="ContactInfo" component={ContactInfo}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </Store.Container>
     );
 }
 

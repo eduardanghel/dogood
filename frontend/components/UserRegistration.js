@@ -5,7 +5,9 @@ import ClassicButton from './ClassicButton';
 import COLORS from './Colors';
 import axios from 'axios';
 
-export default class UserRegistration extends React.Component {
+import Store from "./store/Store";
+
+class UserRegistration extends React.Component {
     state = {
         username: '',
         email: '',
@@ -14,37 +16,31 @@ export default class UserRegistration extends React.Component {
         firstName: '',
         lastName: '',
         termsChecked: true,
+        getAuthToken: '',
     };
 
     onUsernameChange(text) {
         this.setState({username: text});
-        console.log(this.state.username);
     }
 
     onEmailChange(text) {
         this.setState({email: text});
-        console.log(this.state.email);
     }
 
     onPassword1Change(text) {
         this.setState({password1: text});
-        console.log(this.state.password1);
     }
 
     onPassword2Change(text) {
         this.setState({password2: text});
-        console.log(this.state.password2);
     }
 
     onFirstNameChange(text) {
         this.setState({firstName: text});
-        console.log(this.state.firstName);
-
     }
 
     onLastNameChange(text) {
         this.setState({lastName: text});
-        console.log(this.state.lastName);
     }
 
     // need to add checkbox (for android) and switch (for ios)
@@ -53,28 +49,54 @@ export default class UserRegistration extends React.Component {
     }
 
     handleRequest() {
-        const base_url = 'http://karma-zomp.co.uk/users/'
+        const create_user_url = 'https://karma-zomp.co.uk/users/';
 
-        var bodyFormData = new FormData();
-        bodyFormData.append('username', this.state.username);
-        bodyFormData.append('email', this.state.email);
-        bodyFormData.append('first_name', this.state.firstName);
-        bodyFormData.append('last_name', this.state.lastName);
-        bodyFormData.append('terms_consent', this.state.termsChecked);
+        var signUpBodyFormData = new FormData();
+        signUpBodyFormData.append('username', this.state.username);
+        signUpBodyFormData.append('email', this.state.email);
+        signUpBodyFormData.append('first_name', this.state.firstName);
+        signUpBodyFormData.append('last_name', this.state.lastName);
+        signUpBodyFormData.append('terms_consent', this.state.termsChecked);
 
         if (this.state.password1 == this.state.password2){
-            bodyFormData.append('password', this.state.password1);
+            signUpBodyFormData.append('password', this.state.password1);
+
+            axios
+                .post(create_user_url, signUpBodyFormData)
+                .then(response => ({ response }))
+                .catch(error => console.log(error));
+
+            this.props.userData.set("username")(this.state.username);
+            this.props.userData.set("email")(this.state.email);
+            this.props.userData.set("firstName")(this.state.firstName);
+            this.props.userData.set("lastName")(this.state.lastName);
+            this.props.userData.set("termsChecked")(this.state.termsChecked);
+
+
+            const user_login_url = 'https://karma-zomp.co.uk/o/token/';
+
+            var signInBodyFormData = new FormData();
+            signInBodyFormData.append('grant_type', 'password');
+            signInBodyFormData.append('username', this.state.username);
+            signInBodyFormData.append('password', this.state.password1);
+            signInBodyFormData.append('client_id', 'app.karma-zomp.co.uk');
+
+            axios
+                .post(user_login_url, signInBodyFormData)
+                .then((response) => {
+                    var token  = "Bearer ".concat(response.data('access_token'));
+                    this.setState({getAuthToken: token})
+                })
+                .catch(error => console.log(error));
+
+            this.props.authToken.set("OAuthToken")(this.state.getAuthToken);
+            console.log(this.props.authToken.get('OAuthToken'));
         }
         else {
             Alert.alert("The passwords don't match.");
             this.state.password1 = '';
             this.state.password2 = '';
         }
-
-        axios
-            .post(base_url, bodyFormData)
-            .then(response => ({ response }))
-            .catch(error => console.log(error));
     }
 
     render() {
@@ -152,6 +174,8 @@ export default class UserRegistration extends React.Component {
         );
     }
 }
+
+export default Store.withStore(UserRegistration);
 
 const styles = StyleSheet.create({
     regform: {

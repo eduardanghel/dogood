@@ -7,7 +7,9 @@ import {
   ScrollView,
 } from 'react-native';
 import { ProgressBar } from 'react-native-paper';
-import MapView, { Marker } from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
+
+import { MapView, Marker} from "expo";
 
 import Icon from 'react-native-vector-icons/EvilIcons';
 import IconBis from 'react-native-vector-icons/MaterialIcons';
@@ -247,7 +249,7 @@ const styles = StyleSheet.create({
   thirdHeaderIcon: {
     margin: 8,
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
   },
   backgroundImage: {
     resizeMode: 'stretch',
@@ -316,7 +318,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 12,
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
   },
   buttonView: {
     flex: 1,

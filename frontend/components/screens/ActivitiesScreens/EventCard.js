@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
   thirdHeaderIcon: {
     margin: 8,
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
   },
   backgroundImage: {
     resizeMode: 'stretch',

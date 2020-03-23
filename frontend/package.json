@@ -18,6 +18,7 @@
     "@react-navigation/native": "^5.0.9",
     "@react-navigation/stack": "^5.1.1",
     "@unpourtous/react-native-touchable": "^1.0.3",
+    "axios": "^0.19.2",
     "background": "^0.3.3",
     "button": "^1.1.1",
     "canvas": "^2.6.1",
@@ -33,7 +34,6 @@
     "react-native-datepicker": "latest",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "~1.5.0",
-    "react-native-maps": "0.27.0",
     "react-native-paper": "^3.6.0",
     "react-native-read-more-text": "^1.1.2",
     "react-native-reanimated": "~1.4.0",
@@ -45,7 +45,9 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.2.2",
-    "styled-components": "^5.0.1"
+    "rxjs": "^6.5.4",
+    "styled-components": "^5.0.1",
+    "undux": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

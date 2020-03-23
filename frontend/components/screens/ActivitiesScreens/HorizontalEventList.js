@@ -10,7 +10,8 @@ import {
   Alert,
 } from 'react-native';
 
-import ActivityCard from './ActivityCard.js';
+// import ActivityCard from './ActivityCard.js';
+import ActivityCard from "./DetailedEventPage";
 import ArrowIcon from 'react-native-vector-icons/AntDesign';
 import VerticalList from './VerticalEventList.js';
 
