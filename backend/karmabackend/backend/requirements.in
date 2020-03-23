@@ -8,3 +8,4 @@ django-rest-auth
 pip-tools
 django-oauth-toolkit
 django-post-office
+psutil
