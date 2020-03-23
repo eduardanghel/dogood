@@ -19,7 +19,19 @@ let initialAuthToken = {
     OAuthToken: "",
 };
 
+let initialCharitySettings = {
+    dateOfRegistration: '',
+    type: '',
+    charityNumber: '',
+    exemption: '',
+    logo: '',
+    causes: '',
+    termsChecked: false,
+};
+
 export default createConnectedStore({
     userData: initialUserSettings,
-    authToken: initialAuthToken
+    charityData: initialCharitySettings,
+    authToken: initialAuthToken,
+
 });

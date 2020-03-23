@@ -18,15 +18,13 @@ export default class EditProfile extends React.Component {
         this.state = {
             isDatePickerVisible: false,
             imageVisible: false,
-            value: 0.1,
+            // value: 0.1,
             switchOn1: false,
             causeVisible: false,
             value: 1,
         };
     }
     componentDidMount() {
-
-
         StatusBar.setHidden(true);
     }
 

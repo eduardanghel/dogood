@@ -1,11 +1,57 @@
 import * as React from 'react';
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Alert, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 
 import ClassicButton from './ClassicButton';
 import COLORS from './Colors';
+import Store from "./store/Store";
+import axios from "axios";
 
-export default class Contact extends React.Component {
+class Contact extends React.Component {
+    state = {
+        authToken: this.props.authToken.get("OAuthToken"),
+        address1: '',
+        address2: '',
+        county: '',
+        postcode: '',
+    };
+
+    onAddress1Change(text) {
+        this.setState({address1: text});
+    }
+
+    onAddress2Change(text) {
+        this.setState({address2: text});
+    }
+
+    onCountyChange(text) {
+        this.setState({county: text});
+    }
+
+    onPostcodeChange(text) {
+        this.setState({postcode: text});
+    }
+
+    handleRequest() {
+        const create_user_url = 'https://karma-zomp.co.uk/users/user_profile/';
+
+        var updateAddressForm = new FormData();
+        updateAddressForm.append('address', this.state.address1.concat(", ".concat(this.state.address2)));
+        updateAddressForm.append('city', this.state.county);
+        updateAddressForm.append('postcode', this.state.postcode);
+
+        const authorization = {
+            headers: {
+                Authorization: this.state.authToken
+            }
+        };
+
+        axios
+            .patch(create_user_url, updateAddressForm, authorization)
+            .then(response => ({ response }))
+            .catch(error => console.log(error));
+    }
+
     render() {
         return (
             <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -23,27 +69,33 @@ export default class Contact extends React.Component {
                 <Text style={styles.padding}>
                     Address Line 1
                 </Text>
-                <TextInput style={styles.textinput} placeholder=""/>
+                <TextInput
+                    style={styles.textinput}
+                    onChangeText={this.onAddress1Change.bind(this)}
+                    placeholder=""/>
                 <Text style={styles.padding}>
                     Address Line 2
                 </Text>
-                <TextInput style={styles.textinput} placeholder=""/>
+                <TextInput
+                    style={styles.textinput}
+                    onChangeText={this.onAddress2Change.bind(this)}
+                    placeholder=""/>
                 <Text style={styles.padding}>
                     County / State
                 </Text>
-                <TextInput style={styles.textinput} placeholder=""/>
+                <TextInput
+                    style={styles.textinput}
+                    onChangeText={this.onCountyChange.bind(this)}
+                    placeholder=""/>
                 <Text style={styles.padding}>
                     County / State Postcode
                 </Text>
                 <View style={styles.row}>
-                    <TextInput style={styles.textinput2} placeholder="                       "/>
-                    <TextInput style={styles.textinput2} placeholder="                           "/>
+                    <TextInput
+                        style={styles.textinput2}
+                        onChangeText={this.onPostcodeChange.bind(this)}
+                        placeholder="                       "/>
                 </View>
-                <Text style={styles.padding}>
-                    Phone Number
-                </Text>
-                <TextInput style={styles.textinput} placeholder=""/>
-
                 <ClassicButton
                     textOnButton="Next"
                     lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
@@ -55,6 +107,9 @@ export default class Contact extends React.Component {
         );
     }
 }
+
+export default Store.withStore(Contact);
+
 const styles = StyleSheet.create({
 
     text: {
