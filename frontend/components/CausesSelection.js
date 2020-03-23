@@ -7,7 +7,7 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 // import * as ImagePicker from 'expo-image-picker';
 // import Icon from 'react-native-vector-icons/AntDesign';
 // import {LinearGradient} from 'expo-linear-gradient';
-export default class Causes extends Component {
+export default class CausesSelection extends Component {
   constructor(){
     super();
     this.state={ button1:false, button2:false, button3:false, button4:false, button5:false, button6:false, button7:false, button8:false, button9:false
