@@ -20,8 +20,6 @@ export default class UserProfileFeed extends React.Component {
         };
     }
     componentDidMount() {
-
-
         StatusBar.setHidden(true);
     }
 
