@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Activities from './screens/Activities';
 import Notifications from './screens/Notifications';
+import UserProfileFeed From './UserProfileFeed.js';
 
 import COLORS from './Colors';
 
