@@ -6,18 +6,17 @@ import {
   Button,
   TouchableOpacity,
   Switch,
+  Icon,
+  Image,
 } from 'react-native';
-//import COLORS from './Colors.js';
+import COLORS from './Colors.js';
 
-export default class App extends Component {
+export default class WhiteButton extends Component {
   constructor(props) {
     super(props);
-    this.navigate.bind(this);
   }
 
-  navigate(txt) {
-    this.props.navigation.navigate(txt); //This allows use to use the navigation, you will usually have to write navigation={this.props.navigation}
-  }
+  
 
   render() {
     return (
@@ -34,8 +33,10 @@ export default class App extends Component {
             borderRadius: 30,
             alignItems: 'center',
             justifyContent: 'center',
+            flexDirection: "row"
           }}
           onPress={() => this.navigate(this.props.page)}>
+          <Image style={styles.logo} name = {this.props.iconName}/> 
           <Text style={{ color: '#01b0b0', fontSize: 20 }}>
             {this.props.textOnButton}
           </Text>
@@ -44,3 +45,11 @@ export default class App extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    height: 10,
+    width: 10,
+    alignItems: 'left'
+  }
+});
