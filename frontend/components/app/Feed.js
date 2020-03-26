@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-import Activities from './screens/Activities';
-import Notifications from './screens/Notifications';
+import Activities from './Activities';
+import Notifications from './Notifications';
 
 import COLORS from '../reusables/Colors';
 
