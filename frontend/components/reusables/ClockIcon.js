@@ -8,7 +8,7 @@ export default class ClockIcon extends Component {
             <Clock
                 name="clockcircle"
                 color={'white'}
-                size={20}
+                size={17}
                 style={styles.clockStyle}
             />
         )
