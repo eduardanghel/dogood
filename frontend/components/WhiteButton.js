@@ -6,17 +6,14 @@ import {
   Button,
   TouchableOpacity,
   Switch,
-  Icon,
   Image,
 } from 'react-native';
-import COLORS from './Colors.js';
+import  Icon  from 'react-native-vector-icons/Entypo';
 
 export default class WhiteButton extends Component {
   constructor(props) {
     super(props);
   }
-
-  
 
   render() {
     return (
@@ -32,12 +29,12 @@ export default class WhiteButton extends Component {
             borderWidth: 2,
             borderRadius: 30,
             alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: "row"
+            //justifyContent: 'center',
+            flexDirection: 'row',
           }}
           onPress={() => this.navigate(this.props.page)}>
-          <Image style={styles.logo} name = {this.props.iconName}/> 
-          <Text style={{ color: '#01b0b0', fontSize: 20 }}>
+          <Icon style={styles.logo} name={this.props.iconName} />
+          <Text style={styles.text}>
             {this.props.textOnButton}
           </Text>
         </TouchableOpacity>
@@ -48,8 +45,15 @@ export default class WhiteButton extends Component {
 
 const styles = StyleSheet.create({
   logo: {
-    height: 10,
-    width: 10,
-    alignItems: 'left'
-  }
+    height: 15,
+    width: 15,
+    alignItems: 'left',
+    marginLeft: 25
+  },
+  text: {
+    color: '#01b0b0',
+    //alignItems: 'left',
+    fontSize: 20,
+    marginLeft: 70,
+  },
 });
