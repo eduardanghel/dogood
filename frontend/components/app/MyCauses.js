@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
 
-import COLOR from '../../reusables/Colors'
-import Category from '../../reusables/HorizontalEventList';
-import categories from '../../reusables/lists/CategoriesOfCauses';
-import mapOfCategories from '../../reusables/lists/MapOfCategories';
+import COLOR from '../reusables/Colors'
+import Category from '../reusables/HorizontalEventList';
+import categories from '../reusables/lists/CategoriesOfCauses';
+import mapOfCategories from '../reusables/lists/MapOfCategories';
 
-export default class Causes extends React.Component {
+export default class MyCauses extends React.Component {
     render() {
         return (
             <ScrollView
@@ -31,6 +32,7 @@ export default class Causes extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: Constants.statusBarHeight,
         backgroundColor: COLOR.backgroundGrey2,
     },
 });
