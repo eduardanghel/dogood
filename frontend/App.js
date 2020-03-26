@@ -1,32 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {LinearGradient} from 'expo-linear-gradient';
-import COLORS from './components/Colors';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { LinearGradient } from 'expo-linear-gradient';
+import COLORS from './components/reusables/Colors';
 
-import WelcomeToKarma from "./components/WelcomeToKarma";
-import Login from "./components/Login";
-import ForgotPass from "./components/ForgotPass";
-import UserRegistration from "./components/UserRegistration";
-import OpenEmail from "./components/OpenEmail";
-import Feed from "./components/Feed";
-import IDValidation from "./components/IDValidation";
-import AddPhoneNumber from "./components/AddPhoneNumber";
-import VerifyPhoneNumber from "./components/VerifyPhoneNumber";
-import ContactInfo from "./components/ContactInfo";
-import About from './components/About';
+import WelcomeToKarma from './components/signup/WelcomeToKarma';
+import Login from './components/login/Login';
+import ForgotPass from './components/login/ForgotPass';
+import UserRegistration from './components/signup/UserRegistration';
+import OpenEmail from './components/login/OpenEmail';
+import Feed from './components/app/Feed';
+import IDValidation from './components/signup/IDValidation';
+import AddPhoneNumber from './components/signup/AddPhoneNumber';
+import VerifyPhoneNumber from './components/signup/VerifyPhoneNumber';
+import ContactInfo from './components/signup/ContactInfo';
+import About from './components/signup/About';
 
 
-function InitialScreen({navigation}) {
+function InitialScreen({ navigation }) {
     return (
 
         <View style={styles.container}>
             <LinearGradient
                 style={styles.linearGradient}
                 colors={[COLORS.lightGreen, COLORS.darkGreen]}
-                start={{x: 1, y: 0}}
-                end={{x: 0, y: 1}}
+                start={{ x: 1, y: 0 }}
+                end={{ x: 0, y: 1 }}
 
             >
                 <Text style={styles.textHeader}>KARMA</Text>
@@ -36,7 +36,7 @@ function InitialScreen({navigation}) {
                     style={styles.buttonContainer}
                     onPress={() => navigation.navigate('Back')}
                 >
-                    <Text style={{color: "white", fontSize: 20,}}>Sign Up</Text>
+                    <Text style={{ color: "white", fontSize: 20, }}>Sign Up</Text>
                 </TouchableOpacity>
                 <Text
                     style={styles.loginText}
@@ -55,56 +55,56 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={InitialScreen} options={{headerShown: false}}/>
-                <Stack.Screen name="Back" component={WelcomeToKarma} options={{headerShown: false}}/>
+                <Stack.Screen name="Home" component={InitialScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Back" component={WelcomeToKarma} options={{ headerShown: false }} />
                 <Stack.Screen name="UserRegistration"
-                              component={UserRegistration}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: 'Sign up',
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      fontWeight: 'bold',
-                                      fontSize: 22,
-                                      color: 'black',
-                                  }
-                              }}/>
+                    component={UserRegistration}
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: 'Sign up',
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            fontWeight: 'bold',
+                            fontSize: 22,
+                            color: 'black',
+                        }
+                    }} />
                 <Stack.Screen name="Loginate" component={Login}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: 'Login',
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      color: 'black',
-                                      fontSize: 22,
-                                  }
-                              }}/>
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: 'Login',
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            color: 'black',
+                            fontSize: 22,
+                        }
+                    }} />
                 <Stack.Screen name="ForgotPass" component={ForgotPass}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: 'Forgot Password',
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      color: 'black',
-                                      fontSize: 22,
-                                  }
-                              }}/>
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: 'Forgot Password',
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            color: 'black',
+                            fontSize: 22,
+                        }
+                    }} />
                 <Stack.Screen name="OpenEmail" component={OpenEmail}
-                              options={{
-                                  headerTintColor: COLORS.classicGreen,
-                                  title: "Forgot Password",
-                                  headerTitleStyle: {
-                                      textAlign: 'left',
-                                      color: 'black',
-                                      fontSize: 22,
-                                  }
-                              }}/>
-                <Stack.Screen name="Feed" component={Feed} options={{headerShown: false}}/>
-                <Stack.Screen name="IDValidation" component={IDValidation}/>
-                <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber}/>
-                <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber}/>
-                <Stack.Screen name="About" component={About}/>
-                <Stack.Screen name="ContactInfo" component={ContactInfo}/>
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: "Forgot Password",
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            color: 'black',
+                            fontSize: 22,
+                        }
+                    }} />
+                <Stack.Screen name="Feed" component={Feed} options={{ headerShown: false }} />
+                <Stack.Screen name="IDValidation" component={IDValidation} />
+                <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber} />
+                <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} />
+                <Stack.Screen name="About" component={About} />
+                <Stack.Screen name="ContactInfo" component={ContactInfo} />
             </Stack.Navigator>
         </NavigationContainer>
     );
