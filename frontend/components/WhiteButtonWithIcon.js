@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import  Icon  from 'react-native-vector-icons/Entypo';
 
-export default class WhiteButton extends Component {
+export default class WhiteButtonWithIcon extends Component {
   constructor(props) {
     super(props);
   }
