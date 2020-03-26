@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
-import WhiteButton from '../WhiteButton';
+import WhiteButton from '../WhiteButtonWithIcon';
 
 
 class Share extends React.Component {
@@ -30,10 +30,10 @@ class Share extends React.Component {
           visible={this.state.visible}
           onBackButtonPress={this._toggleBottomNavigationView}
           onBackdropPress={this._toggleBottomNavigationView}>
-          <WhiteButton textOnButton="Facebook" iconName = 'facebook'/>
-          <WhiteButton textOnButton="LinkedIn" iconName = 'linkedin'/>
-          <WhiteButton textOnButton="Twitter" iconName = 'twitter' />
-          <WhiteButton textOnButton="Copy Link" iconName = 'link'/>
+          <WhiteButtonWithIcon textOnButton="Facebook" iconName = 'facebook'/>
+          <WhiteButtonWithIcon textOnButton="LinkedIn" iconName = 'linkedin'/>
+          <WhiteButtonWithIcon textOnButton="Twitter" iconName = 'twitter' />
+          <WhiteButtonWithIcon textOnButton="Copy Link" iconName = 'link'/>
         </BottomSheet>
       </View>
     );
