@@ -5,10 +5,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import COLORS from './Colors';
 
 
-export default class ClassicButton extends Component {
+export default class WhiteButton extends Component {
     constructor(props) {
         super(props);
-        this.navigate.bind(this);
+        this.navigate.bind(this); //Props used to create white button with different destinations/text
     }
 
     navigate(txt) {
