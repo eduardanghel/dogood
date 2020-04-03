@@ -1,12 +1,16 @@
+{/**
+The Feed is the app's main screen, from here the user can browse all the events (and categories of events) and access his profile screen
+and settings
+*/}
+
 import React, { Component } from 'react';
-import { StyleSheet, } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Activities from './Activities';
 import Notifications from './Notifications';
-import UserProfileFeed from './UserProfileFeed.js';
-import MyCauses from './MyCauses';
+import ProfileScreen from './profile/EditProfile';
+import MyCauses from './MyCauses'
 
 import COLORS from '../reusables/Colors';
 
@@ -46,16 +50,8 @@ export default class Feed extends Component {
                 <Tab.Screen name="Activities" component={Activities} />
                 <Tab.Screen name="My Causes" component={MyCauses} />
                 <Tab.Screen name="Notification" component={Notifications} />
-                <Tab.Screen name="Profile" component={UserProfileFeed} />
+                <Tab.Screen name="Profile" component={ProfileScreen} />
             </Tab.Navigator>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    tabContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-});

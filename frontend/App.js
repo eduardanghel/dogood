@@ -34,7 +34,7 @@ function InitialScreen({ navigation }) {
                 <Text style={styles.text}>adipisicing elit sed do</Text>
                 <TouchableOpacity
                     style={styles.buttonContainer}
-                    onPress={() => navigation.navigate('Back')}
+                    onPress={() => navigation.navigate('WelcomeToKarma')}
                 >
                     <Text style={{ color: "white", fontSize: 20, }}>Sign Up</Text>
                 </TouchableOpacity>
@@ -56,7 +56,7 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={InitialScreen} options={{ headerShown: false }} />
-                <Stack.Screen name="Back" component={WelcomeToKarma} options={{ headerShown: false }} />
+                <Stack.Screen name="WelcomeToKarma" component={WelcomeToKarma} options={{ headerShown: false }} />
                 <Stack.Screen name="UserRegistration"
                     component={UserRegistration}
                     options={{

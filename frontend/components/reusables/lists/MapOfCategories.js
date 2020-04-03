@@ -1,3 +1,8 @@
+{/**
+MapOfCategories is a Hashmap used to access all Events filtered by category 
+It uses AllCategories as Key and CategoriesOfCauses as Value
+*/}
+
 import HashMap from 'hashmap';
 
 import categoriesArrays from './AllCategories.js';

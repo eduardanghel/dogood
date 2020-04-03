@@ -1,56 +1,55 @@
 import IMAGE from '../../../../assets/AllImages';
+import Event from '../../Event';
 
-const list = [
-  {
-    key: '25Q93G-I98XLR-VLOU1X-47AA06-OCNXJJ',
-    organizationName: "Alzheimer's Association",
-    verifiedIcon: '',
-    imageUri: IMAGE.refugees,
-    eventLocation: 'Not Essex?',
-    dayOfEvent: '13',
-    monthOfEvent: 'MAR',
-    eventTime: '10:00AM',
-    spotsLeft: '60 SPOTS LEFT',
-    eventTitle: 'Event for Refugees',
-    progressBarProgress: 0.75,
-    numberOfSpotsLeft: '3/4 SPOTS LEFT',
-    extendedDate: 'Thursday, January 30th 2020',
-    frameOfEvent: '4:30 PM - 6:00 PM',
-    address: '205 N Hamilton Rd, Essex SS11 1EP',
-    whatWillTheyDo:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-    whoCanTheyContact:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    whereShouldTheyGo:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    latitude: 47.191567,
-    longitude: -52.837118,
-  },
-  {
-    key: 'F2Z5RC-1C7C3S-5NCLBG-AXSEVQ-WV4N8T',
-    organizationName: 'The P.E.E.R. Center',
-    verifiedIcon: 'check-circle',
-    imageUri: IMAGE.shark,
-    eventLocation: 'Essex',
-    dayOfEvent: '30',
-    monthOfEvent: 'JAN',
-    eventTime: '4:30PM',
-    spotsLeft: '3 SPOTS LEFT',
-    eventTitle: 'The P.E.E.R. Center Community Help',
-    progressBarProgress: 0.75,
-    numberOfSpotsLeft: '3/4 SPOTS LEFT',
-    extendedDate: 'Thursday, January 30th 2020',
-    frameOfEvent: '4:30 PM - 6:00 PM',
-    address: '205 N Hamilton Rd, Essex SS11 1EP',
-    whatWillTheyDo:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-    whoCanTheyContact:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    whereShouldTheyGo:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    latitude: 47.191567,
-    longitude: -52.837118,
-  },
-]
+const list = [];
+
+var event = new Event('25Q93G-I98XLR-VLOU1X-47AA06-OCNXJJ',
+  'The P.E.E.R. Center',
+  'check-circle',
+  IMAGE.refugees,
+  'Essex',
+  '30',
+  'JAN',
+  '4:30PM',
+  'Event for Refugees',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+  4,
+  3,
+  'Thursday, January 30th 2020',
+  '4:30 PM - 6:00 PM',
+  '205 N Hamilton Rd, Essex SS11 1EP',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  47.191567,
+  -52.837118
+);
+
+var demoEvent1 = new Event('F2Z5RC-1C7C3S-5NCLBG-AXSEVQ-WV4N8T',
+  'The P.E.E.R. Center',
+  'check-circle',
+  IMAGE.shark,
+  'Essex',
+  '30',
+  'JAN',
+  '4:30PM',
+  'The P.E.E.R. Center Community Help',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+  4,
+  3,
+  'Thursday, January 30th 2020',
+  '4:30 PM - 6:00 PM',
+  '205 N Hamilton Rd, Essex SS11 1EP',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  47.191567,
+  -52.837118
+);
+
+list.push({event: event, key: event.key()})
+list.push({event: demoEvent1, key: demoEvent1.key()})
 
 export default list;
+
+

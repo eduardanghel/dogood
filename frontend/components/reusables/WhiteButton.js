@@ -63,5 +63,6 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 20,
         textAlign: 'left',
+        color: COLORS.classicGreen,
     },
 });
