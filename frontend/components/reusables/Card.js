@@ -1,3 +1,11 @@
+{/**
+The Card requires props for 
+the image it will display, 
+the question it asks, 
+the description it has 
+and the props from the ClassicButton
+*/}
+
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
@@ -71,23 +79,5 @@ const styles = StyleSheet.create({
     },
     bodyText: {
         marginVertical: 5,
-    },
-    buttonView: {
-        width: '85%',
-        marginTop: 10,
-    },
-    button: {
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 20,
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
     },
 });

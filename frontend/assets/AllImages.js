@@ -1,3 +1,7 @@
+{/**
+Gathers all the images of the app
+*/}
+
 import shark from './Images/promo_5.png';
 import garden from './Images/garden.png';
 import animal from './Images/animalCartoon.png';

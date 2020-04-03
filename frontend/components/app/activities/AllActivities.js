@@ -1,3 +1,7 @@
+{/**
+Shows a list of all the events
+*/}
+
 import React, { Component } from 'react';
 
 import allEvents from '../../reusables/lists/AllEventsList';

@@ -4,18 +4,12 @@ import Constants from 'expo-constants';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import AllActivities from './activities/AllActivities';
+import ActivitiesGoing from './activities/ActivitiesGoing';
 import Causes from './activities/Causes';
+
 import COLORS from '../reusables/Colors';
 
 //The following are temporary functions as the screens they should represent aren't done yet
-
-function ActivitiesGoing() {
-    return (
-        <View style={styles.container}>
-            <Text>Activities Going!</Text>
-        </View>
-    );
-}
 
 function ActivitiesFavorites() {
     return (

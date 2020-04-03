@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import Constants from 'expo-constants';
-import COLORS from './Colors.js';
+{/**
+WelcomeToKarma is where the person signing up in the app chooses if he/she signs up as regular user (who will attend events)
+Or as an organization (which will host events) 
+*/}
 
+import React, { Component } from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Constants from 'expo-constants';
+
+import COLORS from './Colors.js';
 import IMAGE from '../../assets/AllImages';
 import Card from '../reusables/Card';
+import WhiteButton from '../reusables/WhiteButton';
 
 export default class WelcomeToKarma extends Component {
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.welcomeText}>
@@ -87,29 +91,5 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         textAlign: 'left',
         fontWeight: 'bold'
-    },
-    buttonView: {
-        backgroundColor: 'white',
-        alignItems: 'center',
-        width: '100%',
-    },
-    buttonContainer: {
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    loginButton: {
-        borderRadius: 22,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'white',
-        width: 300,
-        height: 44,
-        margin: 2,
-    },
-    login: {
-        color: COLORS.classicGreen,
-        fontSize: 20,
-        textAlign: 'left',
     },
 });

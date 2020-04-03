@@ -1,3 +1,9 @@
+{/**
+ClassicButton is the most common button (at the time of this common) in the app.
+It is a button with a gradient and white text
+It requires props for the navigation, the gradient color, the text displayed and the name of the page for it to navigate to.
+*/}
+
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -9,23 +15,22 @@ export default class ClassicButton extends Component {
     }
 
     navigate(txt) {
-        this.props.navigation.navigate(txt); //This allows use to use the navigation, you will usually have to write navigation={this.props.navigation}
+        this.props.navigation.navigate(txt);
     }
 
     render() {
         return (
             <View style={styles.buttonView}>
                 <TouchableOpacity
-                    onPress={() => this.navigate(this.props.page)} //This here is to use the navigation, page is the name of the page you want to navigate to
+                    onPress={() => this.navigate(this.props.page)}
                 >
                     <LinearGradient
                         style={styles.button}
-                        colors={[this.props.lightEndColor, this.props.darkEndColor]} //lightEndColor is the lighter color in the gradient //darkEndColor is the darker color in the gradient
+                        colors={[this.props.lightEndColor, this.props.darkEndColor]}
                         start={{ x: 1, y: 0 }}
                         end={{ x: 0, y: 1 }}
                     >
                         <Text style={styles.buttonText}>{this.props.textOnButton}</Text>
-                        {/* textOnButton is the text you want to display on the button */}
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
@@ -53,42 +58,3 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
     },
 });
-
-{/** In order to use this button, follow the instructions bellow:
- In the imports section add:
- import Button from './ClassicButton.js';
- *If the name 'Button' is already used in the file, change it to something else, like 'ClassicButton' and write ClassicButton instead of Button
- *Make sure you import the file from the correct location
-
- Now to use it:
- Where you want to add it write:
- <Button textOnButton="The text you want to display"
- lightEndColor="The lighter color for the gradient" I strongly recommend using the colors from the Color.js file (I've explained how to do it in that file)
- darkEndColor="The darker color for the gradient"
- page="The name of the file you want to go to"
- navigation={this.props.navigation} *Most of the time
- ></Button>
-
- Here is an example (In a file named ExampleForButton.js):
-
- import React, {Component) from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import Button from './ClassicButton.js';
-import COLORS from './Colors.js';
-
-
-export default class ExampleForButton extends Component {
-  render()
-    return (
-        <View style={styles.Container}>
-            <Text>This is an example to use the button</Text>
-            <Button textOnButton="This is a Button"
-              lightEndColor={COLORS.lightGreen}
-              darkEndColor={COLORS.darkGreen}
-              page="Another Page"
-              navigation={this.props.navigation}/>
-        </View>
-    );
-}
- */
-}

@@ -1,20 +1,17 @@
+{/**
+The HorizontalEventList is responsible for handling any horizontal list of events
+It imports the function EventFunction
+It requires a props DATA for the data it shows (aka the list of event that needs to be shown)
+*/}
+
 import * as React from 'react';
-import {
-  Text,
-  FlatList,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Dimensions,
-  Modal,
-  Alert,
-} from 'react-native';
+import { Text, FlatList, StyleSheet, View, TouchableOpacity, Modal, Alert, } from 'react-native';
 
-import ActivityCard from './EventCard';
 import ArrowIcon from 'react-native-vector-icons/AntDesign';
-import VerticalList from './VerticalEventList';
 
-const screenWidth = Math.round(Dimensions.get('window').width * 0.95);
+import VerticalList from './VerticalEventList';
+import Event from './EventFunction';
+import COLORS from './Colors';
 
 export default class HorizontalEventsList extends React.Component {
   state = {
@@ -27,7 +24,7 @@ export default class HorizontalEventsList extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View >
         <Modal
           animationType="slide"
           transparent={false}
@@ -37,7 +34,7 @@ export default class HorizontalEventsList extends React.Component {
           }}>
           <ArrowIcon
             name="arrowleft"
-            color="#01b0b0"
+            color={COLORS.classicGreen}
             size={20}
             style={{ margin: 12 }}
             onPress={() => {
@@ -62,25 +59,26 @@ export default class HorizontalEventsList extends React.Component {
           data={this.props.DATA}
           renderItem={({ item }) => (
             <Event
-              organizationName={item.organizationName}
-              verifiedIcon={item.verifiedIcon}
-              imageUri={item.imageUri}
-              eventLocation={item.eventLocation}
-              dayOfEvent={item.dayOfEvent}
-              monthOfEvent={item.monthOfEvent}
-              eventTime={item.eventTime}
-              spotsLeft={item.spotsLeft}
-              eventTitle={item.eventTitle}
-              progressBarProgress={item.progressBarProgress}
-              numberOfSpotsLeft={item.numberOfSpotsLeft}
-              extendedDate={item.extendedDate}
-              frameOfEvent={item.frameOfEvent}
-              address={item.address}
-              whatWillTheyDo={item.whatWillTheyDo}
-              whoCanTheyContact={item.whoCanTheyContact}
-              whereShouldTheyGo={item.whereShouldTheyGo}
-              latitude={item.latitude}
-              longitude={item.longitude}
+              organizationName={item.event.organizationName()}
+              verifiedIcon={item.event.verifiedIcon()}
+              imageUri={item.event.imageUri()}
+              eventLocation={item.event.eventLocation()}
+              dayOfEvent={item.event.dayOfEvent()}
+              monthOfEvent={item.event.monthOfEvent()}
+              eventTime={item.event.eventTime()}
+              spotsLeft={item.event.numberOfSpotsLeft()}
+              eventTitle={item.event.eventTitle()}
+              quickDescription={item.event.quickDescription()}
+              progressBarProgress={item.event.progressBarProgress()}
+              numberOfSpotsLeft={item.event.numberOfSpotsLeft()}
+              extendedDate={item.event.extendedDate()}
+              frameOfEvent={item.event.frameOfEvent()}
+              address={item.event.address()}
+              whatWillTheyDo={item.event.whatWillTheyDo()}
+              whoCanTheyContact={item.event.whoCanTheyContact()}
+              whereShouldTheyGo={item.event.whereShouldTheyGo()}
+              latitude={item.event.latitude()}
+              longitude={item.event.longitude()}
             />
           )}
           keyExtractor={item => item.key}
@@ -90,56 +88,8 @@ export default class HorizontalEventsList extends React.Component {
   }
 }
 
-function Event({
-  organizationName,
-  verifiedIcon,
-  imageUri,
-  eventLocation,
-  dayOfEvent,
-  monthOfEvent,
-  eventTime,
-  spotsLeft,
-  eventTitle,
-  progressBarProgress,
-  numberOfSpotsLeft,
-  extendedDate,
-  frameOfEvent,
-  address,
-  whatWillTheyDo,
-  whoCanTheyContact,
-  whereShouldTheyGo,
-  latitude,
-  longitude,
-}) {
-  return (
-    <View style={styles.card}>
-      <ActivityCard
-        organizationName={organizationName}
-        verifiedIcon={verifiedIcon}
-        imageUri={imageUri}
-        eventLocation={eventLocation}
-        dayOfEvent={dayOfEvent}
-        monthOfEvent={monthOfEvent}
-        eventTime={eventTime}
-        spotsLeft={spotsLeft}
-        eventTitle={eventTitle}
-        progressBarProgress={progressBarProgress}
-        numberOfSpotsLeft={numberOfSpotsLeft}
-        extendedDate={extendedDate}
-        frameOfEvent={frameOfEvent}
-        address={address}
-        whatWillTheyDo={whatWillTheyDo}
-        whoCanTheyContact={whoCanTheyContact}
-        whereShouldTheyGo={whereShouldTheyGo}
-        latitude={latitude}
-        longitude={longitude}
-      />
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
-  container: {},
   topFilter: {
     flexDirection: 'row',
     marginBottom: 8,
@@ -151,16 +101,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   seeMore: {
-    color: '#01b0b0',
-  },
-  card: {
-    width: screenWidth,
-    paddingHorizontal: 8,
-    marginVertical: 8,
-    shadowColor: 'black',
-    shadowOffset: { width: 1, height: 1 },
-    shadowRadius: 3,
-    shadowOpacity: 0.26,
-    elevation: 8,
+    color: COLORS.classicGreen,
   },
 });

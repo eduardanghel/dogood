@@ -1,13 +1,17 @@
+{/**
+DetailedEventPage shows all the details of the event
+It necessarily requires all the props of an Event
+From here the user can:
+Share the event (using IconThree)
+Like the event (using HeartIcon)
+Call or Email the host of the event (by pressing the according buttons)
+Attend the event
+*/}
+
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, } from 'react-native';
 import { ProgressBar } from 'react-native-paper';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 import Icon from 'react-native-vector-icons/EvilIcons';
 import IconBis from 'react-native-vector-icons/MaterialIcons';
@@ -17,7 +21,7 @@ import HeartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from './ClassicButton';
 import COLOR from './Colors';
 
-class ActivityCard extends Component {
+class DetailedEventPage extends Component {
   state = {
     iconColor: 'grey',
   };
@@ -172,6 +176,7 @@ class ActivityCard extends Component {
             style={{ flex: 1, width: '100%', height: 200 }} //This view holds the locations map
           >
             <MapView
+              provider={PROVIDER_GOOGLE}
               style={{ flex: 1, ...StyleSheet.absoluteFillObject }}
               region={{
                 latitude: this.props.latitude,
@@ -192,13 +197,7 @@ class ActivityCard extends Component {
             <Text style={{ marginBottom: 12 }}>Some important stuff ok</Text>
           </View>
           <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginHorizontal: 8,
-              marginBottom: 12,
-              flex: 1,
-            }}>
+            style={styles.attendAttended}>
             <Button
               textOnButton="Attend"
               lightEndColor={COLOR.lightGreen}
@@ -211,7 +210,7 @@ class ActivityCard extends Component {
   }
 }
 
-export default ActivityCard;
+export default DetailedEventPage;
 
 const styles = StyleSheet.create({
   container: {
@@ -247,7 +246,7 @@ const styles = StyleSheet.create({
   thirdHeaderIcon: {
     margin: 8,
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
   },
   backgroundImage: {
     resizeMode: 'stretch',
@@ -316,11 +315,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 12,
     justifyContent: 'center',
-    alignItem: 'center',
+    alignItems: 'center',
   },
   buttonView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  attendAttended: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 8,
+    marginBottom: 12,
+    flex: 1,
   },
 });

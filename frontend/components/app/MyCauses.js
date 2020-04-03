@@ -1,3 +1,7 @@
+{/**
+The list that shows all the events that fall under the categories that the user has shown an interest in
+*/}
+
 import * as React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';

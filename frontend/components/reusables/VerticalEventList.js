@@ -1,12 +1,13 @@
-import * as React from 'react';
-import {
-  FlatList,
-  StyleSheet,
-  View,
-  SafeAreaView
-} from 'react-native';
+{/**
+VerticalEventList is the class responsible to handle any vertical list of events
+It imports the function EventFunction
+And requires a props DATA for the data it shows (aka the list of event that needs to be shown)
+*/}
 
-import ActivityCard from './EventCard';
+import * as React from 'react';
+import { FlatList, StyleSheet, View, SafeAreaView } from 'react-native';
+
+import Event from './EventFunction';
 
 export default class VerticalEventList extends React.Component {
   render() {
@@ -18,25 +19,26 @@ export default class VerticalEventList extends React.Component {
             data={this.props.DATA}
             renderItem={({ item }) => (
               <Event
-                organizationName={item.organizationName}
-                verifiedIcon={item.verifiedIcon}
-                imageUri={item.imageUri}
-                eventLocation={item.eventLocation}
-                dayOfEvent={item.dayOfEvent}
-                monthOfEvent={item.monthOfEvent}
-                eventTime={item.eventTime}
-                spotsLeft={item.spotsLeft}
-                eventTitle={item.eventTitle}
-                progressBarProgress={item.progressBarProgress}
-                numberOfSpotsLeft={item.numberOfSpotsLeft}
-                extendedDate={item.extendedDate}
-                frameOfEvent={item.frameOfEvent}
-                address={item.address}
-                whatWillTheyDo={item.whatWillTheyDo}
-                whoCanTheyContact={item.whoCanTheyContact}
-                whereShouldTheyGo={item.whereShouldTheyGo}
-                latitude={item.latitude}
-                longitude={item.longitude}
+                organizationName={item.event.organizationName()}
+                verifiedIcon={item.event.verifiedIcon()}
+                imageUri={item.event.imageUri()}
+                eventLocation={item.event.eventLocation()}
+                dayOfEvent={item.event.dayOfEvent()}
+                monthOfEvent={item.event.monthOfEvent()}
+                eventTime={item.event.eventTime()}
+                spotsLeft={item.event.numberOfSpotsLeft()}
+                eventTitle={item.event.eventTitle()}
+                quickDescription={item.event.quickDescription()}
+                progressBarProgress={item.event.progressBarProgress()}
+                numberOfSpotsLeft={item.event.numberOfSpotsLeft()}
+                extendedDate={item.event.extendedDate()}
+                frameOfEvent={item.event.frameOfEvent()}
+                address={item.event.address()}
+                whatWillTheyDo={item.event.whatWillTheyDo()}
+                whoCanTheyContact={item.event.whoCanTheyContact()}
+                whereShouldTheyGo={item.event.whereShouldTheyGo()}
+                latitude={item.event.latitude()}
+                longitude={item.event.longitude()}
               />
             )}
             keyExtractor={item => item.key}
@@ -45,52 +47,6 @@ export default class VerticalEventList extends React.Component {
       </SafeAreaView>
     );
   }
-}
-
-function Event({
-  organizationName,
-  verifiedIcon,
-  imageUri,
-  eventLocation,
-  dayOfEvent,
-  monthOfEvent,
-  eventTime,
-  spotsLeft,
-  eventTitle,
-  progressBarProgress,
-  numberOfSpotsLeft,
-  extendedDate,
-  frameOfEvent,
-  address,
-  whatWillTheyDo,
-  whoCanTheyContact,
-  whereShouldTheyGo,
-  latitude,
-  longitude,
-}) {
-  return (
-    <ActivityCard
-      organizationName={organizationName}
-      verifiedIcon={verifiedIcon}
-      imageUri={imageUri}
-      eventLocation={eventLocation}
-      dayOfEvent={dayOfEvent}
-      monthOfEvent={monthOfEvent}
-      eventTime={eventTime}
-      spotsLeft={spotsLeft}
-      eventTitle={eventTitle}
-      progressBarProgress={progressBarProgress}
-      numberOfSpotsLeft={numberOfSpotsLeft}
-      extendedDate={extendedDate}
-      frameOfEvent={frameOfEvent}
-      address={address}
-      whatWillTheyDo={whatWillTheyDo}
-      whoCanTheyContact={whoCanTheyContact}
-      whereShouldTheyGo={whereShouldTheyGo}
-      latitude={latitude}
-      longitude={longitude}
-    />
-  );
 }
 
 const styles = StyleSheet.create({
