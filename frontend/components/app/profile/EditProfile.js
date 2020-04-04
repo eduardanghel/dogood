@@ -25,8 +25,6 @@ export default class EditProfile extends React.Component {
         };
     }
     componentDidMount() {
-
-
         StatusBar.setHidden(true);
     }
 
