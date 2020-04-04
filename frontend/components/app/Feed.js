@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Activities from './Activities';
 import Notifications from './Notifications';
-import ProfileScreen from './profile/EditProfile';
+import ProfileScreen from './profile/UserProfileFeed';
 import MyCauses from './MyCauses'
 
 import COLORS from '../reusables/Colors';
