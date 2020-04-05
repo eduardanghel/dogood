@@ -1,20 +1,14 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  ScrollView,
-  Switch,
-} from 'react-native';
-import Icons from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, } from 'react-native';
 import DatePicker from 'react-native-datepicker';
+
+import Icons from 'react-native-vector-icons/MaterialIcons';
+
 import COLORS from '../../reusables/Colors';
 import ClassicButton from '../../reusables/ClassicButton';
 import CustomSwitch from '../../reusables/CustomSwitch';
 
-export default class App extends React.Component {
+export default class CreateActivity extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +23,6 @@ export default class App extends React.Component {
     return (
       <ScrollView>
         <View>
-          <Text style={styles.text}>Create Activity</Text>
           <Text style={styles.de}>
             Lorem ipsum dolor sit amet, conse ct etur adip isicing do eiut, sunt
             in culpa
@@ -275,10 +268,8 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     textAlign: 'center',
     paddingTop: 10,
-    // marginLeft:10,
   },
   dat: {
-    showIcon: false,
     margin: 20,
     marginTop: 35,
     width: 300,

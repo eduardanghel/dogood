@@ -16,6 +16,9 @@ import AddPhoneNumber from './components/signup/AddPhoneNumber';
 import VerifyPhoneNumber from './components/signup/VerifyPhoneNumber';
 import ContactInfo from './components/signup/ContactInfo';
 import About from './components/signup/About';
+import EditProfile from './components/app/profile/EditProfile';
+import ActivityCreate from './components/app/profile/CreateActivity';
+import SettingsPage from './components/app/profile/settings/Settings';
 
 
 function InitialScreen({ navigation }) {
@@ -99,6 +102,36 @@ export default function App() {
                             fontSize: 22,
                         }
                     }} />
+		<Stack.Screen name="SettingsPage" component={SettingsPage}
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: "Settings",
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            color: 'black',
+                            fontSize: 22,
+                        }
+                    }}/>
+		<Stack.Screen name="EditProfile" component={EditProfile}
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: "Edit Profile",
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            color: 'black',
+                            fontSize: 22,
+                        }
+                    }}/>
+		<Stack.Screen name="ActivityCreate" component={ActivityCreate}
+                    options={{
+                        headerTintColor: COLORS.classicGreen,
+                        title: "Create Activity",
+                        headerTitleStyle: {
+                            textAlign: 'left',
+                            color: 'black',
+                            fontSize: 22,
+                        }
+                    }}/>
                 <Stack.Screen name="Feed" component={Feed} options={{ headerShown: false }} />
                 <Stack.Screen name="IDValidation" component={IDValidation} />
                 <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber} />
