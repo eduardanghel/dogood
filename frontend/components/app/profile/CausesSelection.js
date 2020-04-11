@@ -1,155 +1,54 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, Button, Header, Picker, Image, TouchableOpacity } from 'react-native';
-// import RNPickerSelect from 'react-native-picker-select';
-// import DatePicker from 'react-native-datepicker'
-// import { CheckBox } from 'react-native-elements'  
+import { Text, View, StyleSheet, TextInput, Button, Header, Picker, Image, TouchableOpacity,ScrollView } from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
-// import * as ImagePicker from 'expo-image-picker';
-// import Icon from 'react-native-vector-icons/AntDesign';
-// import {LinearGradient} from 'expo-linear-gradient';
+
+import ClassicButton from '../../reusables/ClassicButton';
+import COLORS from '../../reusables/Colors';
+import Cube from '../../reusables/Cube';
+import Grid from '../../reusables/Grid';
+
+//todo: make reusable grid and cube.
 export default class CausesSelection extends Component {
-  constructor() {
+  constructor(){
     super();
-    this.state = {
-      button1: false, button2: false, button3: false, button4: false, button5: false, button6: false, button7: false, button8: false, button9: false
-    }
+    this.state={ button1:false, button2:false, button3:false, button4:false, button5:false, button6:false, button7:false, button8:false, button9:false
   }
-
-  render() {
+  }
+  
+ render(){
     return (
-
-      <View style={styles.container}>
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={{ fontSize: 23 }}>Causes</Text>
-        </View>
-        <Text style={{ color: '#01b0b0', marginTop: 20, fontSize: 25 }}>What causes do you care {"\n"} about?</Text>
-        <View style={{ flexDirection: 'row', marginLeft: 15, marginTop: 40 }}>
-          <TouchableOpacity style={this.state.button1 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button1: !this.state.button1 })}
-
-          >
-          </TouchableOpacity>
-          <TouchableOpacity style={this.state.button2 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button2: !this.state.button2 })}
-
-          >
-          </TouchableOpacity>
-          <TouchableOpacity style={this.state.button3 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button3: !this.state.button3 })}
-
-          >
-          </TouchableOpacity>
-        </View>
-        <View style={{ flexDirection: 'row', marginLeft: 15, marginTop: 10 }}>
-          <TouchableOpacity style={this.state.button4 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button4: !this.state.button4 })}
-
-          >
-          </TouchableOpacity>
-          <TouchableOpacity style={this.state.button5 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button5: !this.state.button5 })}
-
-          >
-          </TouchableOpacity>
-          <TouchableOpacity style={this.state.button6 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button6: !this.state.button6 })}
-
-          >
-          </TouchableOpacity>
-        </View>
-        <View style={{ flexDirection: 'row', marginLeft: 15, marginTop: 10 }}>
-          <TouchableOpacity style={this.state.button7 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button7: !this.state.button7 })}
-
-          >
-          </TouchableOpacity>
-          <TouchableOpacity style={this.state.button8 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button8: !this.state.button8 })}
-
-          >
-          </TouchableOpacity>
-          <TouchableOpacity style={this.state.button9 ? styles.pressed : styles.unpressed}
-            onPress={() => this.setState({ button9: !this.state.button9 })}
-
-          >
-          </TouchableOpacity>
-        </View>
-        <View style={{ justifyContent: 'center', alignContent: 'center' }}>
-
-          <TouchableOpacity style={styles.next}>
-
-            <Text style={{ color: "white", fontSize: 20, }}>Next</Text>
-
-          </TouchableOpacity>
-
-        </View>
-
-      </View>
-
+      <ScrollView>
+      <View style={styles.container}> 
+     
+            <Text style={{color:'#01b0b0',fontSize:25, marginTop: 20, textAlign: 'center'}}>What causes do you care about?</Text>
+            <Grid style={{marginTop: 200}}></Grid>
+            <View style={{flexDirection:'row',margin:5,marginBottom:20}}>
+            <ClassicButton
+                    
+                    textOnButton="Update"
+                    lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
+                    navigation={this.props.navigation}
+                    page="Feed"
+                ></ClassicButton>
+            </View>
+       
+         </View>
+         </ScrollView>
+      
     );
-  }
+    }
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: 20,
-    marginTop: 30,
-    elevation: 10,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start'
-  },
-  image: {
-    height: 300,
-    width: 300,
-
-
-  },
-  pressed: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.58,
-    shadowRadius: 16.00,
-
-    elevation: 24,
-    height: 100,
-    width: 100,
-    justifyContent: 'center',
+    marginTop:0,
+    elevation:10,
     alignItems: 'center',
-    backgroundColor: '#01b0b0',
-    borderRadius: 3,
-    marginLeft: 10
-  },
-  unpressed: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.58,
-    shadowRadius: 16.00,
-
-    elevation: 24,
-    height: 100,
-    width: 100,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 3,
-    marginLeft: 10
-  },
-  next: {
-    borderRadius: 20,
-    backgroundColor: '#01b0b0',
-    marginTop: 40, marginLeft: "10%",
-    width: 300,
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center'
-  },
-
+    flex:1
+  }
+ 
+  
 })
 
 
