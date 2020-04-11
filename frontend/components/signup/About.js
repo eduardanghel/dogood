@@ -5,6 +5,10 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../reusables/Colors';
 import Button from '../reusables/ClassicButton';
 
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
+
 export default class About extends React.Component {
     static defaultProps = {
         selectedYear: (new Date()).getFullYear(),
@@ -23,15 +27,58 @@ export default class About extends React.Component {
             day: this.props.selectedDay,
             disease: '',
             radioBtnsData: ['Male', 'Female', 'Non-Binary'],
-            checked: 0
+            checked: 0,
+            image: null,
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
 
         console.disableYellowBox = true;
         StatusBar.setHidden(true);
+        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+        this.setState({ hasCameraPermission: status === 'granted' });
     }
+
+    getPermissionAsync = async () => {
+        if (Constants.platform.ios) {
+          const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+          if (status !== 'granted') {
+            alert('Sorry, we need camera roll permissions to make this work!');
+          }
+        }
+      }
+
+
+      _pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1
+        });
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          this.setState({ image: result.uri });
+        }
+      };
+
+    _openImage = async () => {
+        let result = await ImagePicker.launchCameraAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: false,
+          aspect: [4, 3],
+          quality: 1
+        });
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          this.setState({ image: result.uri });
+        }
+      };
 
     getMonth() {
         var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -106,13 +153,6 @@ export default class About extends React.Component {
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
                     <View>
                         <Text></Text>
-                        <Text></Text>
-                        <Text></Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen}
-                            style={{ marginLeft: '20%', marginTop: '3%' }} /></TouchableOpacity>
-                        <Text style={styles.text}> About</Text>
                     </View>
                     <View style={{ marginLeft: 23, marginRight: 23, }}>
                         <Text></Text>
@@ -123,9 +163,8 @@ export default class About extends React.Component {
 
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', }}>
-                        <TouchableOpacity style={styles.fles}><Icons name={'camera-alt'} size={20}
-                            color='white' /></TouchableOpacity>
-                        <TouchableOpacity><Text style={styles.uplo}>Upload Photo</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.fles} onPress={this._openImage}><Icons name={'camera-alt'} size={20} color='white'/></TouchableOpacity>
+                    <TouchableOpacity onPress={this._pickImage}><Text style={styles.uplo}>Upload Photo</Text></TouchableOpacity>
                     </View>
                     <View style={{ marginLeft: 23, marginRight: 23, }}>
                         <Text></Text>
@@ -157,7 +196,7 @@ export default class About extends React.Component {
                                         <View key={key}>
                                             {this.state.checked == key ?
                                                 <TouchableOpacity style={styles.btns}>
-                                                    <Image style={styles.img} source={require("../assets/Images/rad.png")} />
+                                                    <Image style={styles.img} source={require("../../assets/Images/rad.png")} />
                                                     <Text style={styles.testtt}>{data}</Text>
                                                 </TouchableOpacity>
                                                 :
@@ -165,7 +204,7 @@ export default class About extends React.Component {
                                                 <TouchableOpacity onPress={() => {
                                                     this.setState({ checked: key })
                                                 }} style={styles.btn}>
-                                                    <Image style={styles.img} source={require("../assets/Images/rads.png")} />
+                                                    <Image style={styles.img} source={require("../../assets/Images/rads.png")} />
                                                     <Text style={styles.testtts}>{data}</Text>
                                                 </TouchableOpacity>
 
@@ -228,16 +267,6 @@ const styles = StyleSheet.create({
         fontSize: 22,
 
     },
-    te: {
-        fontSize: 14,
-        textAlign: 'center',
-        color: 'white',
-        position: 'relative',
-        height: 45,
-        paddingTop: 12,
-
-
-    },
     uplo: {
 
         borderWidth: 1,
@@ -248,13 +277,6 @@ const styles = StyleSheet.create({
         borderRadius: 22,
         textAlign: 'center',
         paddingTop: 10,
-    },
-    sty: {
-        borderRadius: 25,
-        borderTopLeftRadius: 30,
-        borderBottomLeftRadius: 30,
-        borderTopRightRadius: 30,
-        borderBottomRightRadius: 30,
     },
     fle: {
         width: '100%',
