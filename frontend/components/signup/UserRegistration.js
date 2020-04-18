@@ -16,6 +16,8 @@ export default class UserRegistration extends React.Component {
 
     // aifaofj
           //adfeif
+
+            ///afpeof
     termsChecked: true,
   };
 
