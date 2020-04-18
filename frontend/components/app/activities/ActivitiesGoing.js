@@ -5,7 +5,7 @@ import EventList from '../../reusables/VerticalEventList';
 
 function FilterActivities() {
   return (
-    <EventList DATA={allEvents} /> //add a "going" marker in the backend to be able to filter activities
+    <EventList DATA={allEvents} /> // add a "going" marker in the backend to be able to filter activities
   );
 }
 

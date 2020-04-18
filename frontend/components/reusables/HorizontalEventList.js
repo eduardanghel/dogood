@@ -1,17 +1,27 @@
-{/**
-The HorizontalEventList is responsible for handling any horizontal list of events
-It imports the function EventFunction
-It requires a props DATA for the data it shows (aka the list of event that needs to be shown)
-*/}
-
 import * as React from 'react';
-import { Text, FlatList, StyleSheet, View, TouchableOpacity, Modal, Alert, } from 'react-native';
+import {
+  Text,
+  FlatList,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Modal,
+  Alert,
+} from 'react-native';
 
 import ArrowIcon from 'react-native-vector-icons/AntDesign';
 
 import VerticalList from './VerticalEventList';
 import Event from './EventFunction';
 import COLORS from './Colors';
+
+{
+  /**
+The HorizontalEventList is responsible for handling any horizontal list of events
+It imports the function EventFunction
+It requires a props DATA for the data it shows (aka the list of event that needs to be shown)
+*/
+}
 
 export default class HorizontalEventsList extends React.Component {
   state = {
@@ -24,7 +34,7 @@ export default class HorizontalEventsList extends React.Component {
 
   render() {
     return (
-      <View >
+      <View>
         <Modal
           animationType="slide"
           transparent={false}
@@ -54,7 +64,7 @@ export default class HorizontalEventsList extends React.Component {
           </TouchableOpacity>
         </View>
         <FlatList
-          horizontal={true}
+          horizontal
           showsHorizontalScrollIndicator={false}
           data={this.props.DATA}
           renderItem={({ item }) => (
@@ -81,13 +91,12 @@ export default class HorizontalEventsList extends React.Component {
               longitude={item.event.longitude()}
             />
           )}
-          keyExtractor={item => item.key}
+          keyExtractor={(item) => item.key}
         />
       </View>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   topFilter: {

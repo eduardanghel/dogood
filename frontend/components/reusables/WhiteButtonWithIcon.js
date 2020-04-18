@@ -8,7 +8,7 @@ import {
   Switch,
   Image,
 } from 'react-native';
-import  Icon  from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Entypo';
 
 export default class WhiteButtonWithIcon extends Component {
   constructor(props) {
@@ -29,14 +29,12 @@ export default class WhiteButtonWithIcon extends Component {
             borderWidth: 2,
             borderRadius: 30,
             alignItems: 'center',
-            //justifyContent: 'center',
+            // justifyContent: 'center',
             flexDirection: 'row',
           }}
           onPress={() => this.navigate(this.props.page)}>
           <Icon style={styles.logo} name={this.props.iconName} />
-          <Text style={styles.text}>
-            {this.props.textOnButton}
-          </Text>
+          <Text style={styles.text}>{this.props.textOnButton}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -48,11 +46,11 @@ const styles = StyleSheet.create({
     height: 15,
     width: 15,
     alignItems: 'left',
-    marginLeft: 25
+    marginLeft: 25,
   },
   text: {
     color: '#01b0b0',
-    //alignItems: 'left',
+    // alignItems: 'left',
     fontSize: 20,
     marginLeft: 70,
   },

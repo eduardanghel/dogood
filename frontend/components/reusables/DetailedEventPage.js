@@ -1,15 +1,5 @@
-{/**
-DetailedEventPage shows all the details of the event
-It necessarily requires all the props of an Event
-From here the user can:
-Share the event (using IconThree)
-Like the event (using HeartIcon)
-Call or Email the host of the event (by pressing the according buttons)
-Attend the event
-*/}
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { ProgressBar } from 'react-native-paper';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
@@ -21,13 +11,25 @@ import HeartIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from './ClassicButton';
 import COLOR from './Colors';
 
+{
+  /**
+DetailedEventPage shows all the details of the event
+It necessarily requires all the props of an Event
+From here the user can:
+Share the event (using IconThree)
+Like the event (using HeartIcon)
+Call or Email the host of the event (by pressing the according buttons)
+Attend the event
+*/
+}
+
 class DetailedEventPage extends Component {
   state = {
     iconColor: 'grey',
   };
 
   changeIconColor() {
-    var changedColor;
+    let changedColor;
 
     if (this.state.iconColor == 'grey') {
       changedColor = 'red';
@@ -105,7 +107,7 @@ class DetailedEventPage extends Component {
               />
             </View>
           </View>
-          <View //This view is for the spots left
+          <View // This view is for the spots left
             style={styles.progressView}>
             <View style={styles.progressStyle}>
               <ProgressBar
@@ -116,11 +118,11 @@ class DetailedEventPage extends Component {
             </View>
             <Text>{this.props.numberOfSpotsLeft}</Text>
           </View>
-          <View //This view is for the date, time and location
+          <View // This view is for the date, time and location
           >
-            <View //This view is for the date and time
+            <View // This view is for the date and time
               style={styles.iconPlusText}>
-              <Icon name="calendar" color={'grey'} size={35} />
+              <Icon name="calendar" color="grey" size={35} />
               <View style={{ marginHorizontal: 4 }}>
                 <Text style={{ fontWeight: 'bold', marginBottom: 2 }}>
                   {this.props.extendedDate}
@@ -128,13 +130,11 @@ class DetailedEventPage extends Component {
                 <Text style={{ color: 'grey' }}>{this.props.frameOfEvent}</Text>
               </View>
             </View>
-            <View //This view is for the location
+            <View // This view is for the location
               style={styles.iconPlusText}>
-              <Icon name="location" color={'grey'} size={35} />
+              <Icon name="location" color="grey" size={35} />
               <View style={{ marginHorizontal: 4 }}>
-                <Text style={{ fontWeight: 'bold' }}>
-                  {this.props.address}
-                </Text>
+                <Text style={{ fontWeight: 'bold' }}>{this.props.address}</Text>
               </View>
             </View>
           </View>
@@ -150,7 +150,7 @@ class DetailedEventPage extends Component {
             <Text style={styles.titleExplanation}>
               {this.props.whoCanTheyContact}
             </Text>
-            <View //The view for the buttons
+            <View // The view for the buttons
               style={styles.doubleButton}>
               <View style={styles.buttonView}>
                 <Button
@@ -173,7 +173,7 @@ class DetailedEventPage extends Component {
             </Text>
           </View>
           <View
-            style={{ flex: 1, width: '100%', height: 200 }} //This view holds the locations map
+            style={{ flex: 1, width: '100%', height: 200 }} // This view holds the locations map
           >
             <MapView
               provider={PROVIDER_GOOGLE}
@@ -184,20 +184,22 @@ class DetailedEventPage extends Component {
                 latitudeDelta: 0.005,
                 longitudeDelta: 0.005,
               }}
-              showsUserLocation={true}
-              showsMyLocationButton={true}>
+              showsUserLocation
+              showsMyLocationButton>
               <Marker
-                coordinate={{ latitude: this.props.latitude, longitude: this.props.longitude }}
+                coordinate={{
+                  latitude: this.props.latitude,
+                  longitude: this.props.longitude,
+                }}
               />
             </MapView>
           </View>
-          <View //For any important information
+          <View // For any important information
             style={styles.details}>
             <Text style={styles.categoryTitle}>Important</Text>
             <Text style={{ marginBottom: 12 }}>Some important stuff ok</Text>
           </View>
-          <View
-            style={styles.attendAttended}>
+          <View style={styles.attendAttended}>
             <Button
               textOnButton="Attend"
               lightEndColor={COLOR.lightGreen}

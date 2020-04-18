@@ -3,7 +3,8 @@ import Event from '../../Event';
 
 const list = [];
 
-var event = new Event('5CX42C-39Q3G9-YG9X00-II5HU2-1H59K1',
+const event = new Event(
+  '5CX42C-39Q3G9-YG9X00-II5HU2-1H59K1',
   'The P.E.E.R. Center',
   'check-circle',
   IMAGE.conservation,
@@ -25,7 +26,8 @@ var event = new Event('5CX42C-39Q3G9-YG9X00-II5HU2-1H59K1',
   -52.837118
 );
 
-var demoEvent1 = new Event('F2Z5RC-1C7C3S-5NCLBG-AXSEVQ-WV4N8T',
+const demoEvent1 = new Event(
+  'F2Z5RC-1C7C3S-5NCLBG-AXSEVQ-WV4N8T',
   'The P.E.E.R. Center',
   'check-circle',
   IMAGE.shark,
@@ -47,9 +49,7 @@ var demoEvent1 = new Event('F2Z5RC-1C7C3S-5NCLBG-AXSEVQ-WV4N8T',
   -52.837118
 );
 
-list.push({event: event, key: event.key()})
-list.push({event: demoEvent1, key: demoEvent1.key()})
+list.push({ event, key: event.key() });
+list.push({ event: demoEvent1, key: demoEvent1.key() });
 
 export default list;
-
-

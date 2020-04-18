@@ -1,9 +1,9 @@
 import React from 'react';
 import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
+import axios from 'axios';
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
-import axios from 'axios';
 
 export default class UserRegistration extends React.Component {
   state = {
@@ -56,7 +56,7 @@ export default class UserRegistration extends React.Component {
   handleRequest() {
     const base_url = 'http://karma-zomp.co.uk/users/';
 
-    var bodyFormData = new FormData();
+    const bodyFormData = new FormData();
     bodyFormData.append('username', this.state.username);
     bodyFormData.append('email', this.state.email);
     bodyFormData.append('first_name', this.state.firstName);

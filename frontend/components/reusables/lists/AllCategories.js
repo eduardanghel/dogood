@@ -1,7 +1,3 @@
-{/**
-An array of the array of Events for each category
-*/}
-
 import animals from './listsOfCategories/Animals';
 import arts from './listsOfCategories/ArtsAndCulture';
 import community from './listsOfCategories/Community';
@@ -17,6 +13,12 @@ import peace from './listsOfCategories/PeaceAndJustice';
 import poverty from './listsOfCategories/Poverty';
 import refugees from './listsOfCategories/Refugees';
 import religious from './listsOfCategories/Religious';
+
+{
+  /**
+An array of the array of Events for each category
+*/
+}
 
 const allCategories = [
   animals,
