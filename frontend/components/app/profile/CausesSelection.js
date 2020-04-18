@@ -4,8 +4,8 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 
 import ClassicButton from '../../reusables/ClassicButton';
 import COLORS from '../../reusables/Colors';
-import Cube from '../../reusables/Cube';
-import Grid from '../../reusables/Grid';
+//
+// import Grid from '../reusables/Grid'; where the fuck is this ?
 
 //todo: make reusable grid and cube.
 export default class CausesSelection extends Component {
@@ -21,7 +21,7 @@ export default class CausesSelection extends Component {
       <View style={styles.container}> 
      
             <Text style={{color:'#01b0b0',fontSize:25, marginTop: 20, textAlign: 'center'}}>What causes do you care about?</Text>
-            <Grid style={{marginTop: 200}}></Grid>
+            {/*<Grid style={{marginTop: 200}}></Grid>*/}
             <View style={{flexDirection:'row',margin:5,marginBottom:20}}>
             <ClassicButton
                     
