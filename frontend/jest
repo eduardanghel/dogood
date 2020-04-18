@@ -1,0 +1,14 @@
+
+ FAIL  __tests__/App-test.js
+  ● Test suite failed to run
+
+    TypeError: Cannot read property 'Direction' of undefined
+
+      at Object.<anonymous> (node_modules/react-native-gesture-handler/Directions.js:3:39)
+      at Object.<anonymous> (node_modules/react-native-gesture-handler/GestureHandler.js:2:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.934s
+Ran all test suites.
