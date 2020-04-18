@@ -24,14 +24,14 @@ export default class ClassicButton extends Component {
                 <TouchableOpacity
                     onPress={() => this.navigate(this.props.page)}
                 >
-                    <LinearGradient
+                     <LinearGradient
                         style={styles.button}
                         colors={[this.props.lightEndColor, this.props.darkEndColor]}
                         start={{ x: 1, y: 0 }}
                         end={{ x: 0, y: 1 }}
                     >
                         <Text style={styles.buttonText}>{this.props.textOnButton}</Text>
-                    </LinearGradient>
+                     </LinearGradient>
                 </TouchableOpacity>
             </View>
         )

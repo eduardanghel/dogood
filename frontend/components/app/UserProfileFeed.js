@@ -44,14 +44,14 @@ export default class Profile extends React.Component {
                     </View>
                 </View>
                 <View style={{flex:1, marginLeft: 30, marginRight: 30, marginTop: 20}}>
-                <LinearGradient
+                 <LinearGradient
                 style={{borderRadius:25, borderTopLeftRadius: 30, borderBottomLeftRadius: 30, borderTopRightRadius: 30, borderBottomRightRadius: 30,}}
                 colors={['#00c5c4', '#01a7a6']}
                 start={{x: 1, y: 0}}
                 end={{x: 0, y: 0}}
                 >
                 <TouchableOpacity onPress={() => navigate('ActivityCreate')}><Text style={{fontSize:14, textAlign:'center', color: 'white', position:'relative', height:45,paddingTop:12,}}>Create Activity</Text></TouchableOpacity>
-                </LinearGradient>
+                 </LinearGradient>
                 </View>
                 <View style={{marginLeft: 30, marginTop: 20, marginRight: 30 }}>
                     <View>

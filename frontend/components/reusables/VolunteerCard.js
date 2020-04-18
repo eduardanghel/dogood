@@ -8,7 +8,7 @@ class VolunteerCard extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <LinearGradient
+                 <LinearGradient
                     style={styles.cardHeader}
                     colors={[this.props.lightColour, this.props.darkColour]}
                     start={{ x: 1, y: 0 }}
@@ -16,7 +16,7 @@ class VolunteerCard extends Component {
                     <View>
                         <Text style={styles.headerText}>{this.props.header}</Text>
                     </View>
-                </LinearGradient>
+                 </LinearGradient>
                 <View style={styles.body}>
                     <Text style={styles.bodyText}> {this.props.body} </Text>
                     <ClassicButton textOnButton={this.props.textButton}
