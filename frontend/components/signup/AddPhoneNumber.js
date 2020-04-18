@@ -1,6 +1,5 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import { Alert, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import {Alert, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 
@@ -10,7 +9,7 @@ export default class AddPhoneNumber extends React.Component {
     }
 
     onPhoneNumberChange(text) {
-        this.setState({ phoneNumber: text });
+        this.setState({phoneNumber: text});
     }
 
     handleRequest() {
@@ -22,8 +21,7 @@ export default class AddPhoneNumber extends React.Component {
 
         if (this.state.password1 == this.state.password2) {
             bodyFormData.append('password', this.state.password1);
-        }
-        else {
+        } else {
             Alert.alert("The passwords don't match.");
             this.state.password1 = '';
             this.state.password2 = '';
@@ -31,7 +29,7 @@ export default class AddPhoneNumber extends React.Component {
 
         axios
             .post(base_url, bodyFormData)
-            .then(response => ({ response }))
+            .then(response => ({response}))
             .catch(error => console.log(error));
     }
 
@@ -39,14 +37,14 @@ export default class AddPhoneNumber extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View
-                // style={styles.form}
+                    style={styles.form}
                 >
                     <Text style={styles.title}>Verify your phone number</Text>
-                    <Text />
+                    <Text/>
                     <Text style={styles.text}>
                         We will send you a verification code to verify your phone.
                     </Text>
-                    <Text />
+                    <Text/>
                     <View style={styles.input}>
                         <Text style={styles.phonetxt}>+44</Text>
                         <TextInput
@@ -62,7 +60,7 @@ export default class AddPhoneNumber extends React.Component {
                         textOnButton="Next"
                         lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
                         page='VerifyPhoneNumber'
-                        navigation={this.props.navigation} />
+                        navigation={this.props.navigation}/>
                 </View>
             </SafeAreaView>
         );
