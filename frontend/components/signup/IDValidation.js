@@ -1,7 +1,6 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import {
-    StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView
+    StyleSheet, Text, View, Image, SafeAreaView
 } from 'react-native';
 import IMAGE from '../../assets/AllImages';
 import COLORS from '../reusables/Colors';
