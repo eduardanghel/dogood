@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
+import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
 
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
@@ -17,39 +17,39 @@ export default class UserRegistration extends React.Component {
     };
 
     onUsernameChange(text) {
-        this.setState({ username: text });
+        this.setState({username: text});
         console.log(this.state.username);
     }
 
     onEmailChange(text) {
-        this.setState({ email: text });
+        this.setState({email: text});
         console.log(this.state.email);
     }
 
     onPassword1Change(text) {
-        this.setState({ password1: text });
+        this.setState({password1: text});
         console.log(this.state.password1);
     }
 
     onPassword2Change(text) {
-        this.setState({ password2: text });
+        this.setState({password2: text});
         console.log(this.state.password2);
     }
 
     onFirstNameChange(text) {
-        this.setState({ firstName: text });
+        this.setState({firstName: text});
         console.log(this.state.firstName);
 
     }
 
     onLastNameChange(text) {
-        this.setState({ lastName: text });
+        this.setState({lastName: text});
         console.log(this.state.lastName);
     }
 
     // need to add checkbox (for android) and switch (for ios)
     onTermsChanged(text) {
-        this.setState({ termsChecked: true });
+        this.setState({termsChecked: true});
     }
 
     handleRequest() {
@@ -64,8 +64,7 @@ export default class UserRegistration extends React.Component {
 
         if (this.state.password1 == this.state.password2) {
             bodyFormData.append('password', this.state.password1);
-        }
-        else {
+        } else {
             Alert.alert("The passwords don't match.");
             this.state.password1 = '';
             this.state.password2 = '';
@@ -73,12 +72,12 @@ export default class UserRegistration extends React.Component {
 
         axios
             .post(base_url, bodyFormData)
-            .then(response => ({ response }))
+            .then(response => ({response}))
             .catch(error => console.log(error));
     }
 
     render() {
-        const { navigate } = this.props.navigation;
+        const {navigate} = this.props.navigation;
         return (
             <View style={styles.regform}>
                 <View>
@@ -134,8 +133,8 @@ export default class UserRegistration extends React.Component {
 
                 </View>
                 <Button
-                    style={{ fontSize: 20, color: 'green' }}
-                    styleDisabled={{ color: 'red' }}
+                    style={{fontSize: 20, color: 'green'}}
+                    styleDisabled={{color: 'red'}}
                     onPress={() => this.handleRequest()}
                     title="Press Me"
                 >
