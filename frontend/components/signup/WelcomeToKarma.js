@@ -1,10 +1,11 @@
 {/**
-WelcomeToKarma is where the person signing up in the app chooses if he/she signs up as regular user (who will attend events)
-Or as an organization (which will host events) 
-*/}
+ WelcomeToKarma is where the person signing up in the app chooses if he/she signs up as regular user (who will attend events)
+ Or as an organization (which will host events)
+ */
+}
 
-import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import Constants from 'expo-constants';
 
 import COLORS from '../reusables/Colors.js';
@@ -18,7 +19,8 @@ export default class WelcomeToKarma extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={styles.welcomeText}>
                     <Text style={styles.header}>Welcome to KARMA</Text>
-                    <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do eiusmod</Text>
+                    <Text style={styles.text}>Lorem ipsum dolo sit amet, consectetur adip isicing elit, sed do
+                        eiusmod</Text>
                 </View>
                 <ScrollView
                     scrollEventThrottle={16}
@@ -44,7 +46,7 @@ export default class WelcomeToKarma extends Component {
                     <WhiteButton
                         textOnButton="Login"
                         page="Loginate"
-                        navigation={this.props.navigation} />
+                        navigation={this.props.navigation}/>
                 </View>
             </SafeAreaView>
         );
