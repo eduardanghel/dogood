@@ -13,11 +13,6 @@ export default class UserRegistration extends React.Component {
     password2: '',
     firstName: '',
     lastName: '',
-
-    // aifaofj
-          //adfeif
-
-            ///afpeof
     termsChecked: true,
   };
 
