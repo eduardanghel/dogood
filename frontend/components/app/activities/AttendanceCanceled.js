@@ -1,7 +1,15 @@
 import * as React from 'react';
 import { List } from 'react-native-paper';
 import { Header, Icon } from 'react-native-elements';
-import { StyleSheet, View, Button, Text, Dimensions, TouchableHighlight, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Button,
+  Text,
+  Dimensions,
+  TouchableHighlight,
+  TouchableOpacity,
+} from 'react-native';
 
 import { BottomSheet } from 'react-native-btr';
 
@@ -12,34 +20,41 @@ class AttendanceCanceled extends React.Component {
       visible: false,
     };
   }
+
   _toggleBottomNavigationView = () => {
     this.setState({ visible: !this.state.visible });
   };
+
   render() {
     return (
-      <View >
-
+      <View>
         <BottomSheet
           visible={this.state.visible}
           onBackButtonPress={this._toggleBottomNavigationView}
-          onBackdropPress={this._toggleBottomNavigationView}
-
-        >
-
+          onBackdropPress={this._toggleBottomNavigationView}>
           <View style={styles.bottomNavigationView}>
             <View
               style={{
                 flex: 1,
               }}>
-              <Text style={{ marginTop: 20, textAlign: 'left', padding: 20, fontSize: 20, color: '#01b0b0', }}>
+              <Text
+                style={{
+                  marginTop: 20,
+                  textAlign: 'left',
+                  padding: 20,
+                  fontSize: 20,
+                  color: '#01b0b0',
+                }}>
                 Event attendance has been canceled
-         </Text>
+              </Text>
               <Text style={{ textAlign: 'left', padding: 20, fontSize: 17 }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-         </Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </Text>
 
               <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity onPress={this._toggleBottomNavigationView}
+                <TouchableOpacity
+                  onPress={this._toggleBottomNavigationView}
                   style={{
                     height: 50,
                     width: 300,
@@ -50,18 +65,15 @@ class AttendanceCanceled extends React.Component {
                     borderWidth: 2,
                     borderRadius: 30,
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
                   }}>
-                  <Text style={{ color: "white", fontSize: 20, }}>Close</Text>
+                  <Text style={{ color: 'white', fontSize: 20 }}>Close</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
         </BottomSheet>
-
       </View>
-
-
     );
   }
 }
@@ -83,6 +95,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
 
 export default AttendanceCanceled;

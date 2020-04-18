@@ -11,7 +11,6 @@ import {
 import { BottomSheet } from 'react-native-btr';
 import WhiteButton from './WhiteButton';
 
-
 class Share extends React.Component {
   constructor() {
     super();
@@ -19,9 +18,11 @@ class Share extends React.Component {
       visible: false,
     };
   }
+
   _toggleBottomNavigationView = () => {
     this.setState({ visible: !this.state.visible });
   };
+
   render() {
     return (
       <View>
@@ -30,10 +31,10 @@ class Share extends React.Component {
           visible={this.state.visible}
           onBackButtonPress={this._toggleBottomNavigationView}
           onBackdropPress={this._toggleBottomNavigationView}>
-          <WhiteButtonWithIcon textOnButton="Facebook" iconName='facebook' />
-          <WhiteButtonWithIcon textOnButton="LinkedIn" iconName='linkedin' />
-          <WhiteButtonWithIcon textOnButton="Twitter" iconName='twitter' />
-          <WhiteButtonWithIcon textOnButton="Copy Link" iconName='link' />
+          <WhiteButtonWithIcon textOnButton="Facebook" iconName="facebook" />
+          <WhiteButtonWithIcon textOnButton="LinkedIn" iconName="linkedin" />
+          <WhiteButtonWithIcon textOnButton="Twitter" iconName="twitter" />
+          <WhiteButtonWithIcon textOnButton="Copy Link" iconName="link" />
         </BottomSheet>
       </View>
     );

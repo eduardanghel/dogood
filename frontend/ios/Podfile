@@ -41,6 +41,8 @@ target 'KarmaApp' do
   pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
   pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
   
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'KarmaAppTests' do
     inherit! :search_paths
     # Pods for testing

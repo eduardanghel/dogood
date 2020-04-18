@@ -1,6 +1,4 @@
-{/**
-Gathers all the images of the app
-*/}
+// Gathers all the images of the app
 
 import shark from './Images/promo_5.png';
 import garden from './Images/garden.png';
@@ -29,32 +27,31 @@ import rads from './Images/rads.png';
 import splash from './splash.png';
 
 const images = {
-  shark: shark,
-  garden: garden,
-  animal: animal,
-  art: art,
-  crisis: crisis,
-  education: education,
-  energy: energy,
-  equality: equality,
-  food: food,
-  health: health,
-  homeless: homeless,
-  peace: peace,
-  poverty: poverty,
-  refugees: refugees,
-  religious: religious,
-  community: community,
-  conservation: conservation,
-  heartHands: heartHands,
-  icon: icon,
-  logo: logo,
-  passport: passport,
-  peopleGlobe: peopleGlobe,
-  rad: rad,
-  rads: rads,
-  splash: splash,
-}
+  shark,
+  garden,
+  animal,
+  art,
+  crisis,
+  education,
+  energy,
+  equality,
+  food,
+  health,
+  homeless,
+  peace,
+  poverty,
+  refugees,
+  religious,
+  community,
+  conservation,
+  heartHands,
+  icon,
+  logo,
+  passport,
+  peopleGlobe,
+  rad,
+  rads,
+  splash,
+};
 
 export default images;
-
