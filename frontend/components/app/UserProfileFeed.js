@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity, StatusBar, TextInput, ScrollV
 import {LinearGradient} from 'expo-linear-gradient';
 import Icons from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import colors from '../../reusables/Colors';
-import HorizontalEventsList from '../../reusables/HorizontalEventList';
-import Events from '../../reusables/lists/AllEventsList';
+import colors from '../reusables/Colors';
+import HorizontalEventsList from '../reusables/HorizontalEventList';
+import Events from '../reusables/lists/AllEventsList';
 
 
 export default class Profile extends React.Component {

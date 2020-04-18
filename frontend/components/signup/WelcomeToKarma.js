@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
-import COLORS from './Colors.js';
+import COLORS from '../reusables/Colors.js';
 import IMAGE from '../../assets/AllImages';
 import Card from '../reusables/Card';
 import WhiteButton from '../reusables/WhiteButton';
