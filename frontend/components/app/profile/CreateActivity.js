@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+} from 'react-native';
 import DatePicker from 'react-native-datepicker';
 
 import Icons from 'react-native-vector-icons/MaterialIcons';
@@ -31,14 +38,14 @@ export default class CreateActivity extends React.Component {
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
             <TouchableOpacity style={styles.cam}>
-              <Icons name={'camera-alt'} size={20} color="white" />
+              <Icons name="camera-alt" size={20} color="white" />
             </TouchableOpacity>
             <TouchableOpacity>
               <Text style={styles.upload}>Upload Photo</Text>
             </TouchableOpacity>
           </View>
           <DatePicker
-            showIcon={true}
+            showIcon
             style={styles.dat}
             date={this.state.startDate}
             iconSource=""
@@ -62,8 +69,8 @@ export default class CreateActivity extends React.Component {
                 borderBottomWidth: 1,
               },
             }}
-            onDateChange={startDate => {
-              this.setState({ startDate: startDate });
+            onDateChange={(startDate) => {
+              this.setState({ startDate });
             }}
           />
           <DatePicker
@@ -90,8 +97,8 @@ export default class CreateActivity extends React.Component {
                 borderBottomWidth: 1,
               },
             }}
-            onDateChange={endDate => {
-              this.setState({ endDate: endDate });
+            onDateChange={(endDate) => {
+              this.setState({ endDate });
             }}
           />
           <DatePicker
@@ -117,8 +124,8 @@ export default class CreateActivity extends React.Component {
                 borderBottomWidth: 1,
               },
             }}
-            onDateChange={startTime => {
-              this.setState({ startTime: startTime });
+            onDateChange={(startTime) => {
+              this.setState({ startTime });
             }}
           />
           <DatePicker
@@ -144,8 +151,8 @@ export default class CreateActivity extends React.Component {
                 borderBottomWidth: 1,
               },
             }}
-            onDateChange={endTime => {
-              this.setState({ endTime: endTime });
+            onDateChange={(endTime) => {
+              this.setState({ endTime });
             }}
           />
           <Text style={styles.text2}>Address </Text>
@@ -161,19 +168,15 @@ export default class CreateActivity extends React.Component {
           <View style={styles.lineStyle} />
           <TextInput
             style={styles.textinput2}
-            editable={true}
+            editable
             placeholder="What will volunteers do?"
           />
           <TextInput
             style={styles.textinput2}
-            editable={true}
+            editable
             placeholder="Who to contact?"
           />
-          <TextInput
-            style={styles.textinput2}
-            editable={true}
-            placeholder="Where?"
-          />
+          <TextInput style={styles.textinput2} editable placeholder="Where?" />
           <Text style={styles.im}>Important </Text>
           <View style={styles.container}>
             <Text style={styles.textinput}> Minimum age is 18</Text>
@@ -341,5 +344,3 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
-
-

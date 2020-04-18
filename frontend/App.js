@@ -34,7 +34,7 @@ function InitialScreen({ navigation }) {
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('WelcomeToKarma')}>
-          <Text style={{ color: 'white', fontSize: 20 }}>Sign Up</Text>
+          <Text style={styles.signUpButton}>Sign Up</Text>
         </TouchableOpacity>
         <Text
           style={styles.loginText}
@@ -182,15 +182,15 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   textHeader: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 80,
   },
   text: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 20,
   },
   buttonContainer: {
-    borderColor: 'white',
+    borderColor: COLORS.white,
     borderWidth: 2,
     borderRadius: 30,
     alignItems: 'center',
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     bottom: 60,
   },
   loginText: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 15,
     marginTop: 10,
     marginBottom: 20,
@@ -213,4 +213,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  signUpButton: { color: COLORS.white, fontSize: 20 },
 });

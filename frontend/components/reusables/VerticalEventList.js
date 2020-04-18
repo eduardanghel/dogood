@@ -1,13 +1,15 @@
-{/**
-VerticalEventList is the class responsible to handle any vertical list of events
-It imports the function EventFunction
-And requires a props DATA for the data it shows (aka the list of event that needs to be shown)
-*/}
-
 import * as React from 'react';
 import { FlatList, StyleSheet, View, SafeAreaView } from 'react-native';
 
 import Event from './EventFunction';
+
+{
+  /**
+VerticalEventList is the class responsible to handle any vertical list of events
+It imports the function EventFunction
+And requires a props DATA for the data it shows (aka the list of event that needs to be shown)
+*/
+}
 
 export default class VerticalEventList extends React.Component {
   render() {
@@ -41,7 +43,7 @@ export default class VerticalEventList extends React.Component {
                 longitude={item.event.longitude()}
               />
             )}
-            keyExtractor={item => item.key}
+            keyExtractor={(item) => item.key}
           />
         </View>
       </SafeAreaView>

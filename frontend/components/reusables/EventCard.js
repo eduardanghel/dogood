@@ -1,16 +1,13 @@
-{/**
-The EventCard is the GUI representation of an Event
-It requires all the props of the Event
-The user can press:
-The share icon, to share the event
-The heart icon, to like the event
-The add icon, to join the event
-The VIEW MORE/VIEW LESS text to see more of the quick description of the event
-The image to see all the details of the event (shown on a Modal using DetailedEventPage)
-*/}
-
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, Modal, Alert, TouchableOpacity } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Modal,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 import ReadMore from 'react-native-read-more-text';
 
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -24,8 +21,20 @@ import TimeAndSpots from './TimeOrSpots';
 import COLOR from './Colors';
 import DetailedEventPage from './DetailedEventPage';
 
-class EventCard extends Component {
+{
+  /**
+The EventCard is the GUI representation of an Event
+It requires all the props of the Event
+The user can press:
+The share icon, to share the event
+The heart icon, to like the event
+The add icon, to join the event
+The VIEW MORE/VIEW LESS text to see more of the quick description of the event
+The image to see all the details of the event (shown on a Modal using DetailedEventPage)
+*/
+}
 
+class EventCard extends Component {
   state = {
     iconColor: 'grey',
     modalVisible: false,
@@ -36,13 +45,12 @@ class EventCard extends Component {
   }
 
   changeIconColor() {
-    var changedColor;
+    let changedColor;
 
     if (this.state.iconColor == 'grey') {
-      changedColor = 'red'
-    }
-    else {
-      changedColor = 'grey'
+      changedColor = 'red';
+    } else {
+      changedColor = 'grey';
     }
     this.setState({ iconColor: changedColor });
   }
@@ -52,9 +60,8 @@ class EventCard extends Component {
       <TouchableOpacity>
         <Text onPress={onPress} style={{ color: COLOR.classicGreen }}>
           VIEW MORE
-      </Text>
+        </Text>
       </TouchableOpacity>
-
     );
   }
 
@@ -63,19 +70,16 @@ class EventCard extends Component {
       <TouchableOpacity>
         <Text onPress={onPress} style={{ color: COLOR.classicGreen }}>
           VIEW LESS
-      </Text>
+        </Text>
       </TouchableOpacity>
-
     );
   }
 
-  handleTextReady() {
-
-  }
+  handleTextReady() {}
 
   render() {
     return (
-      <View >
+      <View>
         <Modal
           animationType="slide"
           transparent={false}
@@ -169,22 +173,22 @@ class EventCard extends Component {
             </View>
           </View>
           <View style={{ margin: 8 }}>
-            <Text style={styles.organizationNameStyle}>{this.props.eventTitle}</Text>
+            <Text style={styles.organizationNameStyle}>
+              {this.props.eventTitle}
+            </Text>
             <View style={styles.moreInfo}>
               <ReadMore
                 numberOfLines={2}
                 renderTruncatedFooter={this.renderViewMore}
                 renderRevealedFooter={this.renderViewLess}
                 onReady={this.handleTextReady}>
-                <Text>
-                  {this.props.quickDescription}
-                </Text>
+                <Text>{this.props.quickDescription}</Text>
               </ReadMore>
             </View>
           </View>
         </View>
         <View style={styles.userStyle}>
-          <AddUser name="add-user" color={'white'} size={20} />
+          <AddUser name="add-user" color="white" size={20} />
         </View>
       </View>
     );

@@ -1,4 +1,5 @@
-{/**
+{
+  /**
 An Event is necessarily defined by the following:
 key: a unique string to the Event used to identify it in FlatLists
 organizationName: The name of the organization hosting the event
@@ -20,145 +21,144 @@ whoCanTheyContact: a description of who the attendees can contact related to the
 whereShouldTheyGo: a description of where the attendees should go for the Event
 latitude: the geographic latitude location of the Event
 longitude: the geographic longitude location of the Event
-*/}
+*/
+}
 
 export default class Event {
-    constructor(
-        key,
-        organizationName,
-        verifiedIcon,
-        imageUri,
-        eventLocation,
-        dayOfEvent,
-        monthOfEvent,
-        eventTime,
-        eventTitle,
-        quickDescription,
-        totalSpots,
-        spotsTaken,
-        extendedDate,
-        frameOfEvent,
-        address,
-        whatWillTheyDo,
-        whoCanTheyContact,
-        whereShouldTheyGo,
-        latitude,
-        longitude) {
+  constructor(
+    key,
+    organizationName,
+    verifiedIcon,
+    imageUri,
+    eventLocation,
+    dayOfEvent,
+    monthOfEvent,
+    eventTime,
+    eventTitle,
+    quickDescription,
+    totalSpots,
+    spotsTaken,
+    extendedDate,
+    frameOfEvent,
+    address,
+    whatWillTheyDo,
+    whoCanTheyContact,
+    whereShouldTheyGo,
+    latitude,
+    longitude
+  ) {
+    this._key = key;
+    this._organizationName = organizationName;
+    this._verifiedIcon = verifiedIcon;
+    this._imageUri = imageUri;
+    this._eventLocation = eventLocation;
+    this._dayOfEvent = dayOfEvent;
+    this._monthOfEvent = monthOfEvent;
+    this._eventTime = eventTime;
+    this._eventTitle = eventTitle;
+    this._quickDescription = quickDescription;
+    this._totalSpots = totalSpots;
+    this._spotsTaken = spotsTaken;
+    this._extendedDate = extendedDate;
+    this._frameOfEvent = frameOfEvent;
+    this._address = address;
+    this._whatWillTheyDo = whatWillTheyDo;
+    this._whoCanTheyContact = whoCanTheyContact;
+    this._whereShouldTheyGo = whereShouldTheyGo;
+    this._latitude = latitude;
+    this._longitude = longitude;
 
-        this._key = key;
-        this._organizationName = organizationName;
-        this._verifiedIcon = verifiedIcon;
-        this._imageUri = imageUri;
-        this._eventLocation = eventLocation;
-        this._dayOfEvent = dayOfEvent;
-        this._monthOfEvent = monthOfEvent;
-        this._eventTime = eventTime;
-        this._eventTitle = eventTitle;
-        this._quickDescription = quickDescription;
-        this._totalSpots = totalSpots;
-        this._spotsTaken = spotsTaken;
-        this._extendedDate = extendedDate;
-        this._frameOfEvent = frameOfEvent;
-        this._address = address;
-        this._whatWillTheyDo = whatWillTheyDo;
-        this._whoCanTheyContact = whoCanTheyContact;
-        this._whereShouldTheyGo = whereShouldTheyGo;
-        this._latitude = latitude;
-        this._longitude = longitude;
+    this._spotsLeft = 0;
+    this._eventFullness = 0;
+  }
 
-        this._spotsLeft = 0;
-        this._eventFullness = 0;
+  key() {
+    return this._key;
+  }
 
-    }
+  organizationName() {
+    return this._organizationName;
+  }
 
-    key() {
-        return this._key;
-    }
+  verifiedIcon() {
+    return this._verifiedIcon;
+  }
 
-    organizationName() {
-        return this._organizationName;
-    }
+  imageUri() {
+    return this._imageUri;
+  }
 
-    verifiedIcon() {
-        return this._verifiedIcon;
-    }
+  eventLocation() {
+    return this._eventLocation;
+  }
 
-    imageUri() {
-        return this._imageUri;
-    }
+  dayOfEvent() {
+    return this._dayOfEvent;
+  }
 
-    eventLocation() {
-        return this._eventLocation;
-    }
+  monthOfEvent() {
+    return this._monthOfEvent;
+  }
 
-    dayOfEvent() {
-        return this._dayOfEvent;
-    }
+  eventTime() {
+    return this._eventTime;
+  }
 
-    monthOfEvent() {
-        return this._monthOfEvent;
-    }
+  spotsLeft() {
+    const freeSpots = this._totalSpots - this._spotsTaken;
 
-    eventTime() {
-        return this._eventTime
-    }
+    return freeSpots;
+  }
 
-    spotsLeft() {
-        var freeSpots = this._totalSpots - this._spotsTaken;
+  eventTitle() {
+    return this._eventTitle;
+  }
 
-        return freeSpots;
-    }
+  quickDescription() {
+    return this._quickDescription;
+  }
 
-    eventTitle() {
-        return this._eventTitle;
-    }
+  progressBarProgress() {
+    const howFull = this._spotsTaken / this._totalSpots;
 
-    quickDescription() {
-        return this._quickDescription;
-    }
+    return howFull;
+  }
 
-    progressBarProgress() {
+  numberOfSpotsLeft() {
+    const freeSpots = this._totalSpots - this._spotsTaken;
 
-        var howFull = this._spotsTaken / this._totalSpots;
+    return `${freeSpots}/${this._totalSpots} SPOTS LEFT`;
+  }
 
-        return howFull;
-    }
+  extendedDate() {
+    return this._extendedDate;
+  }
 
-    numberOfSpotsLeft() {
-        var freeSpots = this._totalSpots - this._spotsTaken;
+  frameOfEvent() {
+    return this._frameOfEvent;
+  }
 
-        return freeSpots + "/" + this._totalSpots + " SPOTS LEFT";
-    }
+  address() {
+    return this._address;
+  }
 
-    extendedDate() {
-        return this._extendedDate;
-    }
+  whatWillTheyDo() {
+    return this._whatWillTheyDo;
+  }
 
-    frameOfEvent() {
-        return this._frameOfEvent;
-    }
+  whoCanTheyContact() {
+    return this._whoCanTheyContact;
+  }
 
-    address() {
-        return this._address;
-    }
+  whereShouldTheyGo() {
+    return this._whereShouldTheyGo;
+  }
 
-    whatWillTheyDo() {
-        return this._whatWillTheyDo;
-    }
+  latitude() {
+    return this._latitude;
+  }
 
-    whoCanTheyContact() {
-        return this._whoCanTheyContact;
-    }
-
-    whereShouldTheyGo() {
-        return this._whereShouldTheyGo;
-    }
-
-    latitude() {
-        return this._latitude;
-    }
-
-    longitude() {
-        return this._longitude;
-    }
+  longitude() {
+    return this._longitude;
+  }
 }

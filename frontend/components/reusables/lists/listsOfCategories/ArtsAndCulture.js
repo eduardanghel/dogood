@@ -3,7 +3,8 @@ import Event from '../../Event';
 
 const list = [];
 
-var event = new Event('YP1YFV-47DD6Y-DJT3IC-18NQ7G-NPGMDX',
+const event = new Event(
+  'YP1YFV-47DD6Y-DJT3IC-18NQ7G-NPGMDX',
   'The P.E.E.R. Center',
   'check-circle',
   IMAGE.art,
@@ -25,7 +26,8 @@ var event = new Event('YP1YFV-47DD6Y-DJT3IC-18NQ7G-NPGMDX',
   -52.837118
 );
 
-var demoEvent2 = new Event('T5M3EA-ZVPIWO-8VM98U-18LP8L-CFI82F',
+const demoEvent2 = new Event(
+  'T5M3EA-ZVPIWO-8VM98U-18LP8L-CFI82F',
   "Alzheimer's Association",
   '',
   IMAGE.garden,
@@ -47,9 +49,7 @@ var demoEvent2 = new Event('T5M3EA-ZVPIWO-8VM98U-18LP8L-CFI82F',
   -52.837118
 );
 
-list.push({ event: event, key: event.key() })
-list.push({ event: demoEvent2, key: demoEvent2.key() })
+list.push({ event, key: event.key() });
+list.push({ event: demoEvent2, key: demoEvent2.key() });
 
 export default list;
-
-
