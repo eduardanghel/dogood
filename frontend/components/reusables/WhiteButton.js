@@ -21,7 +21,7 @@ export default class WhiteButton extends Component {
                 <TouchableOpacity
                     onPress={() => this.navigate(this.props.page)}
                 >
-                    <LinearGradient
+                     <LinearGradient
                         style={styles.button}
                         colors={[COLORS.lightGreen, COLORS.darkGreen]}
                         start={{ x: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default class WhiteButton extends Component {
                         <View style={styles.buttonContent}>
                             <Text style={styles.buttonText}>{this.props.textOnButton}</Text>
                         </View>
-                    </LinearGradient>
+                     </LinearGradient>
                 </TouchableOpacity>
             </View>
         )

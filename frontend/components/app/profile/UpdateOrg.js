@@ -130,7 +130,7 @@ export default class UpdateOrg extends React.Component {
                 </View>
 
                 <View style={{ flex: 1, justifyContent: "flex-end", marginLeft: 30, marginRight: 30, marginBottom: 40, }}>
-                    <LinearGradient
+                     <LinearGradient
                         style={{ borderRadius: 25, borderTopLeftRadius: 30, borderBottomLeftRadius: 30, borderTopRightRadius: 30, borderBottomRightRadius: 30, }}
                         colors={['#00c5c4', '#01a7a6']}
                         start={{ x: 1, y: 0 }}
@@ -146,7 +146,7 @@ export default class UpdateOrg extends React.Component {
 
                         </View>
                         <TouchableOpacity><Text style={{ fontSize: 14, textAlign: 'center', color: 'white', position: 'relative', height: 45, paddingTop: 12, }}>Update</Text></TouchableOpacity>
-                    </LinearGradient>
+                     </LinearGradient>
                 </View>
             </View>
 
