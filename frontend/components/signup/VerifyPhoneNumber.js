@@ -1,8 +1,5 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import {
-    StyleSheet, Text, View, SafeAreaView, TextInput
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 
@@ -11,24 +8,24 @@ export default class VerifyPhoneNumber extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View
-                // style={styles.form}
+                    // style={styles.form}
                 >
                     <Text style={styles.title}>Verify your phone number</Text>
-                    <Text />
-                    <Text />
-                    <Text />
+                    <Text/>
+                    <Text/>
+                    <Text/>
                     <Text style={styles.text}>
                         Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod.
                     </Text>
-                    <TextInput style={styles.textInput} A />
-                    <Text />
+                    <TextInput style={styles.textInput} A/>
+                    <Text/>
                 </View>
                 <View style={styles.buttonView}>
                     <ClassicButton
                         textOnButton="Next"
                         lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
                         page='About'
-                        navigation={this.props.navigation} />
+                        navigation={this.props.navigation}/>
                 </View>
             </SafeAreaView>
         );
