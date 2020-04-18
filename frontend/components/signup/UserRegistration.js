@@ -10,14 +10,19 @@ export default class UserRegistration extends React.Component {
         username: '',
         email: '',
         password1: '',
-        password2: '',
+        password2:          '',
         firstName: '',
         lastName: '',
         termsChecked: true,
     };
 
     onUsernameChange(text) {
-        this.setState({username: text});
+        this.setState({
+
+
+
+
+                        username: text});
         console.log(this.state.username);
     }
 
