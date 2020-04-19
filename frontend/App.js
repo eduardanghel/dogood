@@ -159,11 +159,71 @@ export default function App() {
           component={Feed}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="IDValidation" component={IDValidation} />
-        <Stack.Screen name="AddPhoneNumber" component={AddPhoneNumber} />
-        <Stack.Screen name="VerifyPhoneNumber" component={VerifyPhoneNumber} />
-        <Stack.Screen name="About" component={About} />
-        <Stack.Screen name="ContactInfo" component={ContactInfo} />
+        <Stack.Screen
+          name="IDValidation"
+          component={IDValidation}
+          options={{
+            headerTintColor: COLORS.classicGreen,
+            title: 'Verify your identity',
+            headerTitleStyle: {
+              textAlign: 'left',
+              color: 'black',
+              fontSize: 22,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="AddPhoneNumber"
+          component={AddPhoneNumber}
+          options={{
+            headerTintColor: COLORS.classicGreen,
+            title: 'Add your phone number',
+            headerTitleStyle: {
+              textAlign: 'left',
+              color: 'black',
+              fontSize: 22,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="VerifyPhoneNumber"
+          component={VerifyPhoneNumber}
+          options={{
+            headerTintColor: COLORS.classicGreen,
+            title: 'Verify your phone number',
+            headerTitleStyle: {
+              textAlign: 'left',
+              color: 'black',
+              fontSize: 22,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="About"
+          component={About}
+          options={{
+            headerTintColor: COLORS.classicGreen,
+            title: 'About yourself',
+            headerTitleStyle: {
+              textAlign: 'left',
+              color: 'black',
+              fontSize: 22,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="ContactInfo"
+          component={ContactInfo}
+          options={{
+            headerTintColor: COLORS.classicGreen,
+            title: 'Your contact info',
+            headerTitleStyle: {
+              textAlign: 'left',
+              color: 'black',
+              fontSize: 22,
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

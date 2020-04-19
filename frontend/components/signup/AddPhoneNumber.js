@@ -1,16 +1,23 @@
 import React from 'react';
 import {
-  Alert,
-  SafeAreaView,
+  AsyncStorage,
   StyleSheet,
   Text,
   TextInput,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 
 export default class AddPhoneNumber extends React.Component {
+  _retrieveData = async () => {
+    try {
+      const accessToken = await AsyncStorage.getItem('accessToken');
+      return accessToken;
+    } catch (error) {}
+  };
+
   state = {
     phoneNumber: '',
   };
@@ -20,28 +27,26 @@ export default class AddPhoneNumber extends React.Component {
   }
 
   handleRequest() {
-    const base_url = 'http://karma-zomp.co.uk/users/user_profile/';
+    const userProfileUrl = 'http://karma-zomp.co.uk/users/user_profile/';
 
-    const bodyFormData = new FormData();
-    bodyFormData.append('telephone', this.state.phoneNumber);
+    const updateUserProfileData = new FormData();
+    updateUserProfileData.append('telephone', this.state.phoneNumber);
 
-    if (this.state.password1 == this.state.password2) {
-      bodyFormData.append('password', this.state.password1);
-    } else {
-      Alert.alert("The passwords don't match.");
-      this.state.password1 = '';
-      this.state.password2 = '';
-    }
+    let config = {
+      headers: {
+        Authorization: 'Bearer ${this._retrieveData()}',
+      },
+    };
 
     axios
-      .post(base_url, bodyFormData)
+      .post(userProfileUrl, updateUserProfileData, config)
       .then((response) => ({ response }))
       .catch((error) => console.log(error));
   }
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
         <View style={styles.form}>
           <Text style={styles.title}>Verify your phone number</Text>
           <Text />
@@ -50,7 +55,7 @@ export default class AddPhoneNumber extends React.Component {
           </Text>
           <Text />
           <View style={styles.input}>
-            <Text style={styles.phonetxt}>+44</Text>
+            <Text style={styles.phoneTextStyle}>+44</Text>
             <TextInput
               style={styles.textInput}
               placeholder="                                                                          "
@@ -68,7 +73,7 @@ export default class AddPhoneNumber extends React.Component {
             navigation={this.props.navigation}
           />
         </View>
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -86,14 +91,12 @@ const styles = StyleSheet.create({
     color: '#01a7a6',
     fontWeight: '500', // semibold
     textAlignVertical: 'top',
-    // textAlign: 'center',
     marginHorizontal: 20,
   },
   text: {
     fontSize: 16,
     color: '#3e3e3e',
     textAlignVertical: 'top',
-    // textAlign: 'center',
     marginHorizontal: 20,
   },
   buttonView: {
@@ -109,7 +112,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginLeft: 10,
     marginRight: 30,
-    // paddingVertical: 10,
     marginVertical: 2,
   },
   fields: {
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
   },
-  phonetxt: {
+  phoneTextStyle: {
     marginTop: 2,
     fontSize: 16,
     color: 'grey',

@@ -1,11 +1,32 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  AsyncStorage,
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  KeyboardAvoidingView,
+} from 'react-native';
 
 import axios from 'axios';
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 
 export default class UserRegistration extends React.Component {
+  _storeRefreshToken = async () => {
+    try {
+      await AsyncStorage.setItem('refreshToken', this.state.refreshToken);
+    } catch (error) {}
+  };
+
+  _storeAccessToken = async () => {
+    try {
+      await AsyncStorage.setItem('accessToken', this.state.accessToken);
+    } catch (error) {}
+  };
+
   state = {
     username: '',
     email: '',
@@ -14,38 +35,48 @@ export default class UserRegistration extends React.Component {
     firstName: '',
     lastName: '',
     termsChecked: true,
+    accessToken: '',
+    refreshToken: '',
   };
+
+  onAccessTokenChange(text) {
+    this.setState({
+      accessToken: text,
+    });
+    this._storeAccessToken();
+  }
+
+  onRefreshTokenChange(text) {
+    this.setState({
+      refreshToken: text,
+    });
+    this._storeRefreshToken();
+  }
 
   onUsernameChange(text) {
     this.setState({
       username: text,
     });
-    console.log(this.state.username);
   }
 
   onEmailChange(text) {
     this.setState({ email: text });
-    console.log(this.state.email);
   }
 
   onPassword1Change(text) {
     this.setState({ password1: text });
-    console.log(this.state.password1);
   }
 
   onPassword2Change(text) {
     this.setState({ password2: text });
-    console.log(this.state.password2);
   }
 
   onFirstNameChange(text) {
     this.setState({ firstName: text });
-    console.log(this.state.firstName);
   }
 
   onLastNameChange(text) {
     this.setState({ lastName: text });
-    console.log(this.state.lastName);
   }
 
   // need to add checkbox (for android) and switch (for ios)
@@ -54,33 +85,45 @@ export default class UserRegistration extends React.Component {
   }
 
   handleRequest() {
-    const base_url = 'http://karma-zomp.co.uk/users/';
+    const sign_up_url = 'http://karma-zomp.co.uk/users/';
+    const login_url = 'http://karma-zomp.co.uk/o/token/';
 
-    const bodyFormData = new FormData();
-    bodyFormData.append('username', this.state.username);
-    bodyFormData.append('email', this.state.email);
-    bodyFormData.append('first_name', this.state.firstName);
-    bodyFormData.append('last_name', this.state.lastName);
-    bodyFormData.append('terms_consent', this.state.termsChecked);
+    const signUpBodyFormData = new FormData();
+    signUpBodyFormData.append('username', this.state.username);
+    signUpBodyFormData.append('email', this.state.email);
+    signUpBodyFormData.append('first_name', this.state.firstName);
+    signUpBodyFormData.append('last_name', this.state.lastName);
+    signUpBodyFormData.append('terms_consent', this.state.termsChecked);
 
     if (this.state.password1 == this.state.password2) {
-      bodyFormData.append('password', this.state.password1);
+      signUpBodyFormData.append('password', this.state.password1);
     } else {
       Alert.alert("The passwords don't match.");
       this.state.password1 = '';
       this.state.password2 = '';
     }
-
     axios
-      .post(base_url, bodyFormData)
-      .then((response) => ({ response }))
+      .post(sign_up_url, signUpBodyFormData)
+      .then((sign_up_response) => {
+        const logInBodyFormData = new FormData();
+        logInBodyFormData.append('username', this.state.username);
+        logInBodyFormData.append('password', this.state.password1);
+
+        axios
+          .post(login_url, logInBodyFormData)
+          .then((login_response) => {
+            this._storeAccessToken().bind(login_response.data['access_token']);
+            this._storeRefreshToken.bind(login_response.data['refresh_token']);
+          })
+          .catch((error) => console.log(error));
+      })
       .catch((error) => console.log(error));
   }
 
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.regform}>
+      <KeyboardAvoidingView style={styles.regform} behavior="padding">
         <View>
           <Text style={styles.h1}>Create a new account</Text>
         </View>
@@ -147,7 +190,7 @@ export default class UserRegistration extends React.Component {
           page="IDValidation"
           navigation={this.props.navigation}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
