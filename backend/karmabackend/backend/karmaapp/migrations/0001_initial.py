@@ -62,7 +62,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('dob', models.DateField(blank=True)),
-                ('gender', models.CharField(blank=True, choices=[('m', 'Male'), ('f', 'Female'), ('x', 'Non-binary')],
+                ('gender', models.CharField(blank=True, choices=[('0', 'Male'), ('1', 'Female'), ('2', 'Non-binary')],
                                             max_length=1, null=True)),
                 ('address', models.CharField(blank=True, max_length=255)),
                 ('city', models.CharField(blank=True, max_length=50)),

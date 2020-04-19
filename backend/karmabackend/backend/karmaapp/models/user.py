@@ -41,8 +41,6 @@ class CharityProfile(models.Model):
     activation_token_valid_until = models.DateTimeField(default=timezone.now, null=True, blank=True)
     password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
     password_reset_token_valid_until = models.DateField(default=timezone.now, null=True, blank=True)
-    magic_link_token = models.CharField(max_length=100, blank=True, default="", null=True)
-    magic_link_token_valid_until = models.DateField(default=timezone.now, null=True, blank=True)
 
     def get_access_token(self):
         access_token = AccessToken.objects.create(
@@ -72,9 +70,9 @@ class CharityProfile(models.Model):
 
 class UserProfile(models.Model):
     GENDER_CHOICES = (
-        ('m', 'Male'),
-        ('f', 'Female'),
-        ('x', 'Non-binary'),
+        ('0', 'Male'),
+        ('1', 'Female'),
+        ('2', 'Non-binary'),
     )
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='user_profile')
@@ -93,8 +91,6 @@ class UserProfile(models.Model):
     activation_token_valid_until = models.DateTimeField(default=timezone.now, blank=True, null=True)
     password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
     password_reset_token_valid_until = models.DateField(default=timezone.now, blank=True, null=True)
-    magic_link_token = models.CharField(max_length=100, blank=True, default="", null=True)
-    magic_link_token_valid_until = models.DateField(default=timezone.now, blank=True, null=True)
 
     def get_access_token(self):
         access_token = AccessToken.objects.create(
