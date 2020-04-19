@@ -21,9 +21,9 @@ export default class UserRegistration extends React.Component {
     } catch (error) {}
   };
 
-  _storeAuthToken = async () => {
+  _storeAccessToken = async () => {
     try {
-      await AsyncStorage.setItem('authToken', this.state.authToken);
+      await AsyncStorage.setItem('accessToken', this.state.accessToken);
     } catch (error) {}
   };
 
@@ -35,15 +35,15 @@ export default class UserRegistration extends React.Component {
     firstName: '',
     lastName: '',
     termsChecked: true,
-    authToken: '',
+    accessToken: '',
     refreshToken: '',
   };
 
-  onAuthTokenChange(text) {
+  onAccessTokenChange(text) {
     this.setState({
-      authToken: text,
+      accessToken: text,
     });
-    this._storeAuthToken();
+    this._storeAccessToken();
   }
 
   onRefreshTokenChange(text) {
@@ -112,7 +112,7 @@ export default class UserRegistration extends React.Component {
         axios
           .post(login_url, logInBodyFormData)
           .then((login_response) => {
-            this._storeAuthToken.bind(login_response.data['auth_token']);
+            this._storeAccessToken().bind(login_response.data['access_token']);
             this._storeRefreshToken.bind(login_response.data['refresh_token']);
           })
           .catch((error) => console.log(error));
