@@ -1,5 +1,13 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  KeyboardAvoidingView,
+} from 'react-native';
 
 import axios from 'axios';
 import ClassicButton from '../reusables/ClassicButton';
@@ -80,7 +88,7 @@ export default class UserRegistration extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.regform}>
+      <KeyboardAvoidingView style={styles.regform} behavior="padding">
         <View>
           <Text style={styles.h1}>Create a new account</Text>
         </View>
@@ -147,7 +155,7 @@ export default class UserRegistration extends React.Component {
           page="IDValidation"
           navigation={this.props.navigation}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
