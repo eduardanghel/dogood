@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  AsyncStorage,
   StyleSheet,
   Text,
   TextInput,
@@ -10,8 +11,69 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
+import axios from 'axios';
 
 export default class Contact extends React.Component {
+  _retrieveData = async () => {
+    try {
+      return await AsyncStorage.getItem('accessToken');
+    } catch (error) {}
+  };
+
+  state = {
+    line1: '',
+    line2: '',
+    county: '',
+    postcode1: '',
+    postcode2: '',
+  };
+
+  onLine1Change(text) {
+    this.setState({ line1: text });
+  }
+
+  onLine2Change(text) {
+    this.setState({ line2: text });
+  }
+
+  onCountyChange(text) {
+    this.setState({ county: text });
+  }
+
+  onPostcode1Change(text) {
+    this.setState({ postcode1: text });
+  }
+
+  onPostcode2Change(text) {
+    this.setState({ postcode2: text });
+  }
+
+  handleRequest() {
+    const userProfileUrl = 'http://karma-zomp.co.uk/users/user_profile/';
+
+    const updateUserProfileData = new FormData();
+    updateUserProfileData.append(
+      'address',
+      this.state.line1 + ' ' + this.state.line2
+    );
+    updateUserProfileData.append('county', this.state.county);
+    updateUserProfileData.append(
+      'postcode',
+      this.state.postcode1 + ' ' + this.state.postcode2
+    );
+
+    let config = {
+      headers: {
+        Authorization: 'Bearer ${this._retrieveData()}',
+      },
+    };
+
+    axios
+      .post(userProfileUrl, updateUserProfileData, config)
+      .then((response) => ({ response }))
+      .catch((error) => console.log(error));
+  }
+
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -32,24 +94,38 @@ export default class Contact extends React.Component {
           events
         </Text>
         <Text style={styles.padding}>Address Line 1</Text>
-        <TextInput style={styles.textinput} placeholder="" />
+        <TextInput
+          style={styles.addressInputStyle}
+          placeholder=""
+          onChangeText={this.onLine1Change.bind(this)}
+        />
         <Text style={styles.padding}>Address Line 2</Text>
-        <TextInput style={styles.textinput} placeholder="" />
-        <Text style={styles.padding}>County / State</Text>
-        <TextInput style={styles.textinput} placeholder="" />
-        <Text style={styles.padding}>County / State Postcode</Text>
+        <TextInput
+          style={styles.addressInputStyle}
+          placeholder=""
+          onChangeText={this.onLine2Change.bind(this)}
+        />
+        <Text style={styles.padding}>County</Text>
+        <TextInput
+          style={styles.addressInputStyle}
+          placeholder=""
+          onChangeText={this.onCountyChange.bind(this)}
+        />
+        <Text style={styles.padding}>Postcode</Text>
         <View style={styles.row}>
           <TextInput
-            style={styles.textinput2}
+            maxLength={4}
+            style={styles.postcodeInputStyle}
             placeholder="                       "
+            onChangeText={this.onPostcode1Change.bind(this)}
           />
           <TextInput
-            style={styles.textinput2}
+            maxLength={3}
+            style={styles.postcodeInputStyle}
             placeholder="                           "
+            onChangeText={this.onPostcode2Change.bind(this)}
           />
         </View>
-        <Text style={styles.padding}>Phone Number</Text>
-        <TextInput style={styles.textinput} placeholder="" />
 
         <ClassicButton
           textOnButton="Next"
@@ -82,7 +158,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
     color: 'grey',
   },
-  textinput: {
+  addressInputStyle: {
     fontSize: 15,
     color: 'grey',
     paddingTop: 15,
@@ -93,7 +169,7 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     marginRight: 25,
   },
-  textinput2: {
+  postcodeInputStyle: {
     fontSize: 15,
     color: 'grey',
     paddingTop: 15,
@@ -111,7 +187,6 @@ const styles = StyleSheet.create({
     marginLeft: 25,
   },
   row: {
-    // flex: 1,
     flexDirection: 'row',
   },
   login: {
