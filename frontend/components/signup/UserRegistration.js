@@ -18,12 +18,14 @@ export default class UserRegistration extends React.Component {
   _storeRefreshToken = async () => {
     try {
       await AsyncStorage.setItem('refreshToken', this.state.refreshToken);
+      console.log(AsyncStorage.getItem('refreshToken'));
     } catch (error) {}
   };
 
   _storeAccessToken = async () => {
     try {
       await AsyncStorage.setItem('accessToken', this.state.accessToken);
+      console.log(AsyncStorage.getItem('accessToken'));
     } catch (error) {}
   };
 
@@ -108,6 +110,8 @@ export default class UserRegistration extends React.Component {
         const logInBodyFormData = new FormData();
         logInBodyFormData.append('username', this.state.username);
         logInBodyFormData.append('password', this.state.password1);
+        logInBodyFormData.append('grant_type', 'password');
+        logInBodyFormData.append('client', 'password');
 
         axios
           .post(login_url, logInBodyFormData)
@@ -175,20 +179,13 @@ export default class UserRegistration extends React.Component {
             onChangeText={this.onPassword2Change.bind(this)}
           />
         </View>
-        <Button
-          style={{ fontSize: 20, color: 'green' }}
-          styleDisabled={{ color: 'red' }}
-          onPress={() => this.handleRequest()}
-          title="Press Me">
-          Press Me
-        </Button>
-
         <ClassicButton
-          text="Next"
+          textOnButton="Next"
           lightEndColor={COLORS.lightGreen}
           darkEndColor={COLORS.darkGreen}
           page="IDValidation"
           navigation={this.props.navigation}
+          onPress={() => this.handleRequest()}
         />
       </KeyboardAvoidingView>
     );

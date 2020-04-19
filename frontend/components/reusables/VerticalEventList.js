@@ -18,7 +18,7 @@ export default class VerticalEventList extends React.Component {
         <View style={styles.feed}>
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={this.props.DATA}
+            data={this.props.list_items}
             renderItem={({ item }) => (
               <Event
                 organizationName={item.event.organizationName()}
