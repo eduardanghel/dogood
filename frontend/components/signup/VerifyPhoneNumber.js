@@ -7,9 +7,7 @@ export default class VerifyPhoneNumber extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <View
-        // style={styles.form}
-        >
+        <View>
           <Text style={styles.title}>Verify your phone number</Text>
           <Text />
           <Text />
