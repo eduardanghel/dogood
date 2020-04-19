@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AsyncStorage,
   Image,
   Picker,
   ScrollView,
@@ -14,12 +15,41 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import Button from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
+import ClassicButton from '../reusables/ClassicButton';
 
 export default class About extends React.Component {
+  _retrieveData = async () => {
+    try {
+      const accessToken = await AsyncStorage.getItem('accessToken');
+      return accessToken;
+    } catch (error) {}
+  };
+
+  handleRequest() {
+    const userProfileUrl = 'http://karma-zomp.co.uk/users/user_profile/';
+
+    const updateUserProfileData = new FormData();
+    updateUserProfileData.append(
+      'dob',
+      this.state.year + '-' + this.state.month + '-' + this.state.day
+    );
+    updateUserProfileData.append('gender', this.state.genderID);
+
+    let config = {
+      headers: {
+        Authorization: 'Bearer ${this._retrieveData()}',
+      },
+    };
+
+    axios
+      .post(userProfileUrl, updateUserProfileData, config)
+      .then((response) => ({ response }))
+      .catch((error) => console.log(error));
+  }
+
   static defaultProps = {
-    selectedYear: new Date().getFullYear(),
+    selectedYear: new Date().getFullYear() - 18,
     selectedMonth: new Date().getMonth(),
     selectedDay: new Date().getDate(),
 
@@ -32,9 +62,8 @@ export default class About extends React.Component {
       year: this.props.selectedYear,
       month: this.props.selectedMonth,
       day: this.props.selectedDay,
-      disease: '',
       radioBtnsData: ['Male', 'Female', 'Non-Binary'],
-      checked: 0,
+      genderID: 0,
       image: null,
     };
   }
@@ -134,7 +163,6 @@ export default class About extends React.Component {
     for (var i = minYear; i <= maxYear; i++) {
       years.push(<Picker.Item label={i.toLocaleString()} value={i} />);
     }
-    years.push(<Picker.Item label="-------" value={i} />);
     return years;
   }
 
@@ -183,29 +211,29 @@ export default class About extends React.Component {
           </View>
           <View style={{ marginLeft: 23, marginRight: 23 }}>
             <Text />
-            <Text style={styles.test}>Tell us about yourself</Text>
+            <Text style={styles.bigGreenText}>Tell us about yourself</Text>
             <Text />
-            <Text style={styles.tex}>
+            <Text style={styles.greyText}>
               Charities need to know this information about volunteers.{' '}
             </Text>
             <Text />
           </View>
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-            <TouchableOpacity style={styles.fles} onPress={this._openImage}>
+            <TouchableOpacity style={styles.addImage} onPress={this._openImage}>
               <Icons name="camera-alt" size={20} color="white" />
             </TouchableOpacity>
             <TouchableOpacity onPress={this._pickImage}>
-              <Text style={styles.uplo}>Upload Photo</Text>
+              <Text style={styles.photoUpload}>Upload Photo</Text>
             </TouchableOpacity>
           </View>
           <View style={{ marginLeft: 23, marginRight: 23 }}>
             <Text />
-            <Text style={styles.tests}>When is your birthday?</Text>
+            <Text style={styles.greenText}>When is your birthday?</Text>
           </View>
           <View style={styles.container}>
             <Picker
-              style={styles.picks}
+              style={styles.pick}
               onValueChange={this.onDayValueChanged}
               selectedValue={this.state.day}>
               {this.renderDay()}
@@ -218,39 +246,39 @@ export default class About extends React.Component {
             </Picker>
 
             <Picker
-              style={styles.pickes}
+              style={styles.pick}
               onValueChange={this.onYearValueChanged}
               selectedValue={this.state.year}>
               {this.renderYear()}
             </Picker>
           </View>
           <View style={{ marginLeft: 23, marginRight: 23 }}>
-            <Text style={styles.tests}>Choose your gender</Text>
+            <Text style={styles.greenText}>Choose your gender</Text>
             <Text />
             <View>
               {this.state.radioBtnsData.map((data, key) => {
                 return (
                   <View>
                     <View key={key}>
-                      {this.state.checked == key ? (
-                        <TouchableOpacity style={styles.btns}>
+                      {this.state.genderID == key ? (
+                        <TouchableOpacity style={styles.buttons}>
                           <Image
-                            style={styles.img}
+                            style={styles.image}
                             source={require('../../assets/Images/rad.png')}
                           />
-                          <Text style={styles.testtt}>{data}</Text>
+                          <Text style={styles.whiteText}>{data}</Text>
                         </TouchableOpacity>
                       ) : (
                         <TouchableOpacity
                           onPress={() => {
-                            this.setState({ checked: key });
+                            this.setState({ genderID: key });
                           }}
-                          style={styles.btn}>
+                          style={styles.button}>
                           <Image
-                            style={styles.img}
+                            style={styles.image}
                             source={require('../../assets/Images/rads.png')}
                           />
-                          <Text style={styles.testtts}>{data}</Text>
+                          <Text style={styles.smallGreyText}>{data}</Text>
                         </TouchableOpacity>
                       )}
                     </View>
@@ -259,13 +287,13 @@ export default class About extends React.Component {
               })}
             </View>
           </View>
-          <View style={styles.fle}>
-            <Button
+          <View style={styles.buttonView}>
+            <ClassicButton
               textOnButton="Next"
               lightEndColor={COLORS.lightGreen}
               darkEndColor={COLORS.darkGreen}
+              page="Feed"
               navigation={this.props.navigation}
-              page="ContactInfo"
             />
           </View>
         </View>
@@ -283,29 +311,23 @@ const styles = StyleSheet.create({
   pick: {
     flex: 1,
   },
-  picks: {
-    flex: 1,
-  },
-  pickes: {
-    flex: 1,
-  },
   text: {
     fontSize: 22,
     color: 'black',
     marginLeft: -60,
   },
-  tex: {
+  greyText: {
     color: 'grey',
   },
-  tests: {
+  greenText: {
     color: COLORS.classicGreen,
     fontSize: 18,
   },
-  test: {
+  bigGreenText: {
     color: COLORS.classicGreen,
     fontSize: 22,
   },
-  uplo: {
+  photoUpload: {
     borderWidth: 1,
     color: 'grey',
     borderColor: 'grey',
@@ -315,13 +337,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 10,
   },
-  fle: {
+  buttonView: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 40,
   },
-  fles: {
+  addImage: {
     backgroundColor: COLORS.classicGreen,
     borderWidth: 0,
     width: 45,
@@ -330,21 +352,21 @@ const styles = StyleSheet.create({
     padding: 12,
     marginLeft: -22,
   },
-  img: {
+  image: {
     height: 0.1,
     width: 0.1,
   },
-  testtt: {
+  whiteText: {
     color: 'white',
     alignSelf: 'center',
     paddingTop: 12,
   },
-  testtts: {
+  smallGreyText: {
     color: 'grey',
     alignSelf: 'center',
     paddingTop: 11,
   },
-  btn: {
+  button: {
     borderWidth: 1,
     width: 150,
     height: 42,
@@ -352,7 +374,7 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     marginBottom: 20,
   },
-  btns: {
+  buttons: {
     width: 150,
     height: 42,
     backgroundColor: COLORS.classicGreen,
