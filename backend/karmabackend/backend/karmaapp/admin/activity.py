@@ -4,6 +4,9 @@ from karmaapp.models.activity import Activity
 
 
 class ActivityAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Activity
+
     pass
 
 

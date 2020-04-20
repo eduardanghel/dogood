@@ -9,7 +9,7 @@ class CauseSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CauseWriteSerializer(serializers.HyperlinkedModelSerializer):
+class CauseWriteSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         cause = Cause(**validated_data)

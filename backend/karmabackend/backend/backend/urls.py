@@ -6,6 +6,8 @@ from functools import partial
 from django.contrib.auth.views import logout_then_login
 from rest_framework import routers
 
+from karmaapp.views import rest_auth
+
 from karmaapp.views.charity_profile import CharityUserViewSet
 from karmaapp.views.rest.create_user import CreateUserAPI
 from karmaapp.views.rest.login_user import LoginUserAPI
@@ -22,6 +24,20 @@ admin.site.index_title = "Welcome to the Karma App admin portal"
 
 urlpatterns = [
     path("logout/", partial(logout_then_login, login_url="/"), name="logout"),
+    path("account/", include("account.urls")),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path(
+        "rest-auth/login/",
+        rest_auth.LoginView.as_view(),
+        name="rest_login",
+    ),
+    path("rest-auth/", include("rest_auth.urls")),
+    # Override default password change view
+    path(
+        "password/change/",
+        rest_auth.PasswordChangeView.as_view(),
+        name="rest_password_change",
+    ),
     path(
         "users/",
         include(

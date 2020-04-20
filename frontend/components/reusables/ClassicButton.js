@@ -20,10 +20,18 @@ export default class ClassicButton extends Component {
     this.props.navigation.navigate(txt);
   }
 
+  handlePress() {
+    if (this.props.onPress) {
+      this.props.onPress();
+    } else {
+      this.navigate(this.props.page);
+    }
+  }
+
   render() {
     return (
       <View style={styles.buttonView}>
-        <TouchableOpacity onPress={() => this.navigate(this.props.page)}>
+        <TouchableOpacity onPress={() => this.handlePress()}>
           <LinearGradient
             style={styles.button}
             colors={[this.props.lightEndColor, this.props.darkEndColor]}

@@ -88,43 +88,71 @@ The mobile app is written in React Native to facilitate cross-platform distribut
 
 ### Nix machines
 **(1)**.	Install Homebrew for software management: https://brew.sh
+
 **(2)**.	Install React Native development tools:
+
 (a).	Node: `$ brew install node` 
+
 (b).	Watchman: `$ brew install watchman` 
-(c).	Expo Cli: `$ npm install -g expo-cli`
+
 
 Project dependencies
-The app relies on a series of packages which need to be installed and maintained. Once in the root directory, run the command:
+
+The app relies on a series of packages which need to be installed and maintained. Once in the root directory, to install these dependencies. run the command:
+
 ```
 $ npm install
 ```
-To install these dependencies.
 
 
 iOS specifics
+
 Install XCode, run it and accept the terms and conditions
 
 On iOS we use Cocoapods to manage dependencies. Cocoapods relies on ruby, and we use ruby version 2.4.
+
 You can install the correct version of ruby with rvm. Follow the installation instructions on the website then:
+
 ```
 $ rvm install "ruby-2.4.9"  # installs ruby 2.4
 $ rvm use 2.4
 $ sudo gem install cocoapods
 ```
 
+
 Cocoapods is now installed, so we can ask Cocoapods to get the dependencies for our iOS project like this...
+
 ```
 $ cd ios
 $ pod install
 ```
+
 If `glog` fails to install, make sure you run ` sudo xcode-select --switch /Applications/Xcode.app`
 
-To run the app:
+
+
+Android Specifics
+
+Follow the instructions [here](https://reactnative.dev/docs/environment-setup).
+
+Make sure you install and run Android Studio and that the SDK Command line (also known as sdkmanager) is installed and the terms and conditions have been accepted. Moreover, make sure the JAVA_HOME is correctly exported in your shell.
+
+
+**To run the app:**
+
 ```
 $ npx react-native start
 ```
+
 On iOS: 
+
 ```
-$ npx react-native run-ios 
+$ npm run ios 
 ````
 
+On Android:
+
+
+```
+$ npm run android 
+````

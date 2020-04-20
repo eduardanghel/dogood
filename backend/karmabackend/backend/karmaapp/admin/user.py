@@ -4,10 +4,16 @@ from karmaapp.models import UserProfile, User
 
 
 class UserProfileAdmin(admin.ModelAdmin):
+    class Meta:
+        model = UserProfile
+
     pass
 
 
 class UserAdmin(admin.ModelAdmin):
+    class Meta:
+        model = User
+
     pass
 
 

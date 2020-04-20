@@ -13,6 +13,14 @@ from karmaapp.models.cause import Cause
 
 class User(AbstractUser):
     is_charity = models.BooleanField(default=False, blank=True, null=True)
+    terms_consent = models.BooleanField(default=False, null=True, blank=True)
+    terms_consent_datetime = models.DateTimeField(null=True, default=None, blank=True)
+    token = models.CharField(max_length=200, blank=True, default="", null=True)
+    is_activated = models.BooleanField(default=True, null=True, blank=True)
+    activation_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    activation_token_valid_until = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
+    password_reset_token_valid_until = models.DateField(default=timezone.now, null=True, blank=True)
 
 
 class CharityProfile(models.Model):
@@ -33,14 +41,7 @@ class CharityProfile(models.Model):
     exemption = models.CharField(max_length=1, choices=CHARITY_TYPE, null=True, blank=True)
     logo = models.URLField(null=True, blank=True)
     causes = models.ManyToManyField(Cause)
-    terms_consent = models.BooleanField(default=False, null=True, blank=True)
-    terms_consent_datetime = models.DateTimeField(null=True, default=None, blank=True)
-    token = models.CharField(max_length=200, blank=True, default="", null=True)
-    is_activated = models.BooleanField(default=True, null=True, blank=True)
-    activation_token = models.CharField(max_length=100, blank=True, default="", null=True)
-    activation_token_valid_until = models.DateTimeField(default=timezone.now, null=True, blank=True)
-    password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
-    password_reset_token_valid_until = models.DateField(default=timezone.now, null=True, blank=True)
+
 
     def get_access_token(self):
         access_token = AccessToken.objects.create(
@@ -66,6 +67,9 @@ class CharityProfile(models.Model):
             revoked=timezone.now() + timedelta(minutes=15),
         )
         return refresh_token
+
+    class Meta:
+        verbose_name = "Karma: Charities"
 
 
 class UserProfile(models.Model):
@@ -83,14 +87,7 @@ class UserProfile(models.Model):
     postcode = models.CharField(max_length=8, blank=True, null=True)
     telephone = models.CharField(max_length=12, blank=True, null=True)
     causes = models.ManyToManyField(Cause)
-    terms_consent = models.BooleanField(default=False, blank=True, null=True)
-    terms_consent_datetime = models.DateTimeField(null=True, default=None, blank=True)
-    token = models.CharField(max_length=200, blank=True, default="", null=True)
-    is_activated = models.BooleanField(default=True, blank=True, null=True)
-    activation_token = models.CharField(max_length=100, blank=True, default="", null=True)
-    activation_token_valid_until = models.DateTimeField(default=timezone.now, blank=True, null=True)
-    password_reset_token = models.CharField(max_length=100, blank=True, default="", null=True)
-    password_reset_token_valid_until = models.DateField(default=timezone.now, blank=True, null=True)
+
 
     def get_access_token(self):
         access_token = AccessToken.objects.create(
@@ -116,6 +113,9 @@ class UserProfile(models.Model):
             revoked=timezone.now() + timedelta(minutes=15),
         )
         return refresh_token
+
+    class Meta:
+        verbose_name = "Karma: User Profiles"
 
 
 @receiver(post_save, sender=User)

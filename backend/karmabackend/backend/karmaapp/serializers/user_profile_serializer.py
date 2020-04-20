@@ -9,9 +9,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ('dob', 'gender', 'address', 'city', 'postcode', 'telephone')
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    profile = UserProfileSerializer(required=True)
-
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('url', 'email', 'first_name', 'last_name', 'password', 'profile')
