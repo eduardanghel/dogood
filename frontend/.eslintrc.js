@@ -17,6 +17,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
     'comma-dangle': 'off',
+    'import/prefer-default-export': 'off',
   },
   globals: {
     fetch: false,
