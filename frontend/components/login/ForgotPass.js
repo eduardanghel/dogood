@@ -4,9 +4,15 @@ import { StatusBar, StyleSheet, Text, TextInput, View } from 'react-native';
 import COLORS from '../reusables/Colors';
 import Button from '../reusables/ClassicButton';
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 export default class ForgotPass extends React.Component {
   componentDidMount() {
     StatusBar.setHidden(true);
+  }
+
+  saveEmail(email) {
+    AsyncStorage.setItem('email', email);
   }
 
   render() {
@@ -38,7 +44,7 @@ export default class ForgotPass extends React.Component {
               borderColor: 'grey',
               paddingBottom: 7,
             }}
-            onChangeText={(Email) => this.setState({ Email })}
+            onChangeText={(Email) => this.saveEmail(Email)}
             keyboardType="email-address"
             value={null}
             placeholder="Email address"
