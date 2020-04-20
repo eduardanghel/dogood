@@ -24,7 +24,6 @@ export default class ClassicButton extends Component {
     if (this.props.onPress) {
       this.props.onPress();
     } else {
-      console.log('here!');
       this.navigate(this.props.page);
     }
   }

@@ -3,12 +3,9 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 import VolunteerCard from '../reusables/VolunteerCard';
 import COLORS from '../reusables/Colors';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
 
 export default class BeAVolunteer extends Component {
   render() {
-    // const { navigate } = this.props.navigation;
     return (
       <SafeAreaView style={styles.safeStyle}>
         <View style={styles.container}>

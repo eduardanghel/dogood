@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  AsyncStorage,
   StyleSheet,
   Text,
   TextInput,
@@ -13,19 +12,17 @@ import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 import axios from 'axios';
 
-export default class Contact extends React.Component {
-  _retrieveData = async () => {
-    try {
-      return await AsyncStorage.getItem('accessToken');
-    } catch (error) {}
-  };
+import AsyncStorage from '@react-native-community/async-storage';
+import { URLS } from '../constants';
 
+export default class Contact extends React.Component {
   state = {
     line1: '',
     line2: '',
     county: '',
     postcode1: '',
     postcode2: '',
+    accessToken: AsyncStorage.getItem('accessToken'),
   };
 
   onLine1Change(text) {
@@ -49,29 +46,23 @@ export default class Contact extends React.Component {
   }
 
   handleRequest() {
-    const userProfileUrl = 'http://karma-zomp.co.uk/users/user_profile/';
+    const baseUrl = URLS.userProfile;
 
-    const updateUserProfileData = new FormData();
-    updateUserProfileData.append(
-      'address',
-      this.state.line1 + ' ' + this.state.line2
-    );
-    updateUserProfileData.append('county', this.state.county);
-    updateUserProfileData.append(
-      'postcode',
-      this.state.postcode1 + ' ' + this.state.postcode2
-    );
+    const body = new FormData();
+    body.append('address', this.state.line1 + ' ' + this.state.line2);
+    body.append('county', this.state.county);
+    body.append('postcode', this.state.postcode1 + ' ' + this.state.postcode2);
 
     let config = {
       headers: {
-        Authorization: 'Bearer ${this._retrieveData()}',
+        Authorization: 'Bearer ' + this.state.accessToken,
       },
     };
 
     axios
-      .post(userProfileUrl, updateUserProfileData, config)
+      .post(baseUrl, body, config)
       .then((response) => ({ response }))
-      .catch((error) => console.log(error));
+      .catch((error) => Alert.alert(error.message));
   }
 
   render() {

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AsyncStorage,
   Image,
   Picker,
   ScrollView,
@@ -18,32 +17,28 @@ import * as Permissions from 'expo-permissions';
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 
+import { URLS } from '../constants';
+import AsyncStorage from '@react-native-community/async-storage';
+
 export default class About extends React.Component {
-  _retrieveData = async () => {
-    try {
-      const accessToken = await AsyncStorage.getItem('accessToken');
-      return accessToken;
-    } catch (error) {}
-  };
-
   handleRequest() {
-    const userProfileUrl = 'http://karma-zomp.co.uk/users/user_profile/';
+    const baseUrl = URLS.userProfile;
 
-    const updateUserProfileData = new FormData();
-    updateUserProfileData.append(
+    const body = new FormData();
+    body.append(
       'dob',
       this.state.year + '-' + this.state.month + '-' + this.state.day
     );
-    updateUserProfileData.append('gender', this.state.genderID);
+    body.append('gender', this.state.genderID);
 
     let config = {
       headers: {
-        Authorization: 'Bearer ${this._retrieveData()}',
+        Authorization: 'Bearer ' + this.state.accessToken,
       },
     };
 
     axios
-      .post(userProfileUrl, updateUserProfileData, config)
+      .post(baseUrl, body, config)
       .then((response) => ({ response }))
       .catch((error) => console.log(error));
   }
@@ -65,6 +60,7 @@ export default class About extends React.Component {
       radioBtnsData: ['Male', 'Female', 'Non-Binary'],
       genderID: 0,
       image: null,
+      accessToken: AsyncStorage.getItem('accessToken'),
     };
   }
 

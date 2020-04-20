@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.9.0",
     "@react-native-community/cli-platform-ios": "^4.7.0",
     "@react-native-community/datetimepicker": "^2.3.2",
     "@react-native-community/masked-view": "^0.1.9",
@@ -35,7 +36,9 @@
     "expo-linear-gradient": "^8.1.0",
     "hashmap": "^2.4.0",
     "node-pre-gyp": "^0.14.0",
+    "qs": "^6.9.3",
     "react": "16.9.0",
+    "react-devtools": "^3.6.3",
     "react-dom": "~16.9.0",
     "react-native": "0.61.4",
     "react-native-btr": "^1.1.5",
