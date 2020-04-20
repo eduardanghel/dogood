@@ -78,6 +78,8 @@ export default class Login extends Component {
           {}
           <Text style={styles.text}>Welcome back!</Text>
           <TextInput
+            autoCorrect={false}
+            autoCapitalize="none"
             style={styles.input}
             placeholder="Email address"
             placeholderTextColor="grey"
@@ -85,6 +87,9 @@ export default class Login extends Component {
             value={this.state.text}
           />
           <TextInput
+            autoCorrect={false}
+            autoCapitalize="none"
+            secureTextEntry
             style={styles.input}
             placeholder="Password"
             placeholderTextColor="grey"
