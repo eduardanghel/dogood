@@ -290,6 +290,7 @@ export default class About extends React.Component {
               darkEndColor={COLORS.darkGreen}
               page="Feed"
               navigation={this.props.navigation}
+              onPress={() => this.handleRequest()}
             />
           </View>
         </View>
