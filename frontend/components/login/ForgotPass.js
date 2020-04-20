@@ -56,6 +56,7 @@ export default class ForgotPass extends React.Component {
           lightEndColor={COLORS.lightGreen}
           darkEndColor={COLORS.darkGreen}
           navigation={this.props.navigation}
+          onPress={AsyncStorage.removeItem('email')}
           page="OpenEmail"
         />
       </View>

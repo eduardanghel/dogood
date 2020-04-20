@@ -11,59 +11,65 @@ import {
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 import axios from 'axios';
+import { URLS } from '../constants';
 
 export default class Login extends Component {
+  storeRefreshToken(string) {
+    AsyncStorage.setItem('refreshToken', string);
+    console.log(AsyncStorage.getItem('refreshToken'));
+  }
+
+  storeAccessToken(string) {
+    AsyncStorage.setItem('accessToken', string);
+    console.log(AsyncStorage.getItem('accessToken'));
+  }
+
+  storeTokenTimeout(value) {
+    AsyncStorage.setItem('expiresIn', value);
+    console.log(AsyncStorage.getItem('expiresIn'));
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
-      accessToken: '',
-      refreshToken: '',
+      accessTok: '',
+      refreshTok: '',
+      expiry: '',
     };
   }
 
-  _storeRefreshToken = async () => {
-    try {
-      await AsyncStorage.setItem('refreshToken', this.state.refreshToken);
-    } catch (error) {}
-  };
+  logIn = async () => {
+    const baseUrl = URLS.logIn;
+    console.log(baseUrl);
 
-  _storeAccessToken = async () => {
-    try {
-      await AsyncStorage.setItem('accessToken', this.state.accessToken);
-    } catch (error) {}
-  };
-
-  onAccessTokenChange(text) {
-    this.setState({
-      accessToken: text,
-    });
-    this._storeAccessToken();
-  }
-
-  onRefreshTokenChange(text) {
-    this.setState({
-      refreshToken: text,
-    });
-    this._storeRefreshToken();
-  }
-
-  handleRequest() {
-    const login_url = 'http://karma-zomp.co.uk/o/token/';
-
-    const loginBodyForm = new FormData();
-    loginBodyForm.append('username', this.state.username);
-    loginBodyForm.append('username', this.state.password);
+    const data = {
+      grant_type: 'password',
+      client_id: 'karma',
+      username: this.state.email,
+      password: this.state.password,
+    };
 
     axios
-      .post(login_url, loginBodyForm)
-      .then((login_response) => {
-        this._storeAccessToken().bind(login_response.data['access_token']);
-        this._storeRefreshToken.bind(login_response.data['refresh_token']);
+      .post(baseUrl, qs.stringify(data))
+      .then((response) => {
+        this.setState({ accessTok: response.data['access_token'] });
+        this.setState({ refreshTok: response.data['refresh_token'] });
+        this.setState({ expiry: response.data['expires_in'] });
       })
-      .catch((error) => console.log(error));
-  }
+      .catch((error) => Alert.alert(error.message));
+  };
+
+  handleRequest = async () => {
+    await this.signUp();
+
+    await this.logIn();
+
+    this.storeAccessToken(this.state.accessTok);
+    this.storeRefreshToken(this.state.refreshTok);
+    this.storeTokenTimeout(this.state.expiry);
+  };
 
   render() {
     const { navigate } = this.props.navigation;
