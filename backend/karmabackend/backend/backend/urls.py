@@ -14,6 +14,8 @@ from karmaapp.views.rest.login_user import LoginUserAPI
 from karmaapp.views.rest.user_profile import UserProfileAPI
 from karmaapp.views.rest.charity_profile import CharityProfileAPI
 from karmaapp.views.rest.cause import CausesAPI
+from karmaapp.views.rest.activity import ActivityAPI
+
 
 router = routers.DefaultRouter()
 router.register(r"charity-user", CharityUserViewSet)
@@ -61,7 +63,21 @@ urlpatterns = [
                 ),
             ]
         ),
-    ),    path('', include('karmaapp.urls')),
+    ),
+    path(
+        "activity/",
+        include(
+            [
+                path("", ActivityAPI.as_view(), name="activity"),
+                path(
+                    "<int:activity_id>/",
+                    ActivityAPI.as_view(),
+                    name="activity",
+                ),
+            ]
+        ),
+    ),
+    path('', include('karmaapp.urls')),
     path('', include('account.urls')),
     path('admin/', admin.site.urls),
     path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),

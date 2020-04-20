@@ -6,7 +6,7 @@ class UserSerializer(serializers.Serializer):
     last_name = serializers.CharField(required=True)
     email = serializers.EmailField(required=True)
     password = serializers.CharField(required=False)
-    terms_consent = serializers.BooleanField(required=True)
+    terms_consent = serializers.BooleanField(required=False)
 
 
 class UserLoginSerializer(serializers.Serializer):

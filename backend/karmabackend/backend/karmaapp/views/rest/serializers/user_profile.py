@@ -103,10 +103,6 @@ class UserProfileWriteSerializer(UserProfileSerializer):
                 "telephone", ""
             )
 
-        if validated_data.get("postcode", "") != "":
-            userprofile.postcode = validated_data.get(
-                "postcode", ""
-            )
 
         userprofile.user.save()
 

@@ -29,11 +29,7 @@ class CharityProfileAPI(APIView):
         """
         Create a Charity profile for the current user.
         """
-        # If they haven't ticked the terms, we aren't letting them them through
-        if not request.data.get("terms_consent"):
-            return Response(
-                data="Terms must be accepted!", status=HTTPStatus.BAD_REQUEST
-            )
+
 
         serializer = CharityProfileWriteSerializer(
             data=request.data, partial=False, context={"user": request.user}
