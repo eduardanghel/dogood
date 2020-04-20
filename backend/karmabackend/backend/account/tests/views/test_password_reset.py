@@ -6,10 +6,11 @@ from django.urls import reverse
 
 
 class PasswordResetTests(TestCase):
+
     def setUp(self):
         super().setUp()
-        User.objects.create_user(
-            username="username", password="password123", email="email@example.com"
+        testUser = User.objects.create_user(
+            username="testUserName", password="password123", email="test@karma-zomp.co.uk"
         )
 
     def test_reset_password_email_dosent_send_if_user_doesnt_exist(self):
@@ -18,7 +19,7 @@ class PasswordResetTests(TestCase):
         user doesn't exist.
         """
         response = self.client.post(
-            reverse("password_reset"), {"email": "not.an.email@email.com"}
+            reverse("password_reset"), {"email": "not.an.email@karma-zomp.co.uk"}
         )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(len(mail.outbox), 0)

@@ -6,7 +6,7 @@ from karmaapp.models.user import CharityProfile
 
 class Activity(models.Model):
     name = models.TextField(blank=True, null=True)
-    charity = models.ManyToManyField(CharityProfile)
+    charity = models.ManyToManyField(CharityProfile, null=True)
     causes_type = models.ManyToManyField(Cause)
     date = models.DateField(blank=True, null=True)
     time = models.TimeField(blank=True, null=True)

@@ -124,6 +124,7 @@ export default class Contact extends React.Component {
           lightEndColor={COLORS.lightGreen}
           darkEndColor={COLORS.darkGreen}
           navigation={this.props.navigation}
+          onPress={() => this.handleRequest()}
           page="UserCauses"
         />
       </View>
