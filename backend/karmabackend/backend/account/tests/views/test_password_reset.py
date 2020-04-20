@@ -1,4 +1,5 @@
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
+from karmaapp.models.user import User
 from django.core import mail
 from django.test import TestCase
 from django.urls import reverse

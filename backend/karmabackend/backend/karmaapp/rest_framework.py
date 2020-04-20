@@ -3,7 +3,7 @@ import logging
 from rest_framework.exceptions import ParseError
 from rest_framework.views import APIView, exception_handler as base_exception_handler
 
-from dc.utils.passwordremover import password_remover
+from karmaapp.utils.passwordremover import password_remover
 
 logger = logging.getLogger(__name__)
 

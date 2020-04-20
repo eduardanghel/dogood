@@ -21,7 +21,7 @@ oauthlib==3.1.0           # via django-oauth-toolkit
 pip-tools==4.5.1          # via -r requirements.in
 psycopg2==2.8.4           # via -r requirements.in
 pyjwt==1.7.1              # via djangorestframework-jwt
-pytz==2019.3              # via django
+pytz==2019.3              # via -r requirements.in, django
 requests==2.23.0          # via django-oauth-toolkit
 six==1.14.0               # via django-rest-auth, pip-tools
 sqlparse==0.3.1           # via django

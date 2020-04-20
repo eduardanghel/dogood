@@ -2,7 +2,7 @@ from datetime import timedelta
 from http import HTTPStatus
 
 import oauthlib.common
-from django.contrib.auth.models import User
+from karmaapp.models.user import User
 from django.core.management import call_command
 from django.utils import timezone
 from oauth2_provider.models import AccessToken, Application

@@ -10,7 +10,7 @@ class CharityProfileSerializer(serializers.ModelSerializer):
         fields = ('date_of_registration', 'type', 'charity_number', 'exemption', 'logo',)
 
 
-class CharityUserSerializer(serializers.HyperlinkedModelSerializer):
+class CharityUserSerializer(serializers.ModelSerializer):
     profile = CharityProfileSerializer(required=True)
 
     class Meta:

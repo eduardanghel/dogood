@@ -8,8 +8,8 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from dc.rest_framework import APILogView
-from utils import authentication
+from karmaapp.rest_framework import APILogView
+from karmaapp.utils import authentication
 
 logger = logging.getLogger(__name__)
 

@@ -85,10 +85,10 @@ export default class UserRegistration extends React.Component {
     signUpBodyFormData.append('terms_consent', this.state.termsChecked);
     signUpBodyFormData.append('password', this.state.password1);
 
-    return axios
+    axios
       .post(baseUrl, signUpBodyFormData)
-      .then((signUpResponse) => {
-        return this.logIn();
+      .then((result) => {
+        return result;
       })
       .catch((error) => Alert.alert(error.message));
   };
@@ -103,21 +103,29 @@ export default class UserRegistration extends React.Component {
       password: this.state.password1,
     };
 
-    return axios
+    axios
       .post(baseUrl, qs.stringify(data))
       .then((logInResponse) => {
-        return logInResponse.data;
+        return logInResponse;
       })
       .catch((error) => Alert.alert(error.message));
   };
 
   handleRequest = async () => {
-    if (this.state.password1 == this.state.password2) {
-      const signupdata = await this.signUp();
+    if (this.state.password1 === this.state.password2) {
+      const signUpResponse = await this.signUp().data;
+      if (signUpResponse === undefined) {
+        console.log('Sign Up Response undefined');
+        return;
+      }
+      const loginResponse = await this.logIn();
+      if (loginResponse === undefined) {
+        return;
+      }
 
-      this.storeAccessToken(signupdata['access_token']);
-      this.storeRefreshToken(signupdata['refresh_token']);
-      this.storeTokenTimeout(signupdata['expires_in']);
+      this.storeAccessToken(loginResponse.data['access_token']);
+      this.storeRefreshToken(loginResponse.data['refresh_token']);
+      this.storeTokenTimeout(loginResponse.data['expires_in']);
     } else {
       Alert.alert("The passwords don't match.");
       this.state.password1 = '';
