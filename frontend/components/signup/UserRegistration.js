@@ -41,6 +41,9 @@ export default class UserRegistration extends React.Component {
     firstName: '',
     lastName: '',
     termsChecked: true,
+    accessTok: '',
+    refreshTok: '',
+    expiry: '',
   };
 
   onUsernameChange(text) {
@@ -76,7 +79,7 @@ export default class UserRegistration extends React.Component {
 
   signUp = async () => {
     const baseUrl = URLS.signUp;
-
+    console.log(baseUrl);
     const signUpBodyFormData = new FormData();
     signUpBodyFormData.append('username', this.state.username);
     signUpBodyFormData.append('email', this.state.email);
@@ -87,14 +90,16 @@ export default class UserRegistration extends React.Component {
 
     axios
       .post(baseUrl, signUpBodyFormData)
-      .then((result) => {
-        return result;
+      .then((response) => {
+        console.log(response);
       })
       .catch((error) => Alert.alert(error.message));
+    setTimeout(function () {}, 500);
   };
 
   logIn = async () => {
-    const baseUrl = URLS.login;
+    const baseUrl = URLS.logIn;
+    console.log(baseUrl);
 
     const data = {
       grant_type: 'password',
@@ -105,27 +110,23 @@ export default class UserRegistration extends React.Component {
 
     axios
       .post(baseUrl, qs.stringify(data))
-      .then((logInResponse) => {
-        return logInResponse;
+      .then((response) => {
+        this.setState({ accessTok: response.data['access_token'] });
+        this.setState({ refreshTok: response.data['refresh_token'] });
+        this.setState({ expiry: response.data['expires_in'] });
       })
       .catch((error) => Alert.alert(error.message));
   };
 
   handleRequest = async () => {
     if (this.state.password1 === this.state.password2) {
-      const signUpResponse = await this.signUp().data;
-      if (signUpResponse === undefined) {
-        console.log('Sign Up Response undefined');
-        return;
-      }
-      const loginResponse = await this.logIn();
-      if (loginResponse === undefined) {
-        return;
-      }
+      await this.signUp();
 
-      this.storeAccessToken(loginResponse.data['access_token']);
-      this.storeRefreshToken(loginResponse.data['refresh_token']);
-      this.storeTokenTimeout(loginResponse.data['expires_in']);
+      await this.logIn();
+
+      this.storeAccessToken(this.state.accessTok);
+      this.storeRefreshToken(this.state.refreshTok);
+      this.storeTokenTimeout(this.state.expiry);
     } else {
       Alert.alert("The passwords don't match.");
       this.state.password1 = '';
