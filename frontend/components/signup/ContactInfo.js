@@ -13,57 +13,6 @@ import { URLS } from '../constants';
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 
-export default class Contact extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-                <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity><Icons name={'arrow-back'} size={25} color={COLORS.classicGreen}
-                        style={{ marginLeft: '20%', marginTop: '25%' }} /></TouchableOpacity>
-                    <Text style={styles.text}>Contact Info</Text>
-                </View>
-                <Text style={styles.te}>
-                    Where are you located?
-                </Text>
-                <Text style={styles.de}>
-                    Charities need to know this info, and it lets us show your local events
-                </Text>
-                <Text style={styles.padding}>
-                    Address Line 1
-                </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-                <Text style={styles.padding}>
-                    Address Line 2
-                </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-                <Text style={styles.padding}>
-                    County / State
-                </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-                <Text style={styles.padding}>
-                    County / State Postcode
-                </Text>
-                <View style={styles.row}>
-                    <TextInput style={styles.textinput2} placeholder="                       " />
-                    <TextInput style={styles.textinput2} placeholder="                           " />
-                </View>
-                <Text style={styles.padding}>
-                    Phone Number
-                </Text>
-                <TextInput style={styles.textinput} placeholder="" />
-
-                <View style={{alignItems: 'center', marginLeft: 30, marginRight: 30,}}>
-                    <ClassicButton
-                        textOnButton="Next"
-                        lightEndColor={COLORS.lightGreen} darkEndColor={COLORS.darkGreen}
-                        navigation={this.props.navigation}
-                        page="UserCauses"
-                    ></ClassicButton>
-                </View>
-
-            </View>
-        );
-    }}
 
 
 
