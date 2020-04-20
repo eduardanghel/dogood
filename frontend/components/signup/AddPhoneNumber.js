@@ -72,6 +72,7 @@ export default class AddPhoneNumber extends React.Component {
             darkEndColor={COLORS.darkGreen}
             page="VerifyPhoneNumber"
             navigation={this.props.navigation}
+            onPress={() => this.handleRequest()}
           />
         </View>
       </KeyboardAvoidingView>

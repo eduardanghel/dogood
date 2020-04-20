@@ -12,6 +12,7 @@ import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 import axios from 'axios';
 import { URLS } from '../constants';
+import qs from 'qs';
 
 export default class Login extends Component {
   storeRefreshToken(string) {
@@ -62,8 +63,6 @@ export default class Login extends Component {
   };
 
   handleRequest = async () => {
-    await this.signUp();
-
     await this.logIn();
 
     this.storeAccessToken(this.state.accessTok);
@@ -80,9 +79,9 @@ export default class Login extends Component {
           <Text style={styles.text}>Welcome back!</Text>
           <TextInput
             style={styles.input}
-            placeholder="User name"
+            placeholder="Email address"
             placeholderTextColor="grey"
-            onChangeText={(username) => this.setState({ username })}
+            onChangeText={(email) => this.setState({ email })}
             value={this.state.text}
           />
           <TextInput
@@ -116,6 +115,7 @@ export default class Login extends Component {
             darkEndColor={COLORS.darkGreen}
             page="Feed"
             navigation={this.props.navigation}
+            onPress={() => this.handleRequest()}
           />
         </View>
       </View>
