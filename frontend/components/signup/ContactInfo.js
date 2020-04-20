@@ -8,7 +8,8 @@ import {
   View,
 } from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
-
+import AsyncStorage from '@react-native-community/async-storage';
+import { URLS } from '../constants';
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 
@@ -62,10 +63,9 @@ export default class Contact extends React.Component {
 
             </View>
         );
-    }
+    }}
 
-import AsyncStorage from '@react-native-community/async-storage';
-import { URLS } from '../constants';
+
 
 export default class Contact extends React.Component {
   state = {
