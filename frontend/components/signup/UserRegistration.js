@@ -91,7 +91,7 @@ export default class UserRegistration extends React.Component {
     axios
       .post(baseUrl, signUpBodyFormData)
       .then((response) => {
-        console.log(response);
+        this.logIn();
       })
       .catch((error) => Alert.alert(error.message));
     setTimeout(function () {}, 500);
@@ -111,22 +111,18 @@ export default class UserRegistration extends React.Component {
     axios
       .post(baseUrl, qs.stringify(data))
       .then((response) => {
-        this.setState({ accessTok: response.data['access_token'] });
-        this.setState({ refreshTok: response.data['refresh_token'] });
-        this.setState({ expiry: response.data['expires_in'] });
+        this.storeAccessToken(response.data['access_token']);
+        this.storeRefreshToken(response.data['refresh_token']);
+        this.storeTokenTimeout('' + response.data['expires_in']);
+        console.log('access token is stored');
+        this.props.navigation.navigate('IDValidation');
       })
       .catch((error) => Alert.alert(error.message));
   };
 
-  handleRequest = async () => {
+  handleRequest = async (navigation) => {
     if (this.state.password1 === this.state.password2) {
-      await this.signUp();
-
-      await this.logIn();
-
-      this.storeAccessToken(this.state.accessTok);
-      this.storeRefreshToken(this.state.refreshTok);
-      this.storeTokenTimeout(this.state.expiry);
+      this.signUp();
     } else {
       Alert.alert("The passwords don't match.");
       this.state.password1 = '';
@@ -193,8 +189,6 @@ export default class UserRegistration extends React.Component {
           textOnButton="Next"
           lightEndColor={COLORS.lightGreen}
           darkEndColor={COLORS.darkGreen}
-          page="IDValidation"
-          navigation={this.props.navigation}
           onPress={() => this.handleRequest()}
         />
       </KeyboardAvoidingView>

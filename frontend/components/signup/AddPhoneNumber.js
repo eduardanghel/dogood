@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AsyncStorage,
   StyleSheet,
   Text,
   TextInput,
@@ -10,6 +9,9 @@ import {
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
 import { URLS } from '../constants';
+import axios from 'axios';
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class AddPhoneNumber extends React.Component {
   _retrieveData = async () => {
@@ -27,15 +29,16 @@ export default class AddPhoneNumber extends React.Component {
     this.setState({ phoneNumber: text });
   }
 
-  handleRequest() {
+  handleRequest = async () => {
     const baseUrl = URLS.userProfile;
+    const token = await this._retrieveData();
 
     const body = new FormData();
     body.append('telephone', this.state.phoneNumber);
 
     let config = {
       headers: {
-        Authorization: 'Bearer ${this._retrieveData()}',
+        Authorization: 'Bearer ' + token,
       },
     };
 
@@ -43,7 +46,7 @@ export default class AddPhoneNumber extends React.Component {
       .post(baseUrl, body, config)
       .then((response) => ({ response }))
       .catch((error) => console.log(error));
-  }
+  };
 
   render() {
     return (

@@ -13,9 +13,6 @@ import { URLS } from '../constants';
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 
-
-
-
 export default class Contact extends React.Component {
   state = {
     line1: '',
@@ -132,55 +129,54 @@ export default class Contact extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-
-    text: {
-        fontSize: 22,
-        color: 'black',
-        marginLeft: -40,
-        marginTop: 25
-    },
-    te: {
-        margin: 25,
-        fontSize: 22,
-        fontWeight: '500',
-        textAlign: 'left',
-        color: COLORS.classicGreen,
-    },
-    de: {
-        fontSize: 14,
-        margin: 25,
-        marginTop: 1,
-        color: 'grey',
-    },
-    textinput: {
-        fontSize: 15,
-        color: 'grey',
-        paddingTop: 15,
-        paddingBottom: 8,
-        marginBottom: 10,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 1,
-        marginLeft: 25,
-        marginRight: 25
-    },
-    textinput2: {
-        fontSize: 15,
-        color: 'grey',
-        paddingTop: 15,
-        paddingBottom: 8,
-        marginBottom: 10,
-        marginTop: 1,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 1,
-        marginLeft: 25,
-        marginRight: 63,
-    },
-    padding: {
-        fontSize: 14,
-        color: 'grey',
-        marginLeft: 25,
-    },
-    row: {
-        flexDirection: "row"
-    },
+  text: {
+    fontSize: 22,
+    color: 'black',
+    marginLeft: -40,
+    marginTop: 25,
+  },
+  te: {
+    margin: 25,
+    fontSize: 22,
+    fontWeight: '500',
+    textAlign: 'left',
+    color: COLORS.classicGreen,
+  },
+  de: {
+    fontSize: 14,
+    margin: 25,
+    marginTop: 1,
+    color: 'grey',
+  },
+  textinput: {
+    fontSize: 15,
+    color: 'grey',
+    paddingTop: 15,
+    paddingBottom: 8,
+    marginBottom: 10,
+    borderBottomColor: 'grey',
+    borderBottomWidth: 1,
+    marginLeft: 25,
+    marginRight: 25,
+  },
+  textinput2: {
+    fontSize: 15,
+    color: 'grey',
+    paddingTop: 15,
+    paddingBottom: 8,
+    marginBottom: 10,
+    marginTop: 1,
+    borderBottomColor: 'grey',
+    borderBottomWidth: 1,
+    marginLeft: 25,
+    marginRight: 63,
+  },
+  padding: {
+    fontSize: 14,
+    color: 'grey',
+    marginLeft: 25,
+  },
+  row: {
+    flexDirection: 'row',
+  },
 });
