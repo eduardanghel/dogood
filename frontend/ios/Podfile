@@ -43,6 +43,9 @@ target 'KarmaApp' do
   
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  # firebase support
+  pod 'Firebase'
+
   target 'KarmaAppTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   Alert,
-  AsyncStorage,
-  Button,
   StyleSheet,
   Text,
   TextInput,
@@ -11,21 +9,29 @@ import {
 } from 'react-native';
 
 import axios from 'axios';
+import qs from 'qs';
 import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 
-export default class UserRegistration extends React.Component {
-  _storeRefreshToken = async () => {
-    try {
-      await AsyncStorage.setItem('refreshToken', this.state.refreshToken);
-    } catch (error) {}
-  };
+import { URLS } from '../constants';
 
-  _storeAccessToken = async () => {
-    try {
-      await AsyncStorage.setItem('accessToken', this.state.accessToken);
-    } catch (error) {}
-  };
+import AsyncStorage from '@react-native-community/async-storage';
+
+export default class UserRegistration extends React.Component {
+  storeRefreshToken(string) {
+    AsyncStorage.setItem('refreshToken', string);
+    console.log(AsyncStorage.getItem('refreshToken'));
+  }
+
+  storeAccessToken(string) {
+    AsyncStorage.setItem('accessToken', string);
+    console.log(AsyncStorage.getItem('accessToken'));
+  }
+
+  storeTokenTimeout(value) {
+    AsyncStorage.setItem('expiresIn', value);
+    console.log(AsyncStorage.getItem('expiresIn'));
+  }
 
   state = {
     username: '',
@@ -35,23 +41,7 @@ export default class UserRegistration extends React.Component {
     firstName: '',
     lastName: '',
     termsChecked: true,
-    accessToken: '',
-    refreshToken: '',
   };
-
-  onAccessTokenChange(text) {
-    this.setState({
-      accessToken: text,
-    });
-    this._storeAccessToken();
-  }
-
-  onRefreshTokenChange(text) {
-    this.setState({
-      refreshToken: text,
-    });
-    this._storeRefreshToken();
-  }
 
   onUsernameChange(text) {
     this.setState({
@@ -84,9 +74,8 @@ export default class UserRegistration extends React.Component {
     this.setState({ termsChecked: true });
   }
 
-  handleRequest() {
-    const sign_up_url = 'http://karma-zomp.co.uk/users/';
-    const login_url = 'http://karma-zomp.co.uk/o/token/';
+  signUp = async () => {
+    const baseUrl = URLS.signUp;
 
     const signUpBodyFormData = new FormData();
     signUpBodyFormData.append('username', this.state.username);
@@ -94,31 +83,55 @@ export default class UserRegistration extends React.Component {
     signUpBodyFormData.append('first_name', this.state.firstName);
     signUpBodyFormData.append('last_name', this.state.lastName);
     signUpBodyFormData.append('terms_consent', this.state.termsChecked);
+    signUpBodyFormData.append('password', this.state.password1);
 
-    if (this.state.password1 == this.state.password2) {
-      signUpBodyFormData.append('password', this.state.password1);
+    axios
+      .post(baseUrl, signUpBodyFormData)
+      .then((result) => {
+        return result;
+      })
+      .catch((error) => Alert.alert(error.message));
+  };
+
+  logIn = async () => {
+    const baseUrl = URLS.login;
+
+    const data = {
+      grant_type: 'password',
+      client_id: 'karma',
+      username: this.state.email,
+      password: this.state.password1,
+    };
+
+    axios
+      .post(baseUrl, qs.stringify(data))
+      .then((logInResponse) => {
+        return logInResponse;
+      })
+      .catch((error) => Alert.alert(error.message));
+  };
+
+  handleRequest = async () => {
+    if (this.state.password1 === this.state.password2) {
+      const signUpResponse = await this.signUp().data;
+      if (signUpResponse === undefined) {
+        console.log('Sign Up Response undefined');
+        return;
+      }
+      const loginResponse = await this.logIn();
+      if (loginResponse === undefined) {
+        return;
+      }
+
+      this.storeAccessToken(loginResponse.data['access_token']);
+      this.storeRefreshToken(loginResponse.data['refresh_token']);
+      this.storeTokenTimeout(loginResponse.data['expires_in']);
     } else {
       Alert.alert("The passwords don't match.");
       this.state.password1 = '';
       this.state.password2 = '';
     }
-    axios
-      .post(sign_up_url, signUpBodyFormData)
-      .then((sign_up_response) => {
-        const logInBodyFormData = new FormData();
-        logInBodyFormData.append('username', this.state.username);
-        logInBodyFormData.append('password', this.state.password1);
-
-        axios
-          .post(login_url, logInBodyFormData)
-          .then((login_response) => {
-            this._storeAccessToken().bind(login_response.data['access_token']);
-            this._storeRefreshToken.bind(login_response.data['refresh_token']);
-          })
-          .catch((error) => console.log(error));
-      })
-      .catch((error) => console.log(error));
-  }
+  };
 
   render() {
     const { navigate } = this.props.navigation;
@@ -175,20 +188,13 @@ export default class UserRegistration extends React.Component {
             onChangeText={this.onPassword2Change.bind(this)}
           />
         </View>
-        <Button
-          style={{ fontSize: 20, color: 'green' }}
-          styleDisabled={{ color: 'red' }}
-          onPress={() => this.handleRequest()}
-          title="Press Me">
-          Press Me
-        </Button>
-
         <ClassicButton
-          text="Next"
+          textOnButton="Next"
           lightEndColor={COLORS.lightGreen}
           darkEndColor={COLORS.darkGreen}
           page="IDValidation"
           navigation={this.props.navigation}
+          onPress={() => this.handleRequest()}
         />
       </KeyboardAvoidingView>
     );

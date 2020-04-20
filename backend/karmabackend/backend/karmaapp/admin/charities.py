@@ -4,6 +4,9 @@ from karmaapp.models import CharityProfile
 
 
 class CharityAdmin(admin.ModelAdmin):
+    class Meta:
+        model = CharityProfile
+
     pass
 
 

@@ -1,13 +1,68 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  AsyncStorage,
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
+import axios from 'axios';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: '' };
-    this.state = { password: '' };
+    this.state = {
+      username: '',
+      password: '',
+      accessToken: '',
+      refreshToken: '',
+    };
+  }
+
+  _storeRefreshToken = async () => {
+    try {
+      await AsyncStorage.setItem('refreshToken', this.state.refreshToken);
+    } catch (error) {}
+  };
+
+  _storeAccessToken = async () => {
+    try {
+      await AsyncStorage.setItem('accessToken', this.state.accessToken);
+    } catch (error) {}
+  };
+
+  onAccessTokenChange(text) {
+    this.setState({
+      accessToken: text,
+    });
+    this._storeAccessToken();
+  }
+
+  onRefreshTokenChange(text) {
+    this.setState({
+      refreshToken: text,
+    });
+    this._storeRefreshToken();
+  }
+
+  handleRequest() {
+    const login_url = 'http://karma-zomp.co.uk/o/token/';
+
+    const loginBodyForm = new FormData();
+    loginBodyForm.append('username', this.state.username);
+    loginBodyForm.append('username', this.state.password);
+
+    axios
+      .post(login_url, loginBodyForm)
+      .then((login_response) => {
+        this._storeAccessToken().bind(login_response.data['access_token']);
+        this._storeRefreshToken.bind(login_response.data['refresh_token']);
+      })
+      .catch((error) => console.log(error));
   }
 
   render() {
@@ -15,16 +70,13 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View>
-          {/* <Text style={styles.paragraph}>
-            Login
-            </Text>
-    */}
+          {}
           <Text style={styles.text}>Welcome back!</Text>
           <TextInput
             style={styles.input}
-            placeholder="Email Address"
+            placeholder="User name"
             placeholderTextColor="grey"
-            onChangeText={(text) => this.setState({ text })}
+            onChangeText={(username) => this.setState({ username })}
             value={this.state.text}
           />
           <TextInput

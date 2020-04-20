@@ -76,7 +76,7 @@ class CausesAPI(APIView):
             )
             cause_list = [
                 CauseSerializer(causes).data
-                for causes in cause_values
+                for cause in cause_values
             ]
 
         return Response(cause_list)

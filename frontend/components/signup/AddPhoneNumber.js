@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import COLORS from '../reusables/Colors';
 import ClassicButton from '../reusables/ClassicButton';
+import { URLS } from '../constants';
 
 export default class AddPhoneNumber extends React.Component {
   _retrieveData = async () => {
@@ -27,10 +28,10 @@ export default class AddPhoneNumber extends React.Component {
   }
 
   handleRequest() {
-    const userProfileUrl = 'http://karma-zomp.co.uk/users/user_profile/';
+    const baseUrl = URLS.userProfile;
 
-    const updateUserProfileData = new FormData();
-    updateUserProfileData.append('telephone', this.state.phoneNumber);
+    const body = new FormData();
+    body.append('telephone', this.state.phoneNumber);
 
     let config = {
       headers: {
@@ -39,7 +40,7 @@ export default class AddPhoneNumber extends React.Component {
     };
 
     axios
-      .post(userProfileUrl, updateUserProfileData, config)
+      .post(baseUrl, body, config)
       .then((response) => ({ response }))
       .catch((error) => console.log(error));
   }

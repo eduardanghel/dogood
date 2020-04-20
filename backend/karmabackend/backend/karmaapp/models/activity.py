@@ -21,3 +21,6 @@ class Activity(models.Model):
     photo_check = models.BooleanField(default=False, blank=True, null=True)
     physical_activity_check = models.BooleanField(default=False, blank=True, null=True)
     additional_info_check = models.BooleanField(default=False, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Karma: Activities"
