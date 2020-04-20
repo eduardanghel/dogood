@@ -58,6 +58,7 @@ export default class Login extends Component {
         this.setState({ accessTok: response.data['access_token'] });
         this.setState({ refreshTok: response.data['refresh_token'] });
         this.setState({ expiry: response.data['expires_in'] });
+        this.props.navigation.navigate('Feed');
       })
       .catch((error) => Alert.alert(error.message));
   };
@@ -118,8 +119,6 @@ export default class Login extends Component {
             textOnButton="Login"
             lightEndColor={COLORS.lightGreen}
             darkEndColor={COLORS.darkGreen}
-            page="Feed"
-            navigation={this.props.navigation}
             onPress={() => this.handleRequest()}
           />
         </View>

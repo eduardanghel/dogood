@@ -21,9 +21,16 @@ import { URLS } from '../constants';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class About extends React.Component {
-  handleRequest() {
-    const baseUrl = URLS.userProfile;
+  _retrieveData = async () => {
+    try {
+      const accessToken = await AsyncStorage.getItem('accessToken');
+      return accessToken;
+    } catch (error) {}
+  };
 
+  handleRequest = async () => {
+    const baseUrl = URLS.userProfile;
+    const token = await this._retrieveData();
     const body = new FormData();
     body.append(
       'dob',
@@ -33,15 +40,17 @@ export default class About extends React.Component {
 
     let config = {
       headers: {
-        Authorization: 'Bearer ' + this.state.accessToken,
+        Authorization: 'Bearer ' + token,
       },
     };
 
     axios
       .post(baseUrl, body, config)
-      .then((response) => ({ response }))
+      .then((response) => {
+        this.props.navigation.navigate('Feed');
+      })
       .catch((error) => console.log(error));
-  }
+  };
 
   static defaultProps = {
     selectedYear: new Date().getFullYear() - 18,
@@ -288,8 +297,6 @@ export default class About extends React.Component {
               textOnButton="Next"
               lightEndColor={COLORS.lightGreen}
               darkEndColor={COLORS.darkGreen}
-              page="Feed"
-              navigation={this.props.navigation}
               onPress={() => this.handleRequest()}
             />
           </View>

@@ -14,6 +14,13 @@ import ClassicButton from '../reusables/ClassicButton';
 import COLORS from '../reusables/Colors';
 
 export default class Contact extends React.Component {
+  _retrieveData = async () => {
+    try {
+      const accessToken = await AsyncStorage.getItem('accessToken');
+      return accessToken;
+    } catch (error) {}
+  };
+
   state = {
     line1: '',
     line2: '',
@@ -43,8 +50,9 @@ export default class Contact extends React.Component {
     this.setState({ postcode2: text });
   }
 
-  handleRequest() {
+  handleRequest = async () => {
     const baseUrl = URLS.userProfile;
+    const token = await this._retrieveData();
 
     const body = new FormData();
     body.append('address', this.state.line1 + ' ' + this.state.line2);
@@ -53,7 +61,7 @@ export default class Contact extends React.Component {
 
     let config = {
       headers: {
-        Authorization: 'Bearer ' + this.state.accessToken,
+        Authorization: 'Bearer ' + token,
       },
     };
 
@@ -61,7 +69,7 @@ export default class Contact extends React.Component {
       .post(baseUrl, body, config)
       .then((response) => ({ response }))
       .catch((error) => Alert.alert(error.message));
-  }
+  };
 
   render() {
     return (
@@ -121,7 +129,6 @@ export default class Contact extends React.Component {
           lightEndColor={COLORS.lightGreen}
           darkEndColor={COLORS.darkGreen}
           navigation={this.props.navigation}
-          onPress={() => this.handleRequest()}
           page="UserCauses"
         />
       </View>

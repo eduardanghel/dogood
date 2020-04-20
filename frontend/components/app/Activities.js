@@ -6,20 +6,9 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import AllActivities from './activities/AllActivities';
 import ActivitiesGoing from './activities/ActivitiesGoing';
 import Causes from './activities/Causes';
+import Favorites from './activities/Favourites';
 
 import COLORS from '../reusables/Colors';
-
-// The following are temporary functions as the screens they should represent aren't done yet
-
-function ActivitiesFavorites() {
-  return (
-    <View style={styles.container}>
-      <Text>Activities Favorites!</Text>
-    </View>
-  );
-}
-
-// End of temporary functions
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -47,7 +36,7 @@ class Activities extends Component {
         <Tab.Screen name="All" component={AllActivities} />
         <Tab.Screen name="Causes" component={Causes} />
         <Tab.Screen name="Going" component={ActivitiesGoing} />
-        <Tab.Screen name="Favorites" component={ActivitiesFavorites} />
+        <Tab.Screen name="Favorites" component={Favorites} />
       </Tab.Navigator>
     );
   }

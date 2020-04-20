@@ -44,7 +44,9 @@ export default class AddPhoneNumber extends React.Component {
 
     axios
       .post(baseUrl, body, config)
-      .then((response) => ({ response }))
+      .then((response) => {
+        this.props.navigation.navigate('VerifyPhoneNumber');
+      })
       .catch((error) => console.log(error));
   };
 
@@ -73,8 +75,6 @@ export default class AddPhoneNumber extends React.Component {
             textOnButton="Next"
             lightEndColor={COLORS.lightGreen}
             darkEndColor={COLORS.darkGreen}
-            page="VerifyPhoneNumber"
-            navigation={this.props.navigation}
             onPress={() => this.handleRequest()}
           />
         </View>

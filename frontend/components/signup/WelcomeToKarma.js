@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import Constants from 'expo-constants';
-
-import COLORS from '../reusables/Colors.js';
-import IMAGE from '../../assets/AllImages';
-import Card from '../reusables/Card';
-import WhiteButton from '../reusables/WhiteButton';
-
 {
   /**
  WelcomeToKarma is where the person signing up in the app chooses if he/she signs up as regular user (who will attend events)
  Or as an organization (which will host events)
  */
 }
+
+import React, { Component } from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Constants from 'expo-constants';
+
+import COLORS from '../reusables/Colors';
+import IMAGE from '../../assets/AllImages';
+import Card from '../reusables/Card';
+import WhiteButton from '../reusables/WhiteButton';
 
 export default class WelcomeToKarma extends Component {
   render() {
@@ -27,7 +27,7 @@ export default class WelcomeToKarma extends Component {
         </View>
         <ScrollView
           scrollEventThrottle={16}
-          horizontal
+          horizontal={true}
           alwaysBounceVertical={false}
           showsHorizontalScrollIndicator={false}
           style={styles.scrollViewView}>
@@ -39,11 +39,11 @@ export default class WelcomeToKarma extends Component {
             page="UserRegistration"
           />
           <Card
-            imageUri={IMAGE.earth}
+            imageUri={IMAGE.peopleGlobe}
             question="Are you an organization?"
             text="Lorem ipsum dolor sit amet, consectetur adip isicing elit,sed do eiusm ut labore et dolore magna aliqua"
             navigation={this.props.navigation}
-            page=""
+            page="OrgSignUp"
           />
         </ScrollView>
         <View style={styles.bottomView}>
