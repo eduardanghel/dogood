@@ -33,9 +33,50 @@ export default class UpdateOrg extends React.Component {
     };
   }
 
-  componentDidMount() {
-    StatusBar.setHidden(true);
-  }
+  async componentDidMount() {
+   
+        this.getPermissionAsync();
+        StatusBar.setHidden(true);
+        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+        this.setState({ hasCameraPermission: status === 'granted' });
+    }
+    getPermissionAsync = async () => {
+        if (Constants.platform.ios) {
+          const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+          if (status !== 'granted') {
+            alert('Sorry, we need camera roll permissions to make this work!');
+          }
+        }
+      }
+    
+      _pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1
+        });
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          this.setState({ image: result.uri });
+        }
+      };
+      _openImage = async () => {
+        let result = await ImagePicker.launchCameraAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: false,
+          aspect: [4, 3],
+          quality: 1
+        });
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          this.setState({ image: result.uri });
+        }
+      };
 
   showDatePicker() {
     this.setState({ isDatePickerVisible: true });
@@ -131,14 +172,14 @@ export default class UpdateOrg extends React.Component {
                 </TouchableOpacity>
               </View>
               <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.button1}>
+                <TouchableOpacity style={styles.button1}onPress={this._pickImage}>
                   <Text style={styles.buttonText}>
                     Choose From Photo Library
                   </Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.button2}>
+                <TouchableOpacity style={styles.button2}onPress={this._openImage}>
                   <Text style={styles.buttonText}>Take a Photo</Text>
                 </TouchableOpacity>
               </View>

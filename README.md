@@ -107,7 +107,7 @@ Install XCode, run it and accept the terms and conditions
 On iOS we use Cocoapods to manage dependencies. Cocoapods relies on ruby, and we use ruby version 2.4.
 You can install the correct version of ruby with rvm. Follow the installation instructions on the website then:
 ```
-$ rvm install 2.4  # installs ruby 2.4
+$ rvm install "ruby-2.4.9"  # installs ruby 2.4
 $ rvm use 2.4
 $ sudo gem install cocoapods
 ```
