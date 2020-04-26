@@ -1,5 +1,7 @@
 # dogood
 SEG Major Group Project - DoGood App
+King's College London 2019/2020
+5CCS2SEG project
 
 To do any work on this repo - clone it and use the appropriate directory (backend/frontend)
 
