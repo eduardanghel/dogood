@@ -12,7 +12,7 @@ coverage==5.0.3           # via -r requirements.in
 django-oauth-toolkit==1.2.0  # via -r requirements.in
 django-post-office==3.3.1  # via -r requirements.in
 django-rest-auth==0.9.5   # via -r requirements.in
-django==3.0.3             # via -r requirements.in, django-oauth-toolkit, django-post-office, django-rest-auth, djangorestframework, jsonfield
+django==3.0.7             # via -r requirements.in, django-oauth-toolkit, django-post-office, django-rest-auth, djangorestframework, jsonfield
 djangorestframework-jwt==1.11.0  # via -r requirements.in
 djangorestframework==3.11.0  # via -r requirements.in, django-rest-auth
 idna==2.9                 # via requests
