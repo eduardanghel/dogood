@@ -40,7 +40,7 @@
     "react": "16.9.0",
     "react-devtools": "^3.6.3",
     "react-dom": "~16.9.0",
-    "react-native": "0.61.4",
+    "react-native": "0.62.3",
     "react-native-btr": "^1.1.5",
     "react-native-datepicker": "latest",
     "react-native-elements": "^1.2.7",
